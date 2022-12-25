@@ -6,17 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5">
-    
-    <FrameLayout
-        android:minWidth="25px"
-        android:minHeight="25px"
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@id/frmLogin"
-        android:layout_marginLeft="50px"
-        android:layout_marginRight="50px"
-        android:layout_marginTop="100px"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="50dip"
+        android:layout_marginBottom="200dip"
         android:background="@drawable/login_frame_layout">
+
         <TextView
             android:text="Log In"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -25,19 +26,73 @@
             android:minWidth="25px"
             android:minHeight="25px"
             android:textAlignment="center"
-            android:id="@id/txtTitle"/>
+            android:id="@+id/txtTitle"/>
 
         <EditText
-        android:inputType="textEmailAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtEmail"
-        android:layout_marginTop="50dip"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/txtEmail"
+            android:layout_marginTop="25dip"
+            android:layout_marginBottom="5dip"
+            android:hint = "Email"
+            android:background="@drawable/editTextBackground"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"/>
+
+        <EditText
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/txtPassowrd"
+            android:layout_marginTop="15dip"
+            android:layout_marginBottom="10dip"
+            android:hint = "Password"
+            android:background="@drawable/editTextBackground"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"/>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="41.5dp"
+            android:layout_marginTop="0.0dp"
+            android:layout_marginLeft="5dip"
+            android:id="@+id/linearLayout1">
+
+            <CheckBox
+                android:text="Remember Me"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/cbRemember"
+                android:textSize="35px"
+                android:textColor="#AAAAAA"/>
+            <TextView
+                android:text="Forgot Password?"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/txtForgotPassword"
+                android:textColor="#C21807"
+                android:layout_marginTop="8dip" 
+                android:layout_marginLeft="35dip"/>
+        </LinearLayout>
+        <Button
+            android:text="Log In"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnLogin"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:backgroundTint="#C21807 "
+            android:textColor="#FFFFFF"
+            android:textSize="35px"
+            android:textStyle="bold" />
+    </LinearLayout>
         
-        
-        />
-       
-    </FrameLayout>
     
 
 </LinearLayout>
