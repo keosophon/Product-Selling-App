@@ -84,7 +84,8 @@
                 android:id="@+id/txtForgotPassword"
                 android:textColor="#C21807"
                 android:layout_marginTop="8dip"
-                android:layout_marginLeft="35dip"/>
+                android:layout_marginLeft="35dip"
+                android:cursorVisible="True" />
         </LinearLayout>
         <Button
             android:text="Log In"
