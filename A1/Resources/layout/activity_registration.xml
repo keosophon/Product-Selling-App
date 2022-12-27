@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgLogoReg"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="40dip"
+        android:contentDescription="@string/logo" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="20dip"
+        android:background="@drawable/frame_layout"
+        android:id="@+id/linearLayout1">
+
+        <TextView
+            android:text="@string/registration"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:textAlignment="center"
+            android:id="@+id/txtTitleReg"/>
+
+        <EditText
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/txtFirstNameReg"
+            android:layout_marginTop="25dip"
+            android:layout_marginBottom="5dip"
+            android:hint = "@string/firstName"
+            android:background="@drawable/editTextBackground"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"/>
+
+        <EditText
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/txtLastNameReg"
+            android:layout_marginTop="15dip"
+            android:layout_marginBottom="10dip"
+            android:hint = "@string/lastName"
+            android:background="@drawable/editTextBackground"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"/>
+
+        <Button
+            android:text="@string/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnLogin"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:backgroundTint="@color/colorClickAble"
+            android:textColor="@color/colorWhite"
+            android:textSize="35px"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
