@@ -13,4 +13,7 @@
 	<string name="firstName">First Name</string>
 	<string name="lastName">Last Name</string>
 	<string name="signUp">Sign Up</string>
+	<string name="address">Address</string>
+	<string name="DoB">Date of Birth</string>
+	<string name="phoneNumber">Phone Number</string>
 </resources>

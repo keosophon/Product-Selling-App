@@ -38,8 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:id="@+id/txtFirstNameReg"
-            android:layout_marginTop="25dip"
-            android:layout_marginBottom="5dip"
+            android:layout_marginTop="15dip"
             android:hint = "@string/firstName"
             android:background="@drawable/editTextBackground"
             android:layout_marginLeft="10dip"
@@ -50,13 +49,85 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:id="@+id/txtLastNameReg"
-            android:layout_marginTop="15dip"
-            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"           
             android:hint = "@string/lastName"
             android:background="@drawable/editTextBackground"
             android:layout_marginLeft="10dip"
             android:layout_marginRight="10dip"/>
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout2">
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/DoB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:id="@+id/txtDoB"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="15dip"
+            />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spDay"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="10dip"
+            />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spMonth"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="10dip"
+            />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spYear"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="10dip"
+            />
+        </LinearLayout>
+        <EditText
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            
+            android:id="@+id/txtPhoneNumber"
+            android:hint="@string/phoneNumber"
+            android:background="@drawable/edittextbackground"
+            android:layout_marginTop="15dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_height="40dp"
+        />
+        <EditText
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/txtEmailReg"
+            
+            android:layout_marginBottom="5dip"
+            android:hint = "@string/email"
+            android:background="@drawable/editTextBackground"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+        />
+        <EditText
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:id="@+id/txtAddress"
+            android:hint="@string/address"
+            android:background="@drawable/edittextbackground"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_height="40dp"
+        />
         <Button
             android:text="@string/signUp"
             android:layout_width="match_parent"

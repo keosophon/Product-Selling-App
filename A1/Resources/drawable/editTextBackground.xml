@@ -8,7 +8,9 @@
 			<stroke android:width="2dp" android:color="#C21807" />
 			<corners android:bottomLeftRadius="3dp" android:bottomRightRadius="3dp" android:topLeftRadius="3dp" android:topRightRadius="3dp" />
 			<padding android:left="20px" android:right="20px" />
+			
 		</shape>
+		
 	</item>
 	<item android:state_enabled="true">
 		<shape android:padding="10dp"
