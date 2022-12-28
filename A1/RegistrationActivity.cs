@@ -8,11 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AndroidX.AppCompat.App;
 
 namespace A1
 {
-    [Activity(Label = "Activity1")]
-    public class RegistrationActivity : Activity
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
+    public class RegistrationActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -20,6 +21,7 @@ namespace A1
 
             // Create your application here
             SetContentView(Resource.Layout.activity_registration);
+            //this.SetTitle(Resource.String.app_name);
         }
     }
 }
