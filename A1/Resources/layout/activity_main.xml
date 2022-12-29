@@ -13,52 +13,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imgLogoLogIn"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip" 
-        android:layout_marginTop="40dip"/>
+        android:layout_marginTop="@dimen/margin_extra_large"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="20dip"
-        android:layout_marginRight="20dip"
-        android:layout_marginTop="20dip"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
         android:background="@drawable/frame_layout">
-
         <TextView
             android:text="@string/login"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minWidth="25px"
-            android:minHeight="25px"
+            android:minWidth="@dimen/min_width"
+            android:minHeight="@dimen/min_height"
             android:textAlignment="center"
-            android:id="@+id/txtTitleLogIn"/>
-
+            android:id="@+id/txtTitleLogIn"
+            android:textSize="@dimen/text_sz_title"/>
         <EditText
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/txtEmail"
-            android:layout_marginTop="10dip"
-            android:layout_marginBottom="5dip"
+            android:layout_height="@dimen/height_large"
+            android:id="@+id/txtEmailLog"
+            android:layout_marginTop="@dimen/margin_medium"            
             android:hint = "@string/email"
             android:background="@drawable/editTextBackground"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
             />
 
         <EditText
             android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/txtPassowrd"
-            android:layout_marginTop="10dip"
-            android:layout_marginBottom="10dip"
+            android:layout_height="@dimen/height_large"
+            android:id="@+id/txtPassowrdLog"
+            android:layout_marginTop="@dimen/margin_medium"
             android:hint = "@string/password"
             android:background="@drawable/editTextBackground"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
             />
         <LinearLayout
             android:orientation="horizontal"

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<resources>
+    <size name="margin_small">4dp</size>
+    <size name="margin_medium">8dp</size>
+	<size name="margin_large">12dp</size>
+	<size name="text_size_small">12sp</size>
+	<size name="text_size_medium">14sp</size>
+	<size name="text_size_large">18sp</size>
+	<size name="text_size_extra_large">22sp</size>
+</resources>
