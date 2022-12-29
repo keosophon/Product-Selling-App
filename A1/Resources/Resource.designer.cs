@@ -4143,7 +4143,7 @@ namespace A1
 			public const int txtDoB = 2131230955;
 			
 			// aapt resource value: 0x7F0800EC
-			public const int txtEmail = 2131230956;
+			public const int txtEmailLog = 2131230956;
 			
 			// aapt resource value: 0x7F0800ED
 			public const int txtEmailReg = 2131230957;
@@ -4161,7 +4161,7 @@ namespace A1
 			public const int txtNoAccount = 2131230961;
 			
 			// aapt resource value: 0x7F0800F2
-			public const int txtPassowrd = 2131230962;
+			public const int txtPassowrdLog = 2131230962;
 			
 			// aapt resource value: 0x7F0800F3
 			public const int txtPhoneNumber = 2131230963;
