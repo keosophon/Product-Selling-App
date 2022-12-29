@@ -11,6 +11,7 @@ namespace A1
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        private EditText email;
         private TextView forgotPasswordTextView;
         private TextView registerTextView;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -21,8 +22,12 @@ namespace A1
             SetContentView(Resource.Layout.activity_main);
 
             //bind variables to UI elements
+            email = FindViewById<EditText>(Resource.Id.txtEmailLog);
             forgotPasswordTextView = FindViewById<TextView>(Resource.Id.txtForgotPassword);
             registerTextView = FindViewById<TextView>(Resource.Id.txtRegisterNow);
+
+
+            email.RequestFocus();
 
             forgotPasswordTextView.Click += delegate
             {
