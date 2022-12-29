@@ -8,114 +8,111 @@
         android:src="@drawable/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imgLogoReg"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
-        android:layout_marginTop="40dip"
+        android:id="@+id/imgLogoReg"        
+        android:layout_marginTop="@dimen/margin_extra_large"
         android:contentDescription="@string/logo" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="20dip"
-        android:layout_marginRight="20dip"
-        android:layout_marginTop="20dip"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
         android:background="@drawable/frame_layout"
         android:id="@+id/linearLayout1">
-
         <TextView
             android:text="@string/registration"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minWidth="25px"
-            android:minHeight="25px"
+             android:minWidth="@dimen/min_width"
+            android:minHeight="@dimen/min_height"
             android:textAlignment="center"
-            android:id="@+id/txtTitleReg"/>
+            android:id="@+id/txtTitleReg"
+            android:textSize="@dimen/text_sz_title"/>
 
         <EditText
             android:inputType="text"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/layout_height"            
             android:id="@+id/txtFirstNameReg"
-            android:layout_marginTop="15dip"
+            android:layout_marginTop="@dimen/margin_large"
             android:hint = "@string/firstName"
             android:background="@drawable/editTextBackground"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"/>
-
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:textSize="@dimen/text_sz_large"/>
         <EditText
             android:inputType="text"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/layout_height"
             android:id="@+id/txtLastNameReg"
-            android:layout_marginTop="10dip"           
+            android:layout_marginTop="@dimen/margin_large"           
             android:hint = "@string/lastName"
             android:background="@drawable/editTextBackground"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"/>
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:textSize="@dimen/text_sz_large"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/linearLayout2">
             <TextView
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/DoB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="25px"
-                android:minHeight="25px"
+                android:minWidth="@dimen/min_height"
+                android:minHeight="@dimen/min_width"
                 android:id="@+id/txtDoB"
-                android:layout_marginLeft="20px"
-                android:layout_marginTop="15dip"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_large"
             />
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/spDay"
-                android:layout_marginLeft="10dip"
-                android:layout_marginTop="10dip"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
             />
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/spMonth"
-                android:layout_marginLeft="10dip"
-                android:layout_marginTop="10dip"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
             />
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/spYear"
-                android:layout_marginLeft="10dip"
-                android:layout_marginTop="10dip"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
             />
         </LinearLayout>
         <EditText
             android:inputType="phone"
-            android:layout_width="match_parent"
-            
+            android:layout_width="match_parent"            
             android:id="@+id/txtPhoneNumber"
             android:hint="@string/phoneNumber"
             android:background="@drawable/edittextbackground"
-            android:layout_marginTop="15dip"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
-            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_height="@dimen/layout_height"
         />
         <EditText
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/txtEmailReg"
-            
+            android:layout_height="@dimen/layout_height"
+            android:id="@+id/txtEmailReg"            
             android:layout_marginBottom="5dip"
             android:hint = "@string/email"
             android:background="@drawable/editTextBackground"
-            android:layout_marginTop="10dip"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
         />
         <EditText
             android:inputType="text"
@@ -123,22 +120,22 @@
             android:id="@+id/txtAddress"
             android:hint="@string/address"
             android:background="@drawable/edittextbackground"
-            android:layout_marginTop="10dip"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
-            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_height="@dimen/layout_height"
         />
         <Button
             android:text="@string/signUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnLogin"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
-            android:layout_marginTop="10dip"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
             android:backgroundTint="@color/colorClickAble"
             android:textColor="@color/colorWhite"
-            android:textSize="35px"
+            android:textSize="@dimen/text_sz_large"
             android:textStyle="bold" />
     </LinearLayout>
 
