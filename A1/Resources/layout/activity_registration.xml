@@ -60,6 +60,18 @@
             android:id="@+id/linearLayout2">
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/selectDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/min_height"
+                android:minHeight="@dimen/min_width"
+                android:id="@+id/txtSelectDate"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_large"
+                android:textColor="@color/colorClickAble"
+            />
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/DoB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,27 +81,7 @@
                 android:layout_marginLeft="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_large"
             />
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spDay"
-                android:layout_marginLeft="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
-            />
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spMonth"
-                android:layout_marginLeft="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
-            />
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spYear"
-                android:layout_marginLeft="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
-            />
+
         </LinearLayout>
         <EditText
             android:inputType="phone"
@@ -106,8 +98,7 @@
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
-            android:id="@+id/txtEmailReg"            
-            android:layout_marginBottom="5dip"
+            android:id="@+id/txtEmailReg"       
             android:hint = "@string/email"
             android:background="@drawable/editTextBackground"
             android:layout_marginTop="@dimen/margin_large"

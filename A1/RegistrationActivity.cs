@@ -13,9 +13,13 @@ using AndroidX.AppCompat.App;
 namespace A1
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
-    public class RegistrationActivity : AppCompatActivity
+    public class RegistrationActivity : AppCompatActivity, DatePickerDialog.IOnDateSetListener
     {
-        private Spinner month;
+
+        private TextView txtSelectDoB;
+        private TextView txtDoB;
+
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -24,16 +28,29 @@ namespace A1
             SetContentView(Resource.Layout.activity_registration);
 
             //bind variables to UI elements
-            month = FindViewById<Spinner>(Resource.Id.spMonth);
+            txtSelectDoB = FindViewById<TextView>(Resource.Id.txtSelectDate);
+            txtDoB = FindViewById<TextView>(Resource.Id.txtDoB);
 
-            //adapter is the bridge between spinner and data.
-            //adapter needs both data and its data drop down layout
-            ArrayAdapter adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.month, Android.Resource.Layout.SimpleSpinnerItem);
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            month.Adapter = adapter;
+            //link event to event handler
+            txtSelectDoB.Click += TxtSelectDoB_Click;
 
-
-
+            
         }
+        
+        private void TxtSelectDoB_Click(object sender, EventArgs e)
+        {
+
+            DateTime today = DateTime.Today;
+            DatePickerDialog dateDialog = new DatePickerDialog(this, this, today.Year, today.Month - 1, today.Day);
+            dateDialog.Show();
+        }
+
+        public void OnDateSet(DatePicker view, int year, int month, int dayOfMonth)
+        {
+            DateTime selectedDate = new DateTime(year, month + 1, dayOfMonth);
+            txtDoB.Text = selectedDate.ToShortDateString();
+        }
+
+
     }
 }
