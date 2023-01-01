@@ -33,7 +33,7 @@ namespace A1
 
             //link event to event handler
             txtSelectDoB.Click += TxtSelectDoB_Click;
-
+            txtSelectDoB.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
             
         }
         
@@ -50,7 +50,6 @@ namespace A1
             DateTime selectedDate = new DateTime(year, month + 1, dayOfMonth);
             txtDoB.Text = selectedDate.ToShortDateString();
         }
-
 
     }
 }

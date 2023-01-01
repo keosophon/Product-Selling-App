@@ -72,14 +72,14 @@
             />
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/DoB"
+                android:text=""
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="@dimen/min_height"
                 android:minHeight="@dimen/min_width"
                 android:id="@+id/txtDoB"
                 android:layout_marginLeft="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_large"
+				android:layout_marginTop="@dimen/margin_large"
             />
 
         </LinearLayout>

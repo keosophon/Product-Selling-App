@@ -11,9 +11,9 @@ namespace A1
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        private EditText email;
-        private TextView forgotPasswordTextView;
-        private TextView registerTextView;
+        private EditText txtEmailLog;
+        private TextView txtForgotPassword;
+        private TextView txtRegisterNow;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -22,19 +22,15 @@ namespace A1
             SetContentView(Resource.Layout.activity_main);
 
             //bind variables to UI elements
-            email = FindViewById<EditText>(Resource.Id.txtEmailLog);
-            forgotPasswordTextView = FindViewById<TextView>(Resource.Id.txtForgotPassword);
-            registerTextView = FindViewById<TextView>(Resource.Id.txtRegisterNow);
+            txtEmailLog = FindViewById<EditText>(Resource.Id.txtEmailLog);
+            txtForgotPassword = FindViewById<TextView>(Resource.Id.txtForgotPassword);
+            txtRegisterNow = FindViewById<TextView>(Resource.Id.txtRegisterNow);
+            txtRegisterNow.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
+            txtForgotPassword.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
+            txtEmailLog.RequestFocus();
 
 
-            email.RequestFocus();
-
-            forgotPasswordTextView.Click += delegate
-            {
-                StartActivity(typeof(RegistrationActivity));
-            };
-
-            registerTextView.Click += delegate
+            txtRegisterNow.Click += delegate
             {
                 StartActivity(typeof(RegistrationActivity));
             };
