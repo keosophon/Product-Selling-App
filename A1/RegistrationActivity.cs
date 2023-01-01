@@ -18,8 +18,7 @@ namespace A1
 
         private TextView txtSelectDoB;
         private TextView txtDoB;
-
-        
+                
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -33,6 +32,8 @@ namespace A1
 
             //link event to event handler
             txtSelectDoB.Click += TxtSelectDoB_Click;
+
+            //underline text in UI
             txtSelectDoB.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
             
         }
@@ -45,8 +46,17 @@ namespace A1
             dateDialog.Show();
         }
 
+        /// <summary>
+        /// It is called after clicking OK of
+        /// DatePicker Dialog
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="dayOfMonth"></param>
         public void OnDateSet(DatePicker view, int year, int month, int dayOfMonth)
         {
+
             DateTime selectedDate = new DateTime(year, month + 1, dayOfMonth);
             txtDoB.Text = selectedDate.ToShortDateString();
         }

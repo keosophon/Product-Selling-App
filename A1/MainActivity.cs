@@ -25,8 +25,11 @@ namespace A1
             txtEmailLog = FindViewById<EditText>(Resource.Id.txtEmailLog);
             txtForgotPassword = FindViewById<TextView>(Resource.Id.txtForgotPassword);
             txtRegisterNow = FindViewById<TextView>(Resource.Id.txtRegisterNow);
+
+            //underline text in UI
             txtRegisterNow.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
             txtForgotPassword.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
+
             txtEmailLog.RequestFocus();
 
 
@@ -35,7 +38,6 @@ namespace A1
                 StartActivity(typeof(RegistrationActivity));
             };
         }
-        
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
