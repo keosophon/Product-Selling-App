@@ -42,6 +42,11 @@ namespace A1
             
         }
 
+        public override void OnBackPressed()
+        {
+            //disable back button on device
+        }
+
         private void TxtSignIn_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainActivity));
