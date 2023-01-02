@@ -17,4 +17,7 @@
 	<string name="DoB">Date of Birth</string>
 	<string name="phoneNumber">Phone Number</string>
 	<string name="selectDate">Select date of birth:</string>
+	<string name="dashBoard">Dash Board</string>
+	<string name="logOut">Log Out</string>
+	<string name="verticalLine">|</string>
 </resources>

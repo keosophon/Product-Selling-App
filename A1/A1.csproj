@@ -60,6 +60,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DashBoardActivity.cs" />
     <Compile Include="RegistrationActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -119,7 +120,7 @@
     <AndroidResource Include="Resources\values\dimens.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Dashboard.xml">
+    <AndroidResource Include="Resources\layout\activity_dashBoard.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
