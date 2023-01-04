@@ -1,12 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-	android:background="@color/colorBackground">
-	<include 
+    android:background="@color/colorBackground">
+    <include
         layout="@layout/header" />
-    />
     <include
         layout="@layout/header1"/>
+    <include
+        layout="@layout/categorybar"/>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:rowCount="5"
+        android:columnCount="2">
+        <TextView
+            android:id="@+id/txtFullName"
+            android:text="@string/fullName"
+            android:textSize="@dimen/text_sz_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_row="0"
+            android:layout_column="0"/>
+        <TextView
+            android:id="@+id/txtFullNameResult"
+            android:text=""
+            android:textSize="@dimen/text_sz_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            />
+        <TextView
+            android:id="@+id/txtEmailDash"
+            android:text="@string/email"
+            android:textSize="@dimen/text_sz_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_row="1"
+            android:layout_column="0"/>
+        <TextView
+            android:id="@+id/txtEmailResult"
+            android:text=""
+            android:textSize="@dimen/text_sz_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            />
+    </GridLayout>
 </LinearLayout>

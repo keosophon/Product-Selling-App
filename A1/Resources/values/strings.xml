@@ -17,10 +17,16 @@
 	<string name="DoB">Date of Birth</string>
 	<string name="phoneNumber">Phone Number</string>
 	<string name="selectDate">Select date of birth:</string>
-	<string name="dashBoard">Dash Board</string>
+	<string name="dashBoard">Dashboard</string>
 	<string name="logOut">Log Out</string>
 	<string name="verticalLine">|</string>
-	<string name="search">Item to search for...</string>
-	<string name="viewCart"> View Cart (0)</string>
+	<string name="itemSearch">Item to search for...</string>
+	<string name="search">search</string>
+	<string name="viewCart"> View Cart - 0</string>
 	<string name="companyName">Ahera Taera</string>
+	<string name="medicine">Medicines</string>
+	<string name="vitaminSupplement">Supplements</string>
+	<string name="hairCare">Hair Care</string>
+	<string name="babyCare">Baby Care</string>
+	<string name="fullName">Name</string>
 </resources>
