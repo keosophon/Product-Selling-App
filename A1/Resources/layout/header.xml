@@ -32,7 +32,7 @@
 			android:textSize="@dimen/text_sz_medium"
 			android:layout_row="0"
 			android:layout_column="1"
-			android:layout_marginLeft="@dimen/margin_lextra_large"
+			android:layout_marginLeft="@dimen/margin_extra_large"
 			android:layout_marginRight="@dimen/margin_extra_large"
 			android:textColor="@color/colorOrange"
 				/>

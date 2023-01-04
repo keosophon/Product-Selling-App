@@ -35,6 +35,11 @@ namespace A1
             {
                 StartActivity(typeof(MainActivity));
             };
+
+            txtDashBoard.Click += delegate
+            {
+                StartActivity(typeof(DashBoardActivity));
+            };
         }
         public override void OnBackPressed()
         {
