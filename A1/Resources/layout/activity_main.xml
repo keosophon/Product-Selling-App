@@ -45,16 +45,16 @@
             />
 
         <EditText
-            android:inputType="textPassword"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/layout_height"
-            android:id="@+id/txtPassowrdLog"
-            android:layout_marginTop="@dimen/margin_large"
-            android:hint = "@string/password"
-            android:background="@drawable/editTextBackground"
-            android:layout_marginLeft="@dimen/margin_medium"
-            android:layout_marginRight="@dimen/margin_medium"
-            android:textSize="@dimen/text_sz_large"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_height"
+                android:id="@+id/txtPassowrdLog"
+                android:layout_marginTop="@dimen/margin_large"
+                android:hint = "@string/password"
+                android:background="@drawable/editTextBackground"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:textSize="@dimen/text_sz_large"
             />
         <LinearLayout
             android:orientation="horizontal"

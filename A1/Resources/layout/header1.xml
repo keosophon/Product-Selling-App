@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/colorBackground"
+		>
+	<GridLayout
+        android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/gridLayoutHeader1"
+		android:rowCount="1"
+		android:columnCount="3"
+		android:layout_marginTop="@dimen/margin_small"		
+			>
+        <EditText
+            android:id="@+id/txtSearch"
+			android:inputType="text"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/layout_height"            
+            android:hint = "@string/search"
+            android:background="@drawable/editTextBackground"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
+            android:textSize="@dimen/text_sz_medium"
+            android:layout_row="0"
+			android:layout_column="0"
+            />
+        <Button
+            android:text="Search"
+            android:id="@+id/btnSearch" 
+            android:layout_width="wrap_content"            
+            android:backgroundTint="@color/colorClickAble"
+            android:layout_row="0"
+            android:layout_column="1"            
+            />
+
+        <TextView
+            android:text="@string/viewCart"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/min_width"
+            android:minHeight="@dimen/min_height"
+            android:id="@+id/txtViewCart" 
+            android:textColor="@color/colorClickAble"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_marginLeft="@dimen/margin_large"
+        />
+	</GridLayout>
+
+</LinearLayout>

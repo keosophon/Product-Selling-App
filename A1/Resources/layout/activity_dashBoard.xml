@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
 	android:background="@color/colorBackground">
 	<include 
-        layout="@layout/headerlinks" />
+        layout="@layout/header" />
     />
+    <include
+        layout="@layout/header1"/>
 </LinearLayout>

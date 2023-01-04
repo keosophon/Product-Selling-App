@@ -20,4 +20,7 @@
 	<string name="dashBoard">Dash Board</string>
 	<string name="logOut">Log Out</string>
 	<string name="verticalLine">|</string>
+	<string name="search">Item to search ...</string>
+	<string name="viewCart"> View Cart (0)</string>
+	<string name="companyName">Ahera Taera</string>
 </resources>

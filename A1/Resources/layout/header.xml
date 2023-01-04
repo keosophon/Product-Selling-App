@@ -2,18 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_gravity="end"
+		android:layout_gravity="center_horizontal"
 		>
 	<GridLayout
 		android:minWidth="25px"
 		android:minHeight="25px"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/gridLayout1"
+		android:id="@+id/gridLayoutHeader"
 		android:rowCount="1"
-		android:columnCount="3"
+		android:columnCount="5"
 		android:layout_marginTop="@dimen/margin_small"
 			>
+		<TextView
+			android:text="@string/companyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLogoText"
+            android:layout_row="0"
+			android:layout_column="0"
+			android:textSize="@dimen/text_sz_medium"
+			android:layout_marginRight="@dimen/margin_extra_large"
+			
+        />
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text=""
+			android:textSize="@dimen/text_sz_medium"
+			android:layout_row="0"
+			android:layout_column="1"
+			android:layout_marginLeft="@dimen/margin_lextra_large"
+			android:layout_marginRight="@dimen/margin_extra_large"
+			android:textColor="@color/colorOrange"
+				/>
+
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -21,8 +44,8 @@
 			android:textSize="@dimen/text_sz_medium"
 			android:id="@+id/txtDashBoard"
 			android:layout_row="0"
-			android:layout_column="0"
-			android:layout_marginRight="@dimen/margin_medium"
+			android:layout_column="2"
+			android:layout_marginLeft="@dimen/margin_extra_large"
 			android:textColor="@color/colorClickAble"
 			 />
 		<TextView
@@ -31,8 +54,8 @@
 			android:text="@string/verticalLine"
 			android:textSize="@dimen/text_sz_medium"
 			android:layout_row="0"
-			android:layout_column="1"
-			android:layout_marginRight="@dimen/margin_medium"
+			android:layout_column="3"
+			android:layout_marginLeft="@dimen/margin_extra_large"
 			android:textColor="@color/colorOrange"
 				/>
 		<TextView
@@ -42,8 +65,8 @@
 			android:text="@string/logOut"
 			android:textSize="@dimen/text_sz_medium"
 			android:layout_row="0"
-			android:layout_column="2"
-			android:layout_marginRight="@dimen/margin_medium"
+			android:layout_column="4"
+			android:layout_marginLeft="@dimen/margin_extra_large"
 			android:textColor="@color/colorClickAble"
 				/>
 	</GridLayout>
