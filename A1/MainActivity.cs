@@ -54,7 +54,7 @@ namespace A1
 
         private void BtnSingIn_Click(object sender, System.EventArgs e)
         {
-            //just test
+            //for testing
 
             if (txtEmailLog.Text=="1" && txtPassword.Text=="1")
             {

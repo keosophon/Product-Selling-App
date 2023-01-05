@@ -29,4 +29,5 @@
 	<string name="hairCare">Hair Care</string>
 	<string name="babyCare">Baby Care</string>
 	<string name="fullName">Name</string>
+	<string name="change">: Change</string>
 </resources>
