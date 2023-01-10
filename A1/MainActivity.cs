@@ -13,7 +13,7 @@ namespace A1
     {
         private EditText txtEmailLog;
         private EditText txtPassword;
-        private TextView txtForgotPassword;
+        //private TextView txtForgotPassword;
         private TextView txtRegisterNow;
         private TextView btnSingIn;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -26,13 +26,13 @@ namespace A1
             //bind variables to UI elements
             txtEmailLog = FindViewById<EditText>(Resource.Id.txtEmailLog);
             txtPassword = FindViewById<EditText>(Resource.Id.txtPassowrdLog);
-            txtForgotPassword = FindViewById<TextView>(Resource.Id.txtForgotPassword);
+            //txtForgotPassword = FindViewById<TextView>(Resource.Id.txtForgotPassword);
             txtRegisterNow = FindViewById<TextView>(Resource.Id.txtRegisterNow);
             btnSingIn = FindViewById<Button>(Resource.Id.btnLogin);
 
             //underline text in UI
             txtRegisterNow.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
-            txtForgotPassword.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
+            //txtForgotPassword.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
 
             txtEmailLog.RequestFocus();
 

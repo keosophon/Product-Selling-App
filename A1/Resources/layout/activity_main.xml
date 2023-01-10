@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
             android:id="@+id/txtEmailLog"
-            android:layout_marginTop="@dimen/margin_medium"            
+            android:layout_marginTop="@dimen/margin_medium"
             android:hint = "@string/email"
             android:background="@drawable/editTextBackground"
             android:layout_marginLeft="@dimen/margin_medium"
@@ -45,47 +45,17 @@
             />
 
         <EditText
-                android:inputType="textPassword"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/layout_height"
-                android:id="@+id/txtPassowrdLog"
-                android:layout_marginTop="@dimen/margin_large"
-                android:hint = "@string/password"
-                android:background="@drawable/editTextBackground"
-                android:layout_marginLeft="@dimen/margin_medium"
-                android:layout_marginRight="@dimen/margin_medium"
-                android:textSize="@dimen/text_sz_large"
-            />
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="@dimen/min_width"
-            android:minHeight="@dimen/min_height"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/min_height"
-            android:id="@+id/linearLayout1">
-            <CheckBox
-                android:text="@string/rememberMe"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/cbRemember"
-                android:textColor="@color/colorGrey"
-                android:layout_marginLeft="@dimen/margin_small"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:textSize="@dimen/text_sz_medium"
+            android:layout_height="@dimen/layout_height"
+            android:id="@+id/txtPassowrdLog"
+            android:layout_marginTop="@dimen/margin_large"
+            android:hint = "@string/password"
+            android:background="@drawable/editTextBackground"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:textSize="@dimen/text_sz_large"
             />
-            <TextView
-                android:text="@string/forgotPassword"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/txtForgotPassword"
-                android:textColor="@color/colorClickAble"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:layout_marginLeft="@dimen/margin_extra_large"
-                android:cursorVisible="True"
-                android:textSize="@dimen/text_sz_medium"
-                />            
-        </LinearLayout>
         <Button
             android:text="@string/login"
             android:layout_width="match_parent"

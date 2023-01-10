@@ -19,6 +19,7 @@ namespace A1
         private TextView txtSelectDoB;
         private TextView txtDoB;
         private TextView txtSignIn;
+        private Button btnSignUp;
                 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,15 +32,27 @@ namespace A1
             txtSelectDoB = FindViewById<TextView>(Resource.Id.txtSelectDate);
             txtDoB = FindViewById<TextView>(Resource.Id.txtDoB);
             txtSignIn = FindViewById<TextView>(Resource.Id.txtLoginReg);
+            btnSignUp = FindViewById<Button>(Resource.Id.btnSignUp);
 
             //link event to event handler
             txtSelectDoB.Click += TxtSelectDoB_Click;
             txtSignIn.Click += TxtSignIn_Click;
+            btnSignUp.Click += BtnSignUp_Click;
 
             //underline text in UI
             txtSelectDoB.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
             txtSignIn.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
             
+        }
+
+        private void BtnSignUp_Click(object sender, EventArgs e)
+        {
+            using (var db = new A1Context())
+            {
+                var customer = new Customer { FirstName = "Darren", LastName = "Burton", DoB = Convert.ToDateTime("1950-01-29"), Email="Darren@gmail.com", Phone = "0212222999", Address="2 Martin Road Manukau Wellington"};
+                db.Customers.Add(customer);
+                db.SaveChanges();
+            }
         }
 
         public override void OnBackPressed()
