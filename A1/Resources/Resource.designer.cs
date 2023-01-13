@@ -4720,119 +4720,122 @@ namespace A1
 			// aapt resource value: 0x7F0D0027
 			public const int dashBoard = 2131558439;
 			
+			// aapt resource value: 0x7F0D0028
+			public const int dbName = 2131558440;
+			
 			// aapt resource value: 0x7F0D0000
 			public const int DoB = 2131558400;
 			
-			// aapt resource value: 0x7F0D0028
-			public const int email = 2131558440;
-			
 			// aapt resource value: 0x7F0D0029
-			public const int fab_transformation_scrim_behavior = 2131558441;
+			public const int email = 2131558441;
 			
 			// aapt resource value: 0x7F0D002A
-			public const int fab_transformation_sheet_behavior = 2131558442;
+			public const int fab_transformation_scrim_behavior = 2131558442;
 			
 			// aapt resource value: 0x7F0D002B
-			public const int fallback_menu_item_copy_link = 2131558443;
+			public const int fab_transformation_sheet_behavior = 2131558443;
 			
 			// aapt resource value: 0x7F0D002C
-			public const int fallback_menu_item_open_in_browser = 2131558444;
+			public const int fallback_menu_item_copy_link = 2131558444;
 			
 			// aapt resource value: 0x7F0D002D
-			public const int fallback_menu_item_share_link = 2131558445;
+			public const int fallback_menu_item_open_in_browser = 2131558445;
 			
 			// aapt resource value: 0x7F0D002E
-			public const int firstName = 2131558446;
+			public const int fallback_menu_item_share_link = 2131558446;
 			
 			// aapt resource value: 0x7F0D002F
-			public const int forgotPassword = 2131558447;
+			public const int firstName = 2131558447;
 			
 			// aapt resource value: 0x7F0D0030
-			public const int fullName = 2131558448;
+			public const int forgotPassword = 2131558448;
 			
 			// aapt resource value: 0x7F0D0031
-			public const int hairCare = 2131558449;
+			public const int fullName = 2131558449;
 			
 			// aapt resource value: 0x7F0D0032
-			public const int hide_bottom_view_on_scroll_behavior = 2131558450;
+			public const int hairCare = 2131558450;
 			
 			// aapt resource value: 0x7F0D0033
-			public const int itemSearch = 2131558451;
+			public const int hide_bottom_view_on_scroll_behavior = 2131558451;
 			
 			// aapt resource value: 0x7F0D0034
-			public const int lastName = 2131558452;
-			
-			// aapt resource value: 0x7F0D0036
-			public const int login = 2131558454;
-			
-			// aapt resource value: 0x7F0D0037
-			public const int logo = 2131558455;
+			public const int itemSearch = 2131558452;
 			
 			// aapt resource value: 0x7F0D0035
-			public const int logOut = 2131558453;
+			public const int lastName = 2131558453;
+			
+			// aapt resource value: 0x7F0D0037
+			public const int login = 2131558455;
 			
 			// aapt resource value: 0x7F0D0038
-			public const int medicine = 2131558456;
+			public const int logo = 2131558456;
+			
+			// aapt resource value: 0x7F0D0036
+			public const int logOut = 2131558454;
 			
 			// aapt resource value: 0x7F0D0039
-			public const int mtrl_chip_close_icon_content_description = 2131558457;
+			public const int medicine = 2131558457;
 			
 			// aapt resource value: 0x7F0D003A
-			public const int newUser = 2131558458;
+			public const int mtrl_chip_close_icon_content_description = 2131558458;
 			
 			// aapt resource value: 0x7F0D003B
-			public const int password = 2131558459;
+			public const int newUser = 2131558459;
 			
 			// aapt resource value: 0x7F0D003C
-			public const int password_toggle_content_description = 2131558460;
+			public const int password = 2131558460;
 			
 			// aapt resource value: 0x7F0D003D
-			public const int path_password_eye = 2131558461;
+			public const int password_toggle_content_description = 2131558461;
 			
 			// aapt resource value: 0x7F0D003E
-			public const int path_password_eye_mask_strike_through = 2131558462;
+			public const int path_password_eye = 2131558462;
 			
 			// aapt resource value: 0x7F0D003F
-			public const int path_password_eye_mask_visible = 2131558463;
+			public const int path_password_eye_mask_strike_through = 2131558463;
 			
 			// aapt resource value: 0x7F0D0040
-			public const int path_password_strike_through = 2131558464;
+			public const int path_password_eye_mask_visible = 2131558464;
 			
 			// aapt resource value: 0x7F0D0041
-			public const int phoneNumber = 2131558465;
+			public const int path_password_strike_through = 2131558465;
 			
 			// aapt resource value: 0x7F0D0042
-			public const int registerNow = 2131558466;
+			public const int phoneNumber = 2131558466;
 			
 			// aapt resource value: 0x7F0D0043
-			public const int registration = 2131558467;
+			public const int registerNow = 2131558467;
 			
 			// aapt resource value: 0x7F0D0044
-			public const int rememberMe = 2131558468;
+			public const int registration = 2131558468;
 			
 			// aapt resource value: 0x7F0D0045
-			public const int search = 2131558469;
+			public const int rememberMe = 2131558469;
 			
 			// aapt resource value: 0x7F0D0046
-			public const int search_menu_title = 2131558470;
+			public const int search = 2131558470;
 			
 			// aapt resource value: 0x7F0D0047
-			public const int selectDate = 2131558471;
+			public const int search_menu_title = 2131558471;
 			
 			// aapt resource value: 0x7F0D0048
-			public const int signUp = 2131558472;
+			public const int selectDate = 2131558472;
 			
 			// aapt resource value: 0x7F0D0049
-			public const int status_bar_notification_info_overflow = 2131558473;
+			public const int signUp = 2131558473;
 			
 			// aapt resource value: 0x7F0D004A
-			public const int verticalLine = 2131558474;
+			public const int status_bar_notification_info_overflow = 2131558474;
 			
 			// aapt resource value: 0x7F0D004B
-			public const int viewCart = 2131558475;
+			public const int verticalLine = 2131558475;
 			
 			// aapt resource value: 0x7F0D004C
-			public const int vitaminSupplement = 2131558476;
+			public const int viewCart = 2131558476;
+			
+			// aapt resource value: 0x7F0D004D
+			public const int vitaminSupplement = 2131558477;
 			
 			static String()
 			{

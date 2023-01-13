@@ -9,13 +9,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AndroidX.AppCompat.App;
+using System.IO;
+using System.Data.SqlClient;
+using System.Data;
+using System.Threading;
 
 namespace A1
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class RegistrationActivity : AppCompatActivity, DatePickerDialog.IOnDateSetListener
     {
-
+        
         private TextView txtSelectDoB;
         private TextView txtDoB;
         private TextView txtSignIn;
@@ -42,17 +46,45 @@ namespace A1
             //underline text in UI
             txtSelectDoB.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
             txtSignIn.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
+
+
+            Stream oldDb = Assets.Open("A1.db");
+            DatabaseHelper.setConnectionString(oldDb);
             
         }
-
-        private void BtnSignUp_Click(object sender, EventArgs e)
+            private void BtnSignUp_Click(object sender, EventArgs e)
         {
-            using (var db = new A1Context())
+
+            Operator op = new Operator();
+            SqlConnection conn = op.GetDBConnection();
+            var retries = 10;
+
+            while (conn.State != ConnectionState.Open && retries > 0)
             {
-                var customer = new Customer { FirstName = "Darren", LastName = "Burton", DoB = Convert.ToDateTime("1950-01-29"), Email="Darren@gmail.com", Phone = "0212222999", Address="2 Martin Road Manukau Wellington"};
-                db.Customers.Add(customer);
-                db.SaveChanges();
+                try
+                {
+                    conn.Open();
+                    Android.App.AlertDialog.Builder connectionException = new Android.App.AlertDialog.Builder(this);
+                    connectionException.SetTitle("Success!");
+                    connectionException.SetMessage("Open success!");
+                    connectionException.SetNegativeButton("Return", delegate { });
+                    connectionException.Create();
+                    connectionException.Show();
+                }
+                catch (Exception ex)
+                {
+                    Android.App.AlertDialog.Builder connectionException = new Android.App.AlertDialog.Builder(this);
+                    connectionException.SetTitle("Connection Error");
+                    connectionException.SetMessage(ex.ToString());
+                    connectionException.SetNegativeButton("Return", delegate { });
+                    connectionException.Create();
+                    connectionException.Show();
+
+                }
+                Thread.Sleep(500);
+                retries--;
             }
+
         }
 
         public override void OnBackPressed()
