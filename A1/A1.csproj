@@ -66,8 +66,11 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerCRUD.cs" />
+    <Compile Include="ICustomer.cs" />
     <Compile Include="DashBoardActivity.cs" />
-    <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="DBConnection.cs" />
     <Compile Include="Operator.cs" />
     <Compile Include="RegistrationActivity.cs" />
     <Compile Include="MainActivity.cs" />

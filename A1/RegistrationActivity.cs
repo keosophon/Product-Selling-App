@@ -19,9 +19,13 @@ namespace A1
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class RegistrationActivity : AppCompatActivity, DatePickerDialog.IOnDateSetListener
     {
-        
+        private TextView txtFirstName;
+        private TextView txtLastName;
         private TextView txtSelectDoB;
         private TextView txtDoB;
+        private TextView txtPhone;
+        private TextView txtEmail;
+        private TextView txtAdress;
         private TextView txtSignIn;
         private Button btnSignUp;
                 
@@ -35,6 +39,11 @@ namespace A1
             //bind variables to UI elements
             txtSelectDoB = FindViewById<TextView>(Resource.Id.txtSelectDate);
             txtDoB = FindViewById<TextView>(Resource.Id.txtDoB);
+            txtFirstName = FindViewById<TextView>(Resource.Id.txtFirstNameReg);
+            txtLastName = FindViewById<TextView>(Resource.Id.txtLastNameReg);
+            txtPhone = FindViewById<TextView>(Resource.Id.txtPhoneNumber);
+            txtEmail = FindViewById<TextView>(Resource.Id.txtEmailReg);
+            txtAdress = FindViewById<TextView>(Resource.Id.txtAddress);
             txtSignIn = FindViewById<TextView>(Resource.Id.txtLoginReg);
             btnSignUp = FindViewById<Button>(Resource.Id.btnSignUp);
 
@@ -46,17 +55,23 @@ namespace A1
             //underline text in UI
             txtSelectDoB.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
             txtSignIn.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
-
-
-            Stream oldDb = Assets.Open("A1.db");
-            DatabaseHelper.setConnectionString(oldDb);
             
         }
             private void BtnSignUp_Click(object sender, EventArgs e)
         {
+            Customer cs = new Customer();
+            CustomerCRUD customerCRUD = new CustomerCRUD();
+            cs.FirstName = txtFirstName.Text;
+            cs.LastName = txtLastName.Text;
+            cs.DoB = Convert.ToDateTime(txtDoB.Text);
+            cs.Phone = txtPhone.Text;
+            cs.Email = txtEmail.Text;
+            cs.Address = txtAdress.Text;            
+            customerCRUD.add(cs);
 
-            Operator op = new Operator();
-            SqlConnection conn = op.GetDBConnection();
+            //Operator op = new Operator();
+            /*
+            SqlConnection conn = DBConnection.getConnection();
             var retries = 10;
 
             while (conn.State != ConnectionState.Open && retries > 0)
@@ -64,26 +79,17 @@ namespace A1
                 try
                 {
                     conn.Open();
-                    Android.App.AlertDialog.Builder connectionException = new Android.App.AlertDialog.Builder(this);
-                    connectionException.SetTitle("Success!");
-                    connectionException.SetMessage("Open success!");
-                    connectionException.SetNegativeButton("Return", delegate { });
-                    connectionException.Create();
-                    connectionException.Show();
+                    this.BuildAlertDialog("Open Connection", "Open Connection To SQL Server Success!");
                 }
                 catch (Exception ex)
                 {
-                    Android.App.AlertDialog.Builder connectionException = new Android.App.AlertDialog.Builder(this);
-                    connectionException.SetTitle("Connection Error");
-                    connectionException.SetMessage(ex.ToString());
-                    connectionException.SetNegativeButton("Return", delegate { });
-                    connectionException.Create();
-                    connectionException.Show();
+                    this.BuildAlertDialog("Connection Error", ex.Message);
 
                 }
                 Thread.Sleep(500);
                 retries--;
             }
+            */
 
         }
 
@@ -118,6 +124,16 @@ namespace A1
 
             DateTime selectedDate = new DateTime(year, month + 1, dayOfMonth);
             txtDoB.Text = selectedDate.ToShortDateString();
+        }
+
+        public void BuildAlertDialog(string title, string message)
+        {
+            Android.App.AlertDialog.Builder connectionException = new Android.App.AlertDialog.Builder(this);
+            connectionException.SetTitle(title);
+            connectionException.SetMessage(message);
+            connectionException.SetNegativeButton("Return", delegate { });
+            connectionException.Create();
+            connectionException.Show();
         }
 
     }
