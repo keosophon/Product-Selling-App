@@ -2,54 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:background="@color/colorBackground"
+		android:layout_gravity="center_horizontal"
+        
 		>
-	<GridLayout
-        android:minWidth="25px"
-		android:minHeight="25px"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/gridLayoutHeader1"
-		android:rowCount="1"
-		android:columnCount="3"
-		android:layout_marginTop="@dimen/margin_medium"	
-        android:layout_marginLeft="@dimen/margin_small"
-        android:layout_marginRight="@dimen/margin_small"
-			>
-        <EditText
+	<EditText
             android:id="@+id/txtSearch"
             android:inputType="text"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/layout_height"
             android:hint = "@string/itemSearch"
             android:background="@drawable/editTextBackground"
-            android:layout_marginLeft="@dimen/margin_medium"
-            android:layout_marginRight="@dimen/margin_small"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_medium"
             android:textSize="@dimen/text_sz_medium"
-            android:layout_row="0"
-            android:layout_column="0"
+            android:layout_marginTop="@dimen/margin_small"
             />
         <Button
             android:text="@string/search"
             android:id="@+id/btnSearch" 
-            android:layout_height="match_parent"    
+            android:layout_height="@dimen/layout_height"    
             android:layout_width="wrap_content"
-            android:backgroundTint="@color/colorClickAble"
-            android:layout_row="0"
-            android:layout_column="1"            
+            android:backgroundTint="@color/colorClickAble"   
             android:layout_marginRight="@dimen/margin_medium"
-            />
+            android:layout_marginTop="@dimen/margin_small"    
+        />
         <Button
             android:text="@string/viewCart"
             android:id="@+id/btnViewCart" 
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/layout_height"
             android:layout_width="wrap_content"            
             android:backgroundTint="@color/colorClickAble"
-            android:layout_row="0"
-            android:layout_column="2" 
-            android:layout_marginLeft="@dimen/margin_small"
-            android:layout_marginRight="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"           
+            
             />
-	</GridLayout>
 
 </LinearLayout>

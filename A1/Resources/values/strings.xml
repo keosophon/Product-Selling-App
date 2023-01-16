@@ -25,7 +25,7 @@
 	<string name="viewCart"> View Cart</string>
 	<string name="companyName">Ahera Taera</string>
 	<string name="medicine">Medicines</string>
-	<string name="vitaminSupplement">Supplements</string>
+	<string name="vitamin">Supplements</string>
 	<string name="hairCare">Hair Care</string>
 	<string name="babyCare">Baby Care</string>
 	<string name="fullName">Name</string>
@@ -37,4 +37,13 @@
 	<string name="productPrice">Price:</string>
 	<string name="productDesc">Description:</string>
 	<string name="addToCart">Add To Cart</string>
+	<string name="buyNow">Buy Now</string>
+	<string name="qty">Qty:</string>
+	<string name="delivery">Delivery:</string>
+	<string name="courier">Courier</string>
+	<string name="pickup">Pickup from the shop</string>
+	<string name="discountApplied">Discounts Applied:</string>
+	<string name="senior">Senior about 60</string>
+	<string name="weekends">Weekends</string>
+	<string name="cities">Aukland or Wellington</string>
 </resources>

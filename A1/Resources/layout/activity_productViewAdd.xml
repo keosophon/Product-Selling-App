@@ -11,6 +11,8 @@
         layout="@layout/header" />
     <include
         layout="@layout/header1"/>
+    <include
+        layout="@layout/categorybar"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -54,10 +56,10 @@
             android:layout_marginTop="@dimen/margin_extra_large"
         />
         <Button
-            android:text="@string/addToCart"
+            android:text="@string/buyNow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/addToCart"
+            android:id="@+id/btnBuyNow"
             android:layout_marginLeft="@dimen/margin_medium"
             android:layout_marginRight="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_extra_large"

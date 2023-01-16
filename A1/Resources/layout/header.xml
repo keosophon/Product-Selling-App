@@ -3,50 +3,28 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal"
+		android:orientation="horizontal"
 		>
-	<GridLayout
-		android:minWidth="25px"
-		android:minHeight="25px"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/gridLayoutHeader"
-		android:rowCount="1"
-		android:columnCount="5"
-		android:layout_marginTop="@dimen/margin_small"
-			>
 		<TextView
 			android:text="@string/companyName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtLogoText"
-            android:layout_row="0"
-			android:layout_column="0"
 			android:textSize="@dimen/text_sz_title"
 			android:textStyle="bold"
-			android:layout_marginLeft="@dimen/margin_medium"
-			android:layout_marginRight="@dimen/margin_large"
-			
+			android:layout_marginLeft="@dimen/margin_small"
+			android:layout_marginRight="@dimen/margin_medium"	
+			android:layout_marginTop="@dimen/margin_small"
         />
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text=""
-			android:textSize="@dimen/text_sz_medium"
-			android:layout_row="0"
-			android:layout_column="1"
-			android:textColor="@color/colorOrange"
-			
-				/>
-
+		
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/dashBoard"
 			android:textSize="@dimen/text_sz_large"
 			android:id="@+id/txtDashBoard"
-			android:layout_row="0"
-			android:layout_column="2"
 			android:layout_marginRight="@dimen/margin_medium"
+			android:layout_marginTop="@dimen/margin_small"
 			android:textColor="@color/colorClickAble"
 			 />
 		
@@ -56,10 +34,9 @@
 			android:layout_height="wrap_content"
 			android:text="@string/logOut"
 			android:textSize="@dimen/text_sz_large"
-			android:layout_row="0"
-			android:layout_column="4"
+			android:layout_marginTop="@dimen/margin_small"
 			android:textColor="@color/colorClickAble"
 				/>
-	</GridLayout>
+	
 </LinearLayout>
 

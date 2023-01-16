@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_width="match_parent"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
@@ -12,40 +12,24 @@
         android:id="@+id/txtMedicine"
 		android:textSize="@dimen/text_sz_large"
         android:layout_marginLeft="@dimen/margin_small"
-		android:layout_marginRight="@dimen/margin_medium"
+		android:layout_marginRight="@dimen/margin_extra_large"
         android:textColor="@color/colorClickAble"
         android:layout_marginTop="@dimen/margin_small"
 			
         />
+
     <TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/verticalLine"
-			android:textSize="@dimen/text_sz_large"		
-            android:layout_marginRight="@dimen/margin_medium"
-			android:textColor="@color/colorOrange"
-            android:layout_marginTop="@dimen/margin_small"
-				/>
-    <TextView
-        android:text="@string/vitaminSupplement"
+        android:text="@string/vitamin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtVitaminSupplement"
 		android:textSize="@dimen/text_sz_large"			
-		android:layout_marginRight="@dimen/margin_medium"
+		android:layout_marginRight="@dimen/margin_extra_large"
         android:textColor="@color/colorClickAble"
         android:layout_marginTop="@dimen/margin_small"
 				/>
-     <TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/verticalLine"
-			android:textSize="@dimen/text_sz_large"		
-            android:layout_marginRight="@dimen/margin_medium"
-			android:textColor="@color/colorOrange"
-            android:layout_marginTop="@dimen/margin_small"
-				/>
-    <TextView
+     
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/babyCare"
