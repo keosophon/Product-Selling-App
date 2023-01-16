@@ -16,6 +16,9 @@ namespace A1
     public class AddToCartActivity : AppCompatActivity
     {
         private Spinner spQuantity;
+        private CheckBox cbSenior;
+        private CheckBox cbWeekends;
+        private CheckBox cbCities;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -24,11 +27,22 @@ namespace A1
             SetContentView(Resource.Layout.activity_addToCart);
 
             spQuantity = FindViewById<Spinner>(Resource.Id.spQuantity);
-            
+            cbSenior = FindViewById<CheckBox>(Resource.Id.cbSenior);
+            cbWeekends = FindViewById<CheckBox>(Resource.Id.cbWeekends);
+            cbCities = FindViewById<CheckBox>(Resource.Id.cbCities);
 
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.quantity, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spQuantity.Adapter = adapter;
+
+            cbSenior.Checked = true;
+            cbWeekends.Checked = true;
+            cbCities.Checked = true;
+
+            cbSenior.Enabled = false;
+            cbWeekends.Enabled = false;
+            cbCities.Enabled = false;
+
         }
     }
 }

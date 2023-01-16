@@ -120,12 +120,12 @@
                     android:text="@string/weekends"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/weekends" />
+                    android:id="@+id/cbWeekends" />
                 <CheckBox
                     android:text="@string/cities"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/weekends" />
+                    android:id="@+id/cbCities" />
             </LinearLayout>
             
             <Button
