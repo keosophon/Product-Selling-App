@@ -46,4 +46,9 @@
 	<string name="senior">Senior about 60</string>
 	<string name="weekends">Weekends</string>
 	<string name="cities">Aukland or Wellington</string>
+	<string-array name="quantity">
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+	</string-array>
 </resources>
