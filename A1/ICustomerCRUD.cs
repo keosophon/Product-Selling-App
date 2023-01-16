@@ -13,7 +13,7 @@ using System.Text;
 
 namespace A1
 {
-    public interface ICustomer
+    public interface ICustomerCRUD
     {
 		 int add(Customer cus) ;
 		//public void delete(int id);

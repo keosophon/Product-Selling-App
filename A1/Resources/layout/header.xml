@@ -21,9 +21,10 @@
             android:id="@+id/txtLogoText"
             android:layout_row="0"
 			android:layout_column="0"
-			android:textSize="@dimen/text_sz_large"
+			android:textSize="@dimen/text_sz_title"
 			android:textStyle="bold"
-			android:layout_marginRight="@dimen/margin_extra_large"
+			android:layout_marginLeft="@dimen/margin_medium"
+			android:layout_marginRight="@dimen/margin_large"
 			
         />
 		<TextView
@@ -34,6 +35,7 @@
 			android:layout_row="0"
 			android:layout_column="1"
 			android:textColor="@color/colorOrange"
+			
 				/>
 
 		<TextView
@@ -44,19 +46,10 @@
 			android:id="@+id/txtDashBoard"
 			android:layout_row="0"
 			android:layout_column="2"
-			android:layout_marginRight="@dimen/margin_extra_large"
+			android:layout_marginRight="@dimen/margin_medium"
 			android:textColor="@color/colorClickAble"
 			 />
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/verticalLine"
-			android:textSize="@dimen/text_sz_large"
-			android:layout_row="0"
-			android:layout_column="3"
-			android:layout_marginRight="@dimen/margin_extra_large"
-			android:textColor="@color/colorOrange"
-				/>
+		
 		<TextView
 			android:id="@+id/txtLogOut"
 			android:layout_width="wrap_content"

@@ -66,9 +66,10 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProductViewActivity.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerCRUD.cs" />
-    <Compile Include="ICustomer.cs" />
+    <Compile Include="ICustomerCRUD.cs" />
     <Compile Include="DashBoardActivity.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="Operator.cs" />
@@ -153,7 +154,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_productViewAdd.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

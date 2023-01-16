@@ -14,7 +14,7 @@ using System.Threading;
 
 namespace A1
 {
-    class CustomerCRUD : ICustomer
+    class CustomerCRUD : ICustomerCRUD
     {
         private static SqlConnection conn = DBConnection.getConnection();
 

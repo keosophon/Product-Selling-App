@@ -9,82 +9,80 @@
         layout="@layout/header" />
     <include
         layout="@layout/header1"/>
-    <include
-        layout="@layout/categorybar"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
         android:layout_marginLeft="@dimen/margin_small"
         android:layout_marginRight="@dimen/margin_small">
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginLeft="@dimen/margin_small"
-        android:rowCount="5"
-        android:columnCount="2">
-        <TextView
-            android:id="@+id/txtFullName"
-            android:text="@string/fullName"
-            android:textSize="@dimen/text_sz_medium"
-            android:layout_width="wrap_content"
+        <GridLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:layout_row="0"
-            android:layout_column="0" 
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:rowCount="5"
+            android:columnCount="2">
+            <TextView
+                android:id="@+id/txtFullName"
+                android:text="@string/fullName"
+                android:textSize="@dimen/text_sz_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_row="0"
+                android:layout_column="0" 
             />
-        <TextView
-            android:id="@+id/txtFullNameResult"
-            android:text=""
-            android:textSize="@dimen/text_sz_medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_marginLeft="@dimen/margin_medium"
+            <TextView
+                android:id="@+id/txtFullNameResult"
+                android:text=""
+                android:textSize="@dimen/text_sz_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_marginLeft="@dimen/margin_medium"
             />
-        <TextView
-            android:id="@+id/txtEmailDash"
-            android:text="@string/email"
-            android:textSize="@dimen/text_sz_medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:layout_row="1"
-            android:layout_column="0"            
+            <TextView
+                android:id="@+id/txtEmailDash"
+                android:text="@string/email"
+                android:textSize="@dimen/text_sz_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_row="1"
+                android:layout_column="0"            
             />
-            
-        <TextView
-            android:id="@+id/txtEmailResult"
-            android:text=""
-            android:textSize="@dimen/text_sz_medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:layout_marginLeft="@dimen/margin_medium"
+
+            <TextView
+                android:id="@+id/txtEmailResult"
+                android:text=""
+                android:textSize="@dimen/text_sz_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_marginLeft="@dimen/margin_medium"
             />
-        <TextView
-            android:id="@+id/txtPassDash"
-            android:text="@string/password"
-            android:textSize="@dimen/text_sz_medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:layout_row="2"
-            android:layout_column="0"/>
-        <TextView
-            android:id="@+id/txtPassChange"
-            android:text=""
-            android:textSize="@dimen/text_sz_medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:textColor="@color/colorClickAble"
-            android:layout_marginLeft="@dimen/margin_medium"
+            <TextView
+                android:id="@+id/txtPassDash"
+                android:text="@string/password"
+                android:textSize="@dimen/text_sz_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_row="2"
+                android:layout_column="0"/>
+            <TextView
+                android:id="@+id/txtPassChange"
+                android:text=""
+                android:textSize="@dimen/text_sz_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:textColor="@color/colorClickAble"
+                android:layout_marginLeft="@dimen/margin_medium"
             />
-    </GridLayout>
+        </GridLayout>
     </LinearLayout>
 </LinearLayout>

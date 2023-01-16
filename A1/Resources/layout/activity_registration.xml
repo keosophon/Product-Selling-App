@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imgLogoReg"        
-        android:layout_marginTop="@dimen/margin_extra_large"
+        android:layout_marginTop="@dimen/margin_medium"
         android:contentDescription="@string/logo" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/margin_medium"
         android:layout_marginRight="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_medium"
         android:background="@drawable/frame_layout"
         android:id="@+id/linearLayout1">
         <TextView
@@ -29,7 +29,7 @@
             android:minHeight="@dimen/min_height"
             android:textAlignment="center"
             android:id="@+id/txtTitleReg"
-            android:textSize="@dimen/text_sz_title"/>
+            android:textSize="@dimen/text_sz_extra_large"/>
 
         <EditText
             android:inputType="text"
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
             android:id="@+id/txtLastNameReg"
-            android:layout_marginTop="@dimen/margin_large"           
+            android:layout_marginTop="@dimen/margin_small"           
             android:hint = "@string/lastName"
             android:background="@drawable/editTextBackground"
             android:layout_marginLeft="@dimen/margin_medium"
@@ -67,7 +67,7 @@
                 android:minHeight="@dimen/min_width"
                 android:id="@+id/txtSelectDate"
                 android:layout_marginLeft="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_small"
                 android:textColor="@color/colorClickAble"
             />
             <TextView
@@ -79,7 +79,7 @@
                 android:minHeight="@dimen/min_width"
                 android:id="@+id/txtDoB"
                 android:layout_marginLeft="@dimen/margin_medium"
-				android:layout_marginTop="@dimen/margin_large"
+				android:layout_marginTop="@dimen/margin_small"
             />
 
         </LinearLayout>
@@ -89,7 +89,7 @@
             android:id="@+id/txtPhoneNumber"
             android:hint="@string/phoneNumber"
             android:background="@drawable/edittextbackground"
-            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_small"
             android:layout_marginLeft="@dimen/margin_medium"
             android:layout_marginRight="@dimen/margin_medium"
             android:layout_height="@dimen/layout_height"
@@ -101,7 +101,7 @@
             android:id="@+id/txtEmailReg"       
             android:hint = "@string/email"
             android:background="@drawable/editTextBackground"
-            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_small"
             android:layout_marginLeft="@dimen/margin_medium"
             android:layout_marginRight="@dimen/margin_medium"
         />
@@ -111,17 +111,41 @@
             android:id="@+id/txtAddress"
             android:hint="@string/address"
             android:background="@drawable/edittextbackground"
-            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_small"
             android:layout_marginLeft="@dimen/margin_medium"
             android:layout_marginRight="@dimen/margin_medium"
             android:layout_height="@dimen/layout_height"
         />
+        <EditText
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_height"
+            android:id="@+id/txtPasswordReg"
+            android:layout_marginTop="@dimen/margin_small"
+            android:hint = "@string/password"
+            android:background="@drawable/editTextBackground"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:textSize="@dimen/text_sz_large"
+            />
+        <EditText
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_height"
+            android:id="@+id/txtConfirmPasswordrdReg"
+            android:layout_marginTop="@dimen/margin_small"
+            android:hint = "@string/confirmPassword"
+            android:background="@drawable/editTextBackground"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:textSize="@dimen/text_sz_large"
+            />
         <Button
             android:text="@string/signUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnSignUp"
-            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_medium"
             android:layout_marginLeft="@dimen/margin_medium"
             android:layout_marginRight="@dimen/margin_medium"
             android:backgroundTint="@color/colorClickAble"

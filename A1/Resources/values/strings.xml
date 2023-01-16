@@ -22,7 +22,7 @@
 	<string name="verticalLine">|</string>
 	<string name="itemSearch">Item to search for...</string>
 	<string name="search">search</string>
-	<string name="viewCart"> View Cart - 0</string>
+	<string name="viewCart"> View Cart</string>
 	<string name="companyName">Ahera Taera</string>
 	<string name="medicine">Medicines</string>
 	<string name="vitaminSupplement">Supplements</string>
@@ -31,4 +31,10 @@
 	<string name="fullName">Name</string>
 	<string name="change">: Change</string>
 	<string name="dbName">A1.db</string>
+	<string name="confirmPassword">Re-enter the password</string>
+	<string name="productImageSmall">Small Image of Product</string>
+	<string name="productName">Name:</string>
+	<string name="productPrice">Price:</string>
+	<string name="productDesc">Description:</string>
+	<string name="addToCart">Add To Cart</string>
 </resources>
