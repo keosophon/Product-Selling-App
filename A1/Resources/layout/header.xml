@@ -36,6 +36,7 @@
 			android:textSize="@dimen/text_sz_large"
 			android:layout_marginTop="@dimen/margin_small"
 			android:textColor="@color/colorClickAble"
+			android:layout_marginRight="@dimen/margin_small"
 				/>
 	
 </LinearLayout>

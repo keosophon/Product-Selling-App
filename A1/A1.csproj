@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddToCartActivity.cs" />
+    <Compile Include="PaymentActivity.cs" />
     <Compile Include="ProductViewActivity.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerCRUD.cs" />
@@ -163,6 +164,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\nurofen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_payment.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

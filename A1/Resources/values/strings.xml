@@ -38,7 +38,7 @@
 	<string name="productDesc">Description:</string>
 	<string name="addToCart">Add To Cart</string>
 	<string name="buyNow">Buy Now</string>
-	<string name="qty">Qty:</string>
+	<string name="qty">Qty</string>
 	<string name="delivery">Delivery:</string>
 	<string name="courier">Courier</string>
 	<string name="pickup">Pickup from the shop</string>
@@ -46,6 +46,10 @@
 	<string name="senior">Senior about 60</string>
 	<string name="weekends">Weekends</string>
 	<string name="cities">Aukland or Wellington</string>
+	<string name="courierCharge">Note: Courier charge is </string>
+	<string name="item">Item</string>
+	<string name="unitPrice">Unit Price</string>
+	<string name="subTotal">Sub-Total</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>

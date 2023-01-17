@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
         android:layout_marginLeft="@dimen/margin_small"
-        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_small"
         android:orientation="horizontal">
         <ImageButton
             android:contentDescription="@string/productImageSmall"
@@ -71,37 +71,7 @@
                     android:layout_marginTop="@dimen/margin_medium"
                     android:layout_marginLeft="@dimen/margin_small"/>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtDelivery"
-                    android:text="@string/delivery"
-                    android:textSize="@dimen/text_sz_large"
-                    android:layout_marginTop="@dimen/margin_medium"/>
-                <RadioGroup
-                    android:minWidth="25px"
-                    android:minHeight="25px"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rdDelivery"
-                    android:layout_marginLeft="@dimen/margin_small">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="@string/courier"
-                        android:id="@+id/rdCourier" />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/pickup"
-                        android:id="@+id/rdPickup" />
-                </RadioGroup>
-            </LinearLayout>
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
