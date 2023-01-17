@@ -3441,10 +3441,13 @@ namespace A1
 			public const int notify_panel_notification_icon_bg = 2131230849;
 			
 			// aapt resource value: 0x7F080082
-			public const int tooltip_frame_dark = 2131230850;
+			public const int nurofen = 2131230850;
 			
 			// aapt resource value: 0x7F080083
-			public const int tooltip_frame_light = 2131230851;
+			public const int tooltip_frame_dark = 2131230851;
+			
+			// aapt resource value: 0x7F080084
+			public const int tooltip_frame_light = 2131230852;
 			
 			static Drawable()
 			{

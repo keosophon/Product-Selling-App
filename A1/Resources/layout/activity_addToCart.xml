@@ -41,6 +41,7 @@
                 android:id="@+id/txtProductDescCart"
                 android:text="@string/productDesc"
                 android:textSize="@dimen/text_sz_large"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/margin_extra_large"
         />
 
@@ -49,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtProductPrice"
                 android:text="@string/productPrice"
+                android:textStyle="bold"
                 android:textSize="@dimen/text_sz_large"
                 android:layout_marginTop="@dimen/margin_medium"/>
             <LinearLayout

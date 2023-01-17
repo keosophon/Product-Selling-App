@@ -19,6 +19,9 @@ namespace A1
         private CheckBox cbSenior;
         private CheckBox cbWeekends;
         private CheckBox cbCities;
+        private ImageButton imgProduct;
+        private TextView txtDescription;
+        private TextView txtPrice;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -30,6 +33,9 @@ namespace A1
             cbSenior = FindViewById<CheckBox>(Resource.Id.cbSenior);
             cbWeekends = FindViewById<CheckBox>(Resource.Id.cbWeekends);
             cbCities = FindViewById<CheckBox>(Resource.Id.cbCities);
+            imgProduct = FindViewById<ImageButton>(Resource.Id.imgbtnProductSmall);
+            txtDescription = FindViewById<TextView>(Resource.Id.txtProductDescCart);
+            txtPrice = FindViewById<TextView>(Resource.Id.txtProductPrice);
 
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.quantity, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
@@ -42,7 +48,11 @@ namespace A1
             cbSenior.Enabled = false;
             cbWeekends.Enabled = false;
             cbCities.Enabled = false;
-
+            imgProduct.SetImageResource(Resource.Drawable.nurofen);
+            imgProduct.SetMaxWidth(100);
+            imgProduct.SetMaxHeight(100);
+            txtDescription.Text = "Nurofen Ibuprofen Pain & Inflammation 100 Tablets";
+            txtPrice.Text = "$9.99 NZD";
         }
     }
 }
