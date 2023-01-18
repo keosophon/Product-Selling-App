@@ -46,10 +46,11 @@
 	<string name="senior">Senior about 60</string>
 	<string name="weekends">Weekends</string>
 	<string name="cities">Aukland or Wellington</string>
-	<string name="courierCharge">Note: Courier charge is </string>
+	<string name="courierCharge">Note: Courier charge is $10.00 NZD</string>
 	<string name="item">Item</string>
 	<string name="unitPrice">Unit Price</string>
 	<string name="subTotal">Sub-Total</string>
+	<string name="checkout">Check Out</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>
