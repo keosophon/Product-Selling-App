@@ -4219,7 +4219,7 @@ namespace A1
 			public const int txtDoB = 2131296507;
 			
 			// aapt resource value: 0x7F0900FC
-			public const int txtEmailLog = 2131296508;
+			public const int txtEmailPhoneLog = 2131296508;
 			
 			// aapt resource value: 0x7F0900FD
 			public const int txtEmailReg = 2131296509;

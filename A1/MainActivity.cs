@@ -12,7 +12,7 @@ namespace A1
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        private EditText txtEmailLog;
+        private EditText txtEmailPhoneLog;
         private EditText txtPassword;
         private TextView txtRegisterNow;
         private TextView btnSingIn;
@@ -24,7 +24,7 @@ namespace A1
             SetContentView(Resource.Layout.activity_main);
 
             //bind variables to UI elements
-            txtEmailLog = FindViewById<EditText>(Resource.Id.txtEmailLog);
+            txtEmailPhoneLog = FindViewById<EditText>(Resource.Id.txtEmailPhoneLog);
             txtPassword = FindViewById<EditText>(Resource.Id.txtPassowrdLog);
             txtRegisterNow = FindViewById<TextView>(Resource.Id.txtRegisterNow);
             btnSingIn = FindViewById<Button>(Resource.Id.btnLogin);
@@ -34,7 +34,7 @@ namespace A1
             txtRegisterNow.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
 
 
-            txtEmailLog.RequestFocus();
+            txtEmailPhoneLog.RequestFocus();
 
 
 
@@ -56,7 +56,7 @@ namespace A1
         {
 
             CustomerCRUD customerCRUD = new CustomerCRUD();
-            Customer cus = customerCRUD.GetCustomer(txtEmailLog.Text);
+            Customer cus = customerCRUD.GetCustomer(txtEmailPhoneLog.Text);
 
             if (cus == null)
             {
@@ -65,7 +65,7 @@ namespace A1
             }
             
 
-            if ((txtEmailLog.Text == cus.Email || txtEmailLog.Text == cus.Phone) && txtPassword.Text == cus.Password)
+            if ((txtEmailPhoneLog.Text == cus.Email || txtEmailPhoneLog.Text == cus.Phone) && txtPassword.Text == cus.Password)
             {
                 StartActivity(typeof(DashBoardActivity));
             }

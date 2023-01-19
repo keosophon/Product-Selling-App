@@ -14,7 +14,7 @@ using System.Data;
 namespace A1
 {
     /// <summary>
-    /// SingleTon Design Pattern
+    /// Database Connection using SingleTon Design Pattern
     /// </summary>
     public sealed class DBConnection
     {

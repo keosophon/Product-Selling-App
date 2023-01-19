@@ -74,7 +74,6 @@
     <Compile Include="ICustomerCRUD.cs" />
     <Compile Include="DashBoardActivity.cs" />
     <Compile Include="DBConnection.cs" />
-    <Compile Include="Operator.cs" />
     <Compile Include="RegistrationActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
