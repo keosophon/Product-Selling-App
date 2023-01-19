@@ -16,9 +16,15 @@ namespace A1
 {
     class CustomerCRUD : ICustomerCRUD
     {
-        private static SqlConnection conn = DBConnection.getConnection();
 
-        public void openConnection()
+        private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
+        private static readonly SqlConnection conn = dbConnInstance.GetConnection();
+
+        /* - old way    
+        private static SqlConnection conn = DBConnection.getConnection();
+        */
+
+        public void OpenConnection()
         {
             var retries = 10;
 
@@ -28,7 +34,7 @@ namespace A1
                 {
                     conn.Open();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     //
 
@@ -38,9 +44,9 @@ namespace A1
             }
         }
 
-        public int add(Customer cs) {
+        public int Add(Customer cs) {
 
-            this.openConnection();
+            this.OpenConnection();
             SqlCommand command = new SqlCommand(null, conn);
 
             // Create and prepare an SQL statement.
@@ -78,6 +84,38 @@ namespace A1
             command.Prepare();
             int result = command.ExecuteNonQuery();
             return result;
+        }
+
+        public Customer GetCustomer(string emailOrPhone)
+        {
+            Customer cus = null;
+            this.OpenConnection();
+            SqlCommand command = new SqlCommand(null, conn);
+
+            // Create and prepare an SQL statement.
+            command.CommandText = "SELECT * FROM Customers WHERE Email=@email OR Phone=@phone;";
+            SqlParameter email =
+                new SqlParameter("@email", SqlDbType.VarChar, 50);
+            SqlParameter phone =
+                new SqlParameter("@phone", SqlDbType.VarChar, 15);
+
+            email.Value = emailOrPhone;
+            phone.Value = emailOrPhone;
+
+            command.Parameters.Add(email);
+            command.Parameters.Add(phone);
+            command.Prepare();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                cus = new Customer();
+                cus.Email = reader[4].ToString() ;
+                cus.Phone = reader[5].ToString();
+                cus.Password = reader[7].ToString();
+                
+            }
+            
+            return cus;
         }
     }
 }

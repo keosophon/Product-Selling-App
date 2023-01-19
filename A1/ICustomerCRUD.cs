@@ -15,10 +15,8 @@ namespace A1
 {
     public interface ICustomerCRUD
     {
-		 int add(Customer cus) ;
-		//public void delete(int id);
-		//public Customer getCustomer(int id);
-		//public void update(Customer cus);
+		public int Add(Customer cus) ;
+		public Customer GetCustomer(string emailOrPhone);
 		
 
 	}

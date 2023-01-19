@@ -5,15 +5,15 @@ using AndroidX.AppCompat.App;
 using Android.Widget;
 using Android.Views;
 using Android.Content;
+using System.Data.SqlClient;
 
 namespace A1
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
         private EditText txtEmailLog;
         private EditText txtPassword;
-        //private TextView txtForgotPassword;
         private TextView txtRegisterNow;
         private TextView btnSingIn;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -26,13 +26,13 @@ namespace A1
             //bind variables to UI elements
             txtEmailLog = FindViewById<EditText>(Resource.Id.txtEmailLog);
             txtPassword = FindViewById<EditText>(Resource.Id.txtPassowrdLog);
-            //txtForgotPassword = FindViewById<TextView>(Resource.Id.txtForgotPassword);
             txtRegisterNow = FindViewById<TextView>(Resource.Id.txtRegisterNow);
             btnSingIn = FindViewById<Button>(Resource.Id.btnLogin);
 
+
             //underline text in UI
             txtRegisterNow.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
-            //txtForgotPassword.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
+
 
             txtEmailLog.RequestFocus();
 
@@ -54,14 +54,36 @@ namespace A1
 
         private void BtnSingIn_Click(object sender, System.EventArgs e)
         {
-            //for testing
 
-            if (txtEmailLog.Text=="1" && txtPassword.Text=="1")
+            CustomerCRUD customerCRUD = new CustomerCRUD();
+            Customer cus = customerCRUD.GetCustomer(txtEmailLog.Text);
+
+            if (cus == null)
+            {
+                this.BuildAlertDialog("Wrong Input", "Username or Password is incorrect");
+                return;
+            }
+            
+
+            if ((txtEmailLog.Text == cus.Email || txtEmailLog.Text == cus.Phone) && txtPassword.Text == cus.Password)
             {
                 StartActivity(typeof(DashBoardActivity));
             }
+            else
+            {
+                this.BuildAlertDialog("Wrong Input", "Username or Password is incorrect");
+            }
         }
 
+        public void BuildAlertDialog(string title, string message)
+        {
+            Android.App.AlertDialog.Builder connectionException = new Android.App.AlertDialog.Builder(this);
+            connectionException.SetTitle(title);
+            connectionException.SetMessage(message);
+            connectionException.SetNegativeButton("Return", delegate { });
+            connectionException.Create();
+            connectionException.Show();
+        }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

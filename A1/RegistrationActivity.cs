@@ -67,9 +67,9 @@ namespace A1
             cs.Phone = txtPhone.Text;
             cs.Email = txtEmail.Text;
             cs.Address = txtAdress.Text;            
-            customerCRUD.add(cs);
+            customerCRUD.Add(cs);
 
-            //Operator op = new Operator();
+            
             /*
             SqlConnection conn = DBConnection.getConnection();
             var retries = 10;

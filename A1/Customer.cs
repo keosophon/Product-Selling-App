@@ -20,10 +20,12 @@ namespace A1
 		public string Email { get; set; }
 		public string Phone { get; set; }
 		public string Address { get; set; }
+		
+		public string Password { get; set; }
 
 		public Customer() { }
 
-		public Customer(string fname, string lname, DateTime dob, string email, string phone, string address)
+		public Customer(string fname, string lname, DateTime dob, string email, string phone, string address, string password)
 		{
 			this.FirstName = fname;
 			this.LastName = lname;
@@ -31,6 +33,7 @@ namespace A1
 			this.Email = email;
 			this.Phone = phone;
 			this.Address = address;
+			this.Password = password;
 		}
 
 	}

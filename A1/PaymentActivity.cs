@@ -12,7 +12,7 @@ using AndroidX.AppCompat.App;
 
 namespace A1
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
     public class PaymentActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

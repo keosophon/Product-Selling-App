@@ -52,7 +52,7 @@
                 android:text="@string/productPrice"
                 android:textStyle="bold"
                 android:textSize="@dimen/text_sz_large"
-                android:layout_marginTop="@dimen/margin_medium"/>
+                android:layout_marginTop="@dimen/margin_extra_large"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,12 +63,12 @@
                     android:id="@+id/txtQty"
                     android:text="@string/qty"
                     android:textSize="@dimen/text_sz_large"
-                    android:layout_marginTop="@dimen/margin_medium"/>
+                    android:layout_marginTop="@dimen/margin_extra_large"/>
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/spQuantity"
-                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_extra_large"
                     android:layout_marginLeft="@dimen/margin_small"/>
             </LinearLayout>
             
@@ -82,7 +82,7 @@
                     android:id="@+id/txtDiscount"
                     android:text="@string/discountApplied"
                     android:textSize="@dimen/text_sz_large"
-                    android:layout_marginTop="@dimen/margin_medium"/>
+                    android:layout_marginTop="@dimen/margin_extra_large"/>
                 <CheckBox
                     android:text="@string/senior"
                     android:layout_width="match_parent"
@@ -107,7 +107,7 @@
                 android:id="@+id/addToCart"
                 android:layout_marginLeft="@dimen/margin_medium"
                 android:layout_marginRight="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_extra_large"
                 android:backgroundTint="@color/colorClickAble"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/text_sz_large"

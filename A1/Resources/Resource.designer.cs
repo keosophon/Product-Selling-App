@@ -4219,142 +4219,124 @@ namespace A1
 			public const int txtDoB = 2131296507;
 			
 			// aapt resource value: 0x7F0900FC
-			public const int txtEmailDash = 2131296508;
+			public const int txtEmailLog = 2131296508;
 			
 			// aapt resource value: 0x7F0900FD
-			public const int txtEmailLog = 2131296509;
+			public const int txtEmailReg = 2131296509;
 			
 			// aapt resource value: 0x7F0900FE
-			public const int txtEmailReg = 2131296510;
+			public const int txtFirstNameReg = 2131296510;
 			
 			// aapt resource value: 0x7F0900FF
-			public const int txtEmailResult = 2131296511;
+			public const int txtItem = 2131296511;
 			
 			// aapt resource value: 0x7F090100
-			public const int txtFirstNameReg = 2131296512;
-			
-			// aapt resource value: 0x7F090101
-			public const int txtFullName = 2131296513;
+			public const int txtLastNameReg = 2131296512;
 			
 			// aapt resource value: 0x7F090102
-			public const int txtFullNameResult = 2131296514;
+			public const int txtLoginReg = 2131296514;
 			
 			// aapt resource value: 0x7F090103
-			public const int txtItem = 2131296515;
+			public const int txtLogoText = 2131296515;
+			
+			// aapt resource value: 0x7F090101
+			public const int txtLogOut = 2131296513;
 			
 			// aapt resource value: 0x7F090104
-			public const int txtLastNameReg = 2131296516;
-			
-			// aapt resource value: 0x7F090106
-			public const int txtLoginReg = 2131296518;
-			
-			// aapt resource value: 0x7F090107
-			public const int txtLogoText = 2131296519;
+			public const int txtMedicine = 2131296516;
 			
 			// aapt resource value: 0x7F090105
-			public const int txtLogOut = 2131296517;
+			public const int txtNoAccount = 2131296517;
+			
+			// aapt resource value: 0x7F090106
+			public const int txtNote = 2131296518;
+			
+			// aapt resource value: 0x7F090107
+			public const int txtOrderSummary = 2131296519;
 			
 			// aapt resource value: 0x7F090108
-			public const int txtMedicine = 2131296520;
+			public const int txtPassowrdLog = 2131296520;
 			
 			// aapt resource value: 0x7F090109
-			public const int txtNoAccount = 2131296521;
+			public const int txtPasswordReg = 2131296521;
 			
 			// aapt resource value: 0x7F09010A
-			public const int txtNote = 2131296522;
+			public const int txtPhoneNumber = 2131296522;
 			
 			// aapt resource value: 0x7F09010B
-			public const int txtOrderSummary = 2131296523;
+			public const int txtProductDesc = 2131296523;
 			
 			// aapt resource value: 0x7F09010C
-			public const int txtPassChange = 2131296524;
+			public const int txtProductDescCart = 2131296524;
 			
 			// aapt resource value: 0x7F09010D
-			public const int txtPassDash = 2131296525;
+			public const int txtProductName = 2131296525;
 			
 			// aapt resource value: 0x7F09010E
-			public const int txtPassowrdLog = 2131296526;
+			public const int txtProductPrice = 2131296526;
 			
 			// aapt resource value: 0x7F09010F
-			public const int txtPasswordReg = 2131296527;
+			public const int txtQty = 2131296527;
 			
 			// aapt resource value: 0x7F090110
-			public const int txtPhoneNumber = 2131296528;
+			public const int txtQtyPayment = 2131296528;
 			
 			// aapt resource value: 0x7F090111
-			public const int txtProductDesc = 2131296529;
+			public const int txtRegisterNow = 2131296529;
 			
 			// aapt resource value: 0x7F090112
-			public const int txtProductDescCart = 2131296530;
+			public const int txtSearch = 2131296530;
 			
 			// aapt resource value: 0x7F090113
-			public const int txtProductName = 2131296531;
+			public const int txtSelectDate = 2131296531;
 			
 			// aapt resource value: 0x7F090114
-			public const int txtProductPrice = 2131296532;
+			public const int txtSubTotal = 2131296532;
 			
 			// aapt resource value: 0x7F090115
-			public const int txtQty = 2131296533;
+			public const int txtTitleLogIn = 2131296533;
 			
 			// aapt resource value: 0x7F090116
-			public const int txtQtyPayment = 2131296534;
+			public const int txtTitleReg = 2131296534;
 			
 			// aapt resource value: 0x7F090117
-			public const int txtRegisterNow = 2131296535;
+			public const int txtUnitPrice = 2131296535;
 			
 			// aapt resource value: 0x7F090118
-			public const int txtSearch = 2131296536;
+			public const int txtVitaminSupplement = 2131296536;
 			
 			// aapt resource value: 0x7F090119
-			public const int txtSelectDate = 2131296537;
+			public const int @unchecked = 2131296537;
 			
 			// aapt resource value: 0x7F09011A
-			public const int txtSubTotal = 2131296538;
+			public const int uniform = 2131296538;
 			
 			// aapt resource value: 0x7F09011B
-			public const int txtTitleLogIn = 2131296539;
+			public const int unlabeled = 2131296539;
 			
 			// aapt resource value: 0x7F09011C
-			public const int txtTitleReg = 2131296540;
+			public const int up = 2131296540;
 			
 			// aapt resource value: 0x7F09011D
-			public const int txtUnitPrice = 2131296541;
+			public const int useLogo = 2131296541;
 			
 			// aapt resource value: 0x7F09011E
-			public const int txtVitaminSupplement = 2131296542;
+			public const int view_offset_helper = 2131296542;
 			
 			// aapt resource value: 0x7F09011F
-			public const int @unchecked = 2131296543;
+			public const int view_tree_saved_state_registry_owner = 2131296543;
 			
 			// aapt resource value: 0x7F090120
-			public const int uniform = 2131296544;
+			public const int visible = 2131296544;
 			
 			// aapt resource value: 0x7F090121
-			public const int unlabeled = 2131296545;
+			public const int visible_removing_fragment_view_tag = 2131296545;
 			
 			// aapt resource value: 0x7F090122
-			public const int up = 2131296546;
+			public const int withText = 2131296546;
 			
 			// aapt resource value: 0x7F090123
-			public const int useLogo = 2131296547;
-			
-			// aapt resource value: 0x7F090124
-			public const int view_offset_helper = 2131296548;
-			
-			// aapt resource value: 0x7F090125
-			public const int view_tree_saved_state_registry_owner = 2131296549;
-			
-			// aapt resource value: 0x7F090126
-			public const int visible = 2131296550;
-			
-			// aapt resource value: 0x7F090127
-			public const int visible_removing_fragment_view_tag = 2131296551;
-			
-			// aapt resource value: 0x7F090128
-			public const int withText = 2131296552;
-			
-			// aapt resource value: 0x7F090129
-			public const int wrap_content = 2131296553;
+			public const int wrap_content = 2131296547;
 			
 			static Id()
 			{
