@@ -17,55 +17,38 @@ namespace A1
     class CustomerCRUD : ICustomerCRUD
     {
 
-        private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
-        private static readonly SqlConnection conn = dbConnInstance.GetConnection();
+        //private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
+        //private static readonly SqlConnection conn = dbConnInstance.GetConnection();
 
         /* - old way    
         private static SqlConnection conn = DBConnection.getConnection();
         */
 
-        public void OpenConnection()
-        {
-            var retries = 10;
-
-            while (conn.State != ConnectionState.Open && retries > 0)
-            {
-                try
-                {
-                    conn.Open();
-                }
-                catch (Exception)
-                {
-                    //
-
-                }
-                Thread.Sleep(500);
-                retries--;
-            }
-        }
+        private SqlConnection conn = DBConnection.GetDBConnInstance().GetConnection();
 
         public int Add(Customer cs) {
 
-            this.OpenConnection();
+            
             SqlCommand command = new SqlCommand(null, conn);
 
             // Create and prepare an SQL statement.
             command.CommandText =
-                "INSERT INTO Customers(FirstName, LastName, DoB, Email, Phone, Address) " +
-                "VALUES (@fname, @lname, @dob, @email, @phone, @address)";
+                "INSERT INTO Customers(FirstName, LastName, DoB, Email, Phone, Address, Password) " +
+                "VALUES (@fname, @lname, @dob, @email, @phone, @address,@password)";
             
             SqlParameter fnameParam =
-                new SqlParameter("@fname", SqlDbType.Text, 30);
+                new SqlParameter("@fname", SqlDbType.VarChar, 30);
             SqlParameter lnameParam =
-                new SqlParameter("@lname", SqlDbType.Text,30);
+                new SqlParameter("@lname", SqlDbType.VarChar, 30);
             SqlParameter dobParam =
                 new SqlParameter("@dob", SqlDbType.Date, 8);
             SqlParameter emailParam =
-                new SqlParameter("@email", SqlDbType.Text,50);
+                new SqlParameter("@email", SqlDbType.VarChar, 50);
             SqlParameter phoneParam =
-                new SqlParameter("@phone", SqlDbType.Text,10);
+                new SqlParameter("@phone", SqlDbType.VarChar, 10);
             SqlParameter addressParam =
-                new SqlParameter("@address", SqlDbType.Text,100 );
+                new SqlParameter("@address", SqlDbType.VarChar, 100 );
+            SqlParameter passwordParam = new SqlParameter("@password", SqlDbType.VarChar, 20);
 
             fnameParam.Value = cs.FirstName;
             lnameParam.Value = cs.LastName;
@@ -73,12 +56,14 @@ namespace A1
             emailParam.Value = cs.Email;
             phoneParam.Value = cs.Phone;
             addressParam.Value = cs.Address;
+            passwordParam.Value = cs.Password;
             command.Parameters.Add(fnameParam);
             command.Parameters.Add(lnameParam);
             command.Parameters.Add(dobParam);
             command.Parameters.Add(emailParam);
             command.Parameters.Add(phoneParam);
             command.Parameters.Add(addressParam);
+            command.Parameters.Add(passwordParam);
 
             // Call Prepare after setting the Commandtext and Parameters.
             command.Prepare();
@@ -89,7 +74,6 @@ namespace A1
         public Customer GetCustomer(string emailOrPhone)
         {
             Customer cus = null;
-            this.OpenConnection();
             SqlCommand command = new SqlCommand(null, conn);
 
             // Create and prepare an SQL statement.

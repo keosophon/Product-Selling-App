@@ -26,6 +26,8 @@ namespace A1
         private TextView txtPhone;
         private TextView txtEmail;
         private TextView txtAdress;
+        private TextView txtPassword;
+        private TextView txtReEnterPassword;
         private TextView txtSignIn;
         private Button btnSignUp;
                 
@@ -44,6 +46,8 @@ namespace A1
             txtPhone = FindViewById<TextView>(Resource.Id.txtPhoneNumber);
             txtEmail = FindViewById<TextView>(Resource.Id.txtEmailReg);
             txtAdress = FindViewById<TextView>(Resource.Id.txtAddress);
+            txtPassword = FindViewById<TextView>(Resource.Id.txtPasswordReg);
+            txtReEnterPassword = FindViewById<TextView>(Resource.Id.txtConfirmPasswordrdReg);
             txtSignIn = FindViewById<TextView>(Resource.Id.txtLoginReg);
             btnSignUp = FindViewById<Button>(Resource.Id.btnSignUp);
 
@@ -53,12 +57,25 @@ namespace A1
             btnSignUp.Click += BtnSignUp_Click;
 
             //underline text in UI
-            txtSelectDoB.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
-            txtSignIn.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
+            //txtSelectDoB.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
+            //txtSignIn.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
             
         }
             private void BtnSignUp_Click(object sender, EventArgs e)
         {
+
+            if (txtPassword.Text == "")
+            {
+                this.BuildAlertDialog("Password Error", "Password cannot be empty!");
+                return;
+            }
+
+            if (txtPassword.Text != txtReEnterPassword.Text)
+            {
+                this.BuildAlertDialog("Password Error", "Password and Re-enter password must be the same!");
+                return;
+            }
+
             Customer cs = new Customer();
             CustomerCRUD customerCRUD = new CustomerCRUD();
             cs.FirstName = txtFirstName.Text;
@@ -66,8 +83,21 @@ namespace A1
             cs.DoB = Convert.ToDateTime(txtDoB.Text);
             cs.Phone = txtPhone.Text;
             cs.Email = txtEmail.Text;
-            cs.Address = txtAdress.Text;            
-            customerCRUD.Add(cs);
+            cs.Address = txtAdress.Text;
+            cs.Password = txtPassword.Text;
+            if (customerCRUD.Add(cs) == 1)
+            {
+                this.BuildAlertDialog("Success!", "Registration succeed!");
+                txtFirstName.Text = "";
+                txtLastName.Text = "";
+                txtDoB.Text = "";
+                txtPhone.Text = "";
+                txtEmail.Text = "";
+                txtAdress.Text = "";
+                txtPassword.Text = "";
+                txtReEnterPassword.Text = "";
+            }
+            txtSignIn.RequestFocus();
 
             
             /*

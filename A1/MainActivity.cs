@@ -6,6 +6,9 @@ using Android.Widget;
 using Android.Views;
 using Android.Content;
 using System.Data.SqlClient;
+using System.Data;
+using System.Threading;
+using System;
 
 namespace A1
 {
@@ -16,6 +19,10 @@ namespace A1
         private EditText txtPassword;
         private TextView txtRegisterNow;
         private TextView btnSingIn;
+
+        //creae database connection
+        private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
+        private static readonly SqlConnection conn = dbConnInstance.GetConnection();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,14 +36,10 @@ namespace A1
             txtRegisterNow = FindViewById<TextView>(Resource.Id.txtRegisterNow);
             btnSingIn = FindViewById<Button>(Resource.Id.btnLogin);
 
-
             //underline text in UI
             txtRegisterNow.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
 
-
             txtEmailPhoneLog.RequestFocus();
-
-
 
             //link events to event handlers
             txtRegisterNow.Click += delegate
@@ -45,6 +48,28 @@ namespace A1
             };
 
             btnSingIn.Click += BtnSingIn_Click;
+
+            this.OpenConnection();
+    }
+
+        public void OpenConnection()
+        {
+            var retries = 10;
+
+            while (conn.State != ConnectionState.Open && retries > 0)
+            {
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception ex)
+                {
+                    this.BuildAlertDialog("Connection Error", ex.Message);
+
+                }
+                Thread.Sleep(500);
+                retries--;
+            }
         }
 
         public override void OnBackPressed()
@@ -90,6 +115,8 @@ namespace A1
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+        
 
         
     }
