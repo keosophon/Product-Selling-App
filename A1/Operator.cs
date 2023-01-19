@@ -15,13 +15,10 @@ namespace A1
 {
     class Operator
     {
-        private readonly string dataSource = @"Persist Security Info=False;User ID=admin;Password=123456789;Initial Catalog=A1;Server=192.168.1.106\SQLEXPRESS;Encrypt=False;Connection Timeout=1000";
 
-        public SqlConnection GetDBConnection()
+        public Operator() { }
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = this.dataSource;
-            return con;
+
         }
 
     }

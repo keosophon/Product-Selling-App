@@ -37,7 +37,7 @@
             android:layout_height="@dimen/layout_height"
             android:id="@+id/txtEmailLog"
             android:layout_marginTop="@dimen/margin_medium"
-            android:hint = "@string/email"
+            android:hint = "@string/emailOrPhone"
             android:background="@drawable/editTextBackground"
             android:layout_marginLeft="@dimen/margin_medium"
             android:layout_marginRight="@dimen/margin_medium"
