@@ -19,10 +19,6 @@ namespace A1
         private EditText txtPassword;
         private TextView txtRegisterNow;
         private TextView btnSingIn;
-
-        //create db connection
-        //private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
-        //private static readonly SqlConnection conn = dbConnInstance.GetConnection();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -35,11 +31,6 @@ namespace A1
             txtPassword = FindViewById<EditText>(Resource.Id.txtPassowrdLog);
             txtRegisterNow = FindViewById<TextView>(Resource.Id.txtRegisterNow);
             btnSingIn = FindViewById<Button>(Resource.Id.btnLogin);
-
-            
-
-            //underline text in UI
-            txtRegisterNow.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
 
             txtEmailPhoneLog.RequestFocus();
 

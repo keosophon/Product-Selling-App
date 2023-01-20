@@ -14,6 +14,9 @@ using System.Threading;
 
 namespace A1
 {
+    /// <summary>
+    /// CRUD Implementation for Customers Table
+    /// </summary>
     class CustomerCRUD : ICRUD<Customer>
     {
 

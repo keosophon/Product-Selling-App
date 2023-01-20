@@ -58,9 +58,8 @@ namespace A1
 
             
         }
-            private void BtnSignUp_Click(object sender, EventArgs e)
-        {   
-
+        private void BtnSignUp_Click(object sender, EventArgs e)
+        {
 
             if (txtPassword.Text == "")
             {
@@ -74,7 +73,7 @@ namespace A1
                 return;
             }
 
-            ICRUD<Customer> customerCRUD = CRUDFactory.CreateCRUD<Customer>();            
+            ICRUD<Customer> customerCRUD = CRUDFactory.CreateCRUD<Customer>();
             try
             {
                 Customer cs = new Customer();
@@ -103,28 +102,6 @@ namespace A1
             {
                 this.BuildAlertDialog("Connection Error", ex.Message);
             }
-
-            /*
-            SqlConnection conn = DBConnection.getConnection();
-            var retries = 10;
-
-            while (conn.State != ConnectionState.Open && retries > 0)
-            {
-                try
-                {
-                    conn.Open();
-                    this.BuildAlertDialog("Open Connection", "Open Connection To SQL Server Success!");
-                }
-                catch (Exception ex)
-                {
-                    this.BuildAlertDialog("Connection Error", ex.Message);
-
-                }
-                Thread.Sleep(500);
-                retries--;
-            }
-            */
-
         }
 
         public override void OnBackPressed()
