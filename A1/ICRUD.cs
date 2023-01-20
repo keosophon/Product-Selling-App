@@ -13,8 +13,9 @@ using System.Text;
 
 namespace A1
 {
-    public interface ICRUD<T> where T:class
-    {
+	//public interface ICRUD<T> where T : class
+	public interface ICRUD<T>
+	{
 		public int Add(T obj) ;
 		public T GetObject(string par);
 		

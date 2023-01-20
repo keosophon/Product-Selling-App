@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddToCartActivity.cs" />
+    <Compile Include="CRUDFactory.cs" />
     <Compile Include="PaymentActivity.cs" />
     <Compile Include="ProductViewActivity.cs" />
     <Compile Include="Customer.cs" />

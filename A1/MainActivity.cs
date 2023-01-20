@@ -79,8 +79,8 @@ namespace A1
 
         private void BtnSingIn_Click(object sender, System.EventArgs e)
         {
-
-            CustomerCRUD customerCRUD = new CustomerCRUD();
+            ICRUD<Customer> customerCRUD = CRUDFactory.CreateCRUD<Customer>();
+            //CustomerCRUD customerCRUD = new CustomerCRUD();
             Customer cus = customerCRUD.GetObject(txtEmailPhoneLog.Text);
 
             if (cus == null)
