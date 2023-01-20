@@ -81,7 +81,7 @@ namespace A1
         {
 
             CustomerCRUD customerCRUD = new CustomerCRUD();
-            Customer cus = customerCRUD.GetCustomer(txtEmailPhoneLog.Text);
+            Customer cus = customerCRUD.GetObject(txtEmailPhoneLog.Text);
 
             if (cus == null)
             {

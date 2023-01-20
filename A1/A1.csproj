@@ -71,7 +71,7 @@
     <Compile Include="ProductViewActivity.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerCRUD.cs" />
-    <Compile Include="ICustomerCRUD.cs" />
+    <Compile Include="ICRUD.cs" />
     <Compile Include="DashBoardActivity.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="RegistrationActivity.cs" />

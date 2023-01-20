@@ -13,10 +13,10 @@ using System.Text;
 
 namespace A1
 {
-    public interface ICustomerCRUD
+    public interface ICRUD<T> where T:class
     {
-		public int Add(Customer cus) ;
-		public Customer GetCustomer(string emailOrPhone);
+		public int Add(T obj) ;
+		public T GetObject(string par);
 		
 
 	}

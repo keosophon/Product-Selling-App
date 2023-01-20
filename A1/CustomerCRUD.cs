@@ -14,7 +14,7 @@ using System.Threading;
 
 namespace A1
 {
-    class CustomerCRUD : ICustomerCRUD
+    class CustomerCRUD : ICRUD<Customer>
     {
 
         //private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
@@ -71,7 +71,7 @@ namespace A1
             return result;
         }
 
-        public Customer GetCustomer(string emailOrPhone)
+        public Customer GetObject(string emailOrPhone)
         {
             Customer cus = null;
             SqlCommand command = new SqlCommand(null, conn);

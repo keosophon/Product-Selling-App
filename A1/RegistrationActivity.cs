@@ -62,7 +62,8 @@ namespace A1
             
         }
             private void BtnSignUp_Click(object sender, EventArgs e)
-        {
+        {   
+
 
             if (txtPassword.Text == "")
             {
