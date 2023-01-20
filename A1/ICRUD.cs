@@ -18,7 +18,8 @@ namespace A1
 	{
 		public int Add(T obj) ;
 		public T GetObject(string par);
-		
+
+		public T GetObject(int id);
 
 	}
 }

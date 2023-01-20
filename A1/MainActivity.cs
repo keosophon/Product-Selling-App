@@ -50,8 +50,7 @@ namespace A1
             btnSingIn.Click += BtnSingIn_Click;
 
             this.OpenConnection();
-    }
-
+        }
         public void OpenConnection()
         {
             var retries = 10;

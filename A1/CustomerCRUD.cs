@@ -101,5 +101,11 @@ namespace A1
             
             return cus;
         }
+
+        public Customer GetObject(int id)
+        {
+            Customer cs =null;
+            return cs;
+        }
     }
 }

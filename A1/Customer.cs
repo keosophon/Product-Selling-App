@@ -25,6 +25,7 @@ namespace A1
 
 		public Customer() { }
 
+		/*
 		public Customer(string fname, string lname, DateTime dob, string email, string phone, string address, string password)
 		{
 			this.FirstName = fname;
@@ -35,6 +36,6 @@ namespace A1
 			this.Address = address;
 			this.Password = password;
 		}
-
+		*/
 	}
 }
