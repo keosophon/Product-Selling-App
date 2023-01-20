@@ -12,6 +12,9 @@ using System.Text;
 
 namespace A1
 {
+    /// <summary>
+    /// Factory to create CRUD implementation
+    /// </summary>
     public class CRUDFactory
     {
         public static ICRUD<T> CreateCRUD<T> ()

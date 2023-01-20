@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using System.Threading;
 
 namespace A1
 {
@@ -20,7 +21,7 @@ namespace A1
     {
         private static DBConnection dbConnInstance;
         private readonly SqlConnection conn = new SqlConnection();
-        private readonly string url = @"Persist Security Info=False;User ID=admin;Password=123456789;Initial Catalog=A1;Server=192.168.1.106\SQLEXPRESS;Encrypt=False;Connection Timeout=1000;MultipleActiveResultSets=true";
+        private readonly string url = @"Persist Security Info=False;User ID=admin;Password=123456789;Initial Catalog=A1;Server=192.168.1.106\SQLEXPRESS;Encrypt=False;Connection Timeout=60;MultipleActiveResultSets=true";
         
         private DBConnection()
         {
@@ -41,18 +42,24 @@ namespace A1
             return dbConnInstance;
         }
 
-        /* - old way
-        private static readonly SqlConnection con = new SqlConnection();
-        
-        static DBConnection()
-        {                 
-            con.ConnectionString = @"Persist Security Info=False;User ID=admin;Password=123456789;Initial Catalog=A1;Server=192.168.1.106\SQLEXPRESS;Encrypt=False;Connection Timeout=1000";
-        }
-
-        public static SqlConnection getConnection()
+        public void OpenConnection()
         {
-            return con;
+            var retries = 10;
+
+            while (conn.State != ConnectionState.Open && retries > 0)
+            {
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+
+                }
+                Thread.Sleep(500);
+                retries--;
+            }
         }
-        */
     }
 }

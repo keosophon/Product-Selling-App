@@ -14,7 +14,7 @@ namespace A1
 {
     class ProductCRUD : ICRUD<Product>
     {
-        private SqlConnection conn = DBConnection.GetDBConnInstance().GetConnection();
+        //private SqlConnection conn = DBConnection.GetDBConnInstance().GetConnection();
 
         public int Add(Product product)
         {
@@ -30,32 +30,6 @@ namespace A1
         public Product GetObject(int id)
         {
             Product product = null;
-            //SqlCommand command = new SqlCommand(null, conn);
-
-            /*
-            // Create and prepare an SQL statement.
-            command.CommandText = "SELECT * FROM Product WHERE Email=@email OR Phone=@phone;";
-            SqlParameter email =
-                new SqlParameter("@email", SqlDbType.VarChar, 50);
-            SqlParameter phone =
-                new SqlParameter("@phone", SqlDbType.VarChar, 15);
-
-            email.Value = emailOrPhone;
-            phone.Value = emailOrPhone;
-
-            command.Parameters.Add(email);
-            command.Parameters.Add(phone);
-            command.Prepare();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                cus = new Customer();
-                cus.Email = reader[4].ToString();
-                cus.Phone = reader[5].ToString();
-                cus.Password = reader[7].ToString();
-
-            }
-            */
 
             return product;
         }

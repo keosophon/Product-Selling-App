@@ -20,9 +20,9 @@ namespace A1
         private TextView txtRegisterNow;
         private TextView btnSingIn;
 
-        //creae database connection
-        private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
-        private static readonly SqlConnection conn = dbConnInstance.GetConnection();
+        //create db connection
+        //private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
+        //private static readonly SqlConnection conn = dbConnInstance.GetConnection();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -36,6 +36,8 @@ namespace A1
             txtRegisterNow = FindViewById<TextView>(Resource.Id.txtRegisterNow);
             btnSingIn = FindViewById<Button>(Resource.Id.btnLogin);
 
+            
+
             //underline text in UI
             txtRegisterNow.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
 
@@ -48,27 +50,6 @@ namespace A1
             };
 
             btnSingIn.Click += BtnSingIn_Click;
-
-            this.OpenConnection();
-        }
-        public void OpenConnection()
-        {
-            var retries = 10;
-
-            while (conn.State != ConnectionState.Open && retries > 0)
-            {
-                try
-                {
-                    conn.Open();
-                }
-                catch (Exception ex)
-                {
-                    this.BuildAlertDialog("Connection Error", ex.Message);
-
-                }
-                Thread.Sleep(500);
-                retries--;
-            }
         }
 
         public override void OnBackPressed()
@@ -78,24 +59,36 @@ namespace A1
 
         private void BtnSingIn_Click(object sender, System.EventArgs e)
         {
-            ICRUD<Customer> customerCRUD = CRUDFactory.CreateCRUD<Customer>();
-            //CustomerCRUD customerCRUD = new CustomerCRUD();
-            Customer cus = customerCRUD.GetObject(txtEmailPhoneLog.Text);
 
-            if (cus == null)
+            if (txtEmailPhoneLog.Text == "" || txtPassword.Text == "")
             {
-                this.BuildAlertDialog("Wrong Input", "Username or Password is incorrect");
                 return;
             }
-            
 
-            if ((txtEmailPhoneLog.Text == cus.Email || txtEmailPhoneLog.Text == cus.Phone) && txtPassword.Text == cus.Password)
-            {
-                StartActivity(typeof(DashBoardActivity));
+            ICRUD<Customer> customerCRUD = CRUDFactory.CreateCRUD<Customer>();
+            try
+            {               
+
+                Customer cus = customerCRUD.GetObject(txtEmailPhoneLog.Text);
+                if (cus == null)
+                {
+                    this.BuildAlertDialog("Wrong Input", "Username or Password is incorrect");
+                    return;
+                }
+
+
+                if ((txtEmailPhoneLog.Text == cus.Email || txtEmailPhoneLog.Text == cus.Phone) && txtPassword.Text == cus.Password)
+                {
+                    StartActivity(typeof(DashBoardActivity));
+                }
+                else
+                {
+                    this.BuildAlertDialog("Wrong Input", "Username or Password is incorrect");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                this.BuildAlertDialog("Wrong Input", "Username or Password is incorrect");
+                this.BuildAlertDialog("Connection Error", ex.Message);
             }
         }
 
@@ -114,9 +107,5 @@ namespace A1
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-
-        
-
-        
     }
 }

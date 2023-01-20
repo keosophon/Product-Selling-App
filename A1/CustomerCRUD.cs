@@ -17,25 +17,15 @@ namespace A1
     class CustomerCRUD : ICRUD<Customer>
     {
 
-        //private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
-        //private static readonly SqlConnection conn = dbConnInstance.GetConnection();
-
-        /* - old way    
-        private static SqlConnection conn = DBConnection.getConnection();
-        */
-
-        private SqlConnection conn = DBConnection.GetDBConnInstance().GetConnection();
+        private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
+        private static readonly SqlConnection conn = dbConnInstance.GetConnection();        
 
         public int Add(Customer cs) {
-
-            
-            SqlCommand command = new SqlCommand(null, conn);
-
-            // Create and prepare an SQL statement.
-            command.CommandText =
-                "INSERT INTO Customers(FirstName, LastName, DoB, Email, Phone, Address, Password) " +
+            dbConnInstance.OpenConnection();
+            string commandText = "INSERT INTO Customers(FirstName, LastName, DoB, Email, Phone, Address, Password) " +
                 "VALUES (@fname, @lname, @dob, @email, @phone, @address,@password)";
-            
+            SqlCommand command = new SqlCommand(commandText, conn);                   
+
             SqlParameter fnameParam =
                 new SqlParameter("@fname", SqlDbType.VarChar, 30);
             SqlParameter lnameParam =
@@ -47,7 +37,7 @@ namespace A1
             SqlParameter phoneParam =
                 new SqlParameter("@phone", SqlDbType.VarChar, 10);
             SqlParameter addressParam =
-                new SqlParameter("@address", SqlDbType.VarChar, 100 );
+                new SqlParameter("@address", SqlDbType.VarChar, 100);
             SqlParameter passwordParam = new SqlParameter("@password", SqlDbType.VarChar, 20);
 
             fnameParam.Value = cs.FirstName;
@@ -68,16 +58,18 @@ namespace A1
             // Call Prepare after setting the Commandtext and Parameters.
             command.Prepare();
             int result = command.ExecuteNonQuery();
+            conn.Close();
             return result;
+            
         }
 
         public Customer GetObject(string emailOrPhone)
         {
+            dbConnInstance.OpenConnection();
+            string commandText = "SELECT * FROM Customers WHERE Email=@email OR Phone=@phone;";
             Customer cus = null;
-            SqlCommand command = new SqlCommand(null, conn);
+            SqlCommand command = new SqlCommand(commandText, conn);
 
-            // Create and prepare an SQL statement.
-            command.CommandText = "SELECT * FROM Customers WHERE Email=@email OR Phone=@phone;";
             SqlParameter email =
                 new SqlParameter("@email", SqlDbType.VarChar, 50);
             SqlParameter phone =
@@ -93,13 +85,15 @@ namespace A1
             while (reader.Read())
             {
                 cus = new Customer();
-                cus.Email = reader[4].ToString() ;
+                cus.Email = reader[4].ToString();
                 cus.Phone = reader[5].ToString();
                 cus.Password = reader[7].ToString();
-                
+
             }
-            
+            conn.Close();
             return cus;
+            
+            
         }
 
         public Customer GetObject(int id)

@@ -56,9 +56,6 @@ namespace A1
             txtSignIn.Click += TxtSignIn_Click;
             btnSignUp.Click += BtnSignUp_Click;
 
-            //underline text in UI
-            //txtSelectDoB.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
-            //txtSignIn.PaintFlags = Android.Graphics.PaintFlags.UnderlineText;
             
         }
             private void BtnSignUp_Click(object sender, EventArgs e)
@@ -77,30 +74,36 @@ namespace A1
                 return;
             }
 
-            Customer cs = new Customer();
-            CustomerCRUD customerCRUD = new CustomerCRUD();
-            cs.FirstName = txtFirstName.Text;
-            cs.LastName = txtLastName.Text;
-            cs.DoB = Convert.ToDateTime(txtDoB.Text);
-            cs.Phone = txtPhone.Text;
-            cs.Email = txtEmail.Text;
-            cs.Address = txtAdress.Text;
-            cs.Password = txtPassword.Text;
-            if (customerCRUD.Add(cs) == 1)
+            ICRUD<Customer> customerCRUD = CRUDFactory.CreateCRUD<Customer>();            
+            try
             {
-                this.BuildAlertDialog("Success!", "Registration succeed!");
-                txtFirstName.Text = "";
-                txtLastName.Text = "";
-                txtDoB.Text = "";
-                txtPhone.Text = "";
-                txtEmail.Text = "";
-                txtAdress.Text = "";
-                txtPassword.Text = "";
-                txtReEnterPassword.Text = "";
+                Customer cs = new Customer();
+                cs.FirstName = txtFirstName.Text;
+                cs.LastName = txtLastName.Text;
+                cs.DoB = Convert.ToDateTime(txtDoB.Text);
+                cs.Phone = txtPhone.Text;
+                cs.Email = txtEmail.Text;
+                cs.Address = txtAdress.Text;
+                cs.Password = txtPassword.Text;
+                if (customerCRUD.Add(cs) == 1)
+                {
+                    this.BuildAlertDialog("Success!", "Registration succeed!");
+                    txtFirstName.Text = "";
+                    txtLastName.Text = "";
+                    txtDoB.Text = "";
+                    txtPhone.Text = "";
+                    txtEmail.Text = "";
+                    txtAdress.Text = "";
+                    txtPassword.Text = "";
+                    txtReEnterPassword.Text = "";
+                }
+                txtSignIn.RequestFocus();
             }
-            txtSignIn.RequestFocus();
+            catch (Exception ex)
+            {
+                this.BuildAlertDialog("Connection Error", ex.Message);
+            }
 
-            
             /*
             SqlConnection conn = DBConnection.getConnection();
             var retries = 10;
