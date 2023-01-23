@@ -68,8 +68,8 @@ namespace A1
                 int id = (int)typeof(Resource.Drawable).GetField(productList[0].ImageSmall).GetValue(null);
 
                 // Converting Drawable Resource to Bitmap
-                var myImage = BitmapFactory.DecodeResource(Resources, id);
-                imgBtnProduct1.SetImageBitmap(myImage);
+                var bitmapImg = BitmapFactory.DecodeResource(Resources, id);
+                imgBtnProduct1.SetImageBitmap(bitmapImg);
 
                 txtProductDescription1.Text = productList[0].Description;
                 txtProductPrice1.Text = productList[0].Price.ToString();
