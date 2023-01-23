@@ -21,5 +21,6 @@ namespace A1
 
 		public T GetObject(int id);
 
+		public List<T> GetObjects();
 	}
 }

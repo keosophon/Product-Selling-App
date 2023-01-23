@@ -93,6 +93,7 @@ namespace A1
                 cus.Password = reader[7].ToString();
 
             }
+            reader.Close();
             conn.Close();
             return cus;
             
@@ -103,6 +104,12 @@ namespace A1
         {
             Customer cs =null;
             return cs;
+        }
+        public List<Customer> GetObjects()
+        {
+            //not required to implement in detail because not in project scope
+            List<Customer> customersList = null;
+            return customersList;
         }
     }
 }

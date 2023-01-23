@@ -17,7 +17,9 @@ namespace A1
     {
         private TextView txtDashBoard;
         private TextView txtLogOut;
-        private GridLayout productGrid;
+        private ImageButton imgBtnProduct1;
+        private TextView txtProductDescription1;
+        private TextView txtProductPrice1;
        
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,11 +31,8 @@ namespace A1
             //link variables to UI elements
             txtDashBoard = FindViewById<TextView>(Resource.Id.txtDashBoard);
             txtLogOut = FindViewById<TextView>(Resource.Id.txtLogOut);
-            productGrid = FindViewById<GridLayout>(Resource.Id.productGrid);
-            //this.SetGrid(productGrid);
-
-
-            
+            txtProductDescription1 = FindViewById<TextView>(Resource.Id.txtProductDesc1);
+            txtProductPrice1 = FindViewById<TextView>(Resource.Id.txtProductPrice1);
             
             txtLogOut.Click += delegate
             {
@@ -45,34 +44,28 @@ namespace A1
                 StartActivity(typeof(DashBoardActivity));
             };
 
-            
+            this.DisplayAllProducts();
 
         }
-
-        /*
-        public void SetGrid(GridLayout productGrid)
-        {
-            productGrid.RowCount = 1;
-            productGrid.ColumnCount = 2;
-            TextView pro1 = new TextView(this);
-            pro1.Text = "1";
-
-            var pro1Params = new GridLayout.LayoutParams(GridLayout.InvokeSpec(0, 1), GridLayout.InvokeSpec(0, 1));
-            pro1.LayoutParameters = pro1Params;
-
-            TextView pro2 = new TextView(this);
-            pro2.Text = "1";
-            var pro2Params = new GridLayout.LayoutParams(GridLayout.InvokeSpec(0, 1), GridLayout.InvokeSpec(1, 1));
-            pro2.LayoutParameters = pro2Params;
-            productGrid.AddView(pro1);
-            productGrid.AddView(pro2);
-            
-
-        }*/
         
         public override void OnBackPressed()
         {
             //disable back button
+        }
+
+        public void DisplayAllProducts()
+        {
+            //create productCRUD through Factory Design Pattern
+            ICRUD<Product> productCRUD = CRUDFactory.CreateCRUD<Product>();
+
+            List<Product> productList = productCRUD.GetObjects() ;
+
+            txtProductDescription1.Text = productList[0].Description;
+            txtProductPrice1.Text = productList[0].Price.ToString();
+
+
+
+
         }
     }
 }

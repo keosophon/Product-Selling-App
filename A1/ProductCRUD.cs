@@ -14,7 +14,8 @@ namespace A1
 {
     class ProductCRUD : ICRUD<Product>
     {
-        //private SqlConnection conn = DBConnection.GetDBConnInstance().GetConnection();
+        private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
+        private static readonly SqlConnection conn = dbConnInstance.GetConnection();
 
         public int Add(Product product)
         {
@@ -32,6 +33,31 @@ namespace A1
             Product product = null;
 
             return product;
+        }
+
+        public List<Product> GetObjects()
+        {
+            dbConnInstance.OpenConnection();
+            string commandText = "SELECT * FROM Products;";
+            List<Product> productList = new List<Product>();
+            SqlCommand command = new SqlCommand(commandText, conn);
+            command.Prepare();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Product product = new Product();
+                product.Name = reader[1].ToString();
+                product.Price = Convert.ToDecimal(reader[2].ToString());
+                product.Stock = Convert.ToInt32(reader[3].ToString());
+                product.Description = reader[4].ToString();
+                product.ImageSmall = reader[5].ToString();
+                product.ImageBig = reader[6].ToString();
+                productList.Add(product);
+
+            }
+            //reader.Close();
+            conn.Close();
+            return productList;
         }
     }
 }
