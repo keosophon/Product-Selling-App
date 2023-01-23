@@ -19,7 +19,7 @@ namespace A1
 		public int Stock { get; set; }
 		public string Description { get; set; }
 		public string ImageSmall { get; set; }
-		public string ImageBig { get; set; }
+		
 
 	}
 }

@@ -19,17 +19,21 @@ namespace A1
 
         public int Add(Product product)
         {
+            //not required to implement
             return -1;
         }
 
         public Product GetObject(string name)
         {
+            //no required to implement
+            
             Product product = null;
             return product;
         }
 
         public Product GetObject(int id)
         {
+            //no required to implement
             Product product = null;
 
             return product;
@@ -43,19 +47,17 @@ namespace A1
             SqlCommand command = new SqlCommand(commandText, conn);
             command.Prepare();
             SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
+            while (reader.Read())            {
                 Product product = new Product();
                 product.Name = reader[1].ToString();
                 product.Price = Convert.ToDecimal(reader[2].ToString());
                 product.Stock = Convert.ToInt32(reader[3].ToString());
                 product.Description = reader[4].ToString();
-                product.ImageSmall = reader[5].ToString();
-                product.ImageBig = reader[6].ToString();
+                product.ImageSmall = reader[5].ToString();                
                 productList.Add(product);
 
             }
-            //reader.Close();
+            reader.Close();
             conn.Close();
             return productList;
         }

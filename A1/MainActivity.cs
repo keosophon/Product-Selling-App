@@ -12,7 +12,7 @@ using System;
 
 namespace A1
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
         private EditText txtEmailPhoneLog;

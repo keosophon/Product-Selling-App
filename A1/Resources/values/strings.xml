@@ -53,6 +53,7 @@
 	<string name="checkout">Check Out</string>
 	<string name="emailOrPhone">Email Address or Phone Number</string>
 	<string name="detail">See Details</string>
+	<string name="productImage">Product Image</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>

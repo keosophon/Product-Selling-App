@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AndroidX.AppCompat.App;
+using System.Net;
+using Android.Graphics;
 
 namespace A1
 {
@@ -31,6 +33,7 @@ namespace A1
             //link variables to UI elements
             txtDashBoard = FindViewById<TextView>(Resource.Id.txtDashBoard);
             txtLogOut = FindViewById<TextView>(Resource.Id.txtLogOut);
+            imgBtnProduct1 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct1);
             txtProductDescription1 = FindViewById<TextView>(Resource.Id.txtProductDesc1);
             txtProductPrice1 = FindViewById<TextView>(Resource.Id.txtProductPrice1);
             
@@ -58,14 +61,56 @@ namespace A1
             //create productCRUD through Factory Design Pattern
             ICRUD<Product> productCRUD = CRUDFactory.CreateCRUD<Product>();
 
-            List<Product> productList = productCRUD.GetObjects() ;
+            try
+            {
+                List<Product> productList = productCRUD.GetObjects();
+                // Retrieving the local Resource ID from the name
+                int id = (int)typeof(Resource.Drawable).GetField(productList[0].ImageSmall).GetValue(null);
 
-            txtProductDescription1.Text = productList[0].Description;
-            txtProductPrice1.Text = productList[0].Price.ToString();
+                // Converting Drawable Resource to Bitmap
+                var myImage = BitmapFactory.DecodeResource(Resources, id);
+                imgBtnProduct1.SetImageBitmap(myImage);
 
-
-
-
+                txtProductDescription1.Text = productList[0].Description;
+                txtProductPrice1.Text = productList[0].Price.ToString();
+            }
+            catch (Exception ex)
+            {
+                this.BuildAlertDialog("Connection Error", ex.Message);
+            }
         }
+
+            
+            /*
+            private Android.Graphics.Bitmap GetImageBitmapFromUrl(string url)
+            {
+                Android.Graphics.Bitmap imageBitmap = null;
+
+                using (var webClient = new WebClient())
+                {
+                    var imageBytes = webClient.DownloadData(url);
+                    if (imageBytes != null && imageBytes.Length > 0)
+                    {
+                        imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                    }
+                }
+
+                return imageBitmap;
+            }
+            */
+        
+            
+            
+
+        public void BuildAlertDialog(string title, string message)
+        {
+            Android.App.AlertDialog.Builder connectionException = new Android.App.AlertDialog.Builder(this);
+            connectionException.SetTitle(title);
+            connectionException.SetMessage(message);
+            connectionException.SetNegativeButton("Return", delegate { });
+            connectionException.Create();
+            connectionException.Show();
+        }
+
     }
 }
