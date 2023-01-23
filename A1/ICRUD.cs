@@ -13,7 +13,7 @@ using System.Text;
 
 namespace A1
 {
-	//public interface ICRUD<T> where T : class
+	//CRUD Interface for entities
 	public interface ICRUD<T>
 	{
 		public int Add(T obj) ;

@@ -19,38 +19,38 @@ namespace A1
     /// </summary>
     public sealed class DBConnection
     {
-        private static DBConnection dbConnInstance;
-        private readonly SqlConnection conn = new SqlConnection();
-        private readonly string url = @"Persist Security Info=False;User ID=admin;Password=123456789;Initial Catalog=A1;Server=192.168.1.106\SQLEXPRESS;Encrypt=False;Connection Timeout=60;MultipleActiveResultSets=true";
+        private static DBConnection _dbConnInstance;
+        private readonly SqlConnection _conn = new SqlConnection();
+        private readonly string _url = @"Persist Security Info=False;User ID=admin;Password=123456789;Initial Catalog=A1;Server=192.168.1.106\SQLEXPRESS;Encrypt=False;Connection Timeout=60;MultipleActiveResultSets=true";
         
         private DBConnection()
         {
-            this.conn.ConnectionString = url;
+            this._conn.ConnectionString = _url;
         }
 
         public SqlConnection GetConnection()
         {
-            return conn;
+            return _conn;
         }
 
         public static DBConnection GetDBConnInstance()
         {
-            if (dbConnInstance == null || dbConnInstance.conn.State == ConnectionState.Closed)
+            if (_dbConnInstance == null || _dbConnInstance._conn.State == ConnectionState.Closed)
             {
-                dbConnInstance = new DBConnection();
+                _dbConnInstance = new DBConnection();
             }
-            return dbConnInstance;
+            return _dbConnInstance;
         }
 
         public void OpenConnection()
         {
             var retries = 10;
 
-            while (conn.State != ConnectionState.Open && retries > 0)
+            while (_conn.State != ConnectionState.Open && retries > 0)
             {
                 try
                 {
-                    conn.Open();
+                    _conn.Open();
                 }
                 catch (Exception ex)
                 {

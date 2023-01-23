@@ -12,7 +12,7 @@ using System;
 
 namespace A1
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
     public class MainActivity : AppCompatActivity
     {
         private EditText txtEmailPhoneLog;
@@ -56,6 +56,7 @@ namespace A1
                 return;
             }
 
+            //create customerCrud through Factory Design Pattern
             ICRUD<Customer> customerCRUD = CRUDFactory.CreateCRUD<Customer>();
             try
             {               

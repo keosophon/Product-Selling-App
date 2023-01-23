@@ -13,7 +13,7 @@ using System.Text;
 namespace A1
 {
     /// <summary>
-    /// Factory to create CRUD implementation
+    /// Factory to create CRUD implementation for entities
     /// </summary>
     public class CRUDFactory
     {
