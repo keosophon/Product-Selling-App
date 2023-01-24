@@ -4339,40 +4339,40 @@ namespace A1
 			public const int txtProductDesc = 2131296545;
 			
 			// aapt resource value: 0x7F090122
-			public const int txtProductDesc1 = 2131296546;
+			public const int txtProductDescCart = 2131296546;
 			
 			// aapt resource value: 0x7F090123
-			public const int txtProductDesc10 = 2131296547;
+			public const int txtProductName = 2131296547;
 			
 			// aapt resource value: 0x7F090124
-			public const int txtProductDesc2 = 2131296548;
+			public const int txtProductName1 = 2131296548;
 			
 			// aapt resource value: 0x7F090125
-			public const int txtProductDesc3 = 2131296549;
+			public const int txtProductName10 = 2131296549;
 			
 			// aapt resource value: 0x7F090126
-			public const int txtProductDesc4 = 2131296550;
+			public const int txtProductName2 = 2131296550;
 			
 			// aapt resource value: 0x7F090127
-			public const int txtProductDesc5 = 2131296551;
+			public const int txtProductName3 = 2131296551;
 			
 			// aapt resource value: 0x7F090128
-			public const int txtProductDesc6 = 2131296552;
+			public const int txtProductName4 = 2131296552;
 			
 			// aapt resource value: 0x7F090129
-			public const int txtProductDesc7 = 2131296553;
+			public const int txtProductName5 = 2131296553;
 			
 			// aapt resource value: 0x7F09012A
-			public const int txtProductDesc8 = 2131296554;
+			public const int txtProductName6 = 2131296554;
 			
 			// aapt resource value: 0x7F09012B
-			public const int txtProductDesc9 = 2131296555;
+			public const int txtProductName7 = 2131296555;
 			
 			// aapt resource value: 0x7F09012C
-			public const int txtProductDescCart = 2131296556;
+			public const int txtProductName8 = 2131296556;
 			
 			// aapt resource value: 0x7F09012D
-			public const int txtProductName = 2131296557;
+			public const int txtProductName9 = 2131296557;
 			
 			// aapt resource value: 0x7F09012E
 			public const int txtProductPrice = 2131296558;

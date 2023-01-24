@@ -30,21 +30,17 @@
             <GridLayout
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/productGrid"
-                android:rowCount="5"
+                android:rowCount="20"
                 android:columnCount="2"
+                android:padding="@dimen/margin_small" 
+                android:layout_marginLeft="@dimen/margin_medium"
                 >
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_row="0"
-                    android:layout_column="0"
-                    >
+                
                     <ImageButton
+                        android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
                         android:layout_width="wrap_content"
@@ -53,45 +49,11 @@
                         android:minHeight="25px"
                         android:id="@+id/imgbtnProduct1"
                         android:layout_marginTop="@dimen/margin_extra_large"
+                        android:layout_row="0"
+                        android:layout_column="0"
                         />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtProductDesc1"
-                        android:text="@string/productDesc"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtProductPrice1"
-                        android:text="@string/productPrice"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"/>
-
-                    <Button
-                        android:text="@string/detail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/btnDetail1"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_row="0"
-                    android:layout_column="1">
-                    <ImageButton
+                     <ImageButton
+                        android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
                         android:layout_width="wrap_content"
@@ -100,46 +62,81 @@
                         android:minHeight="25px"
                         android:id="@+id/imgbtnProduct2"
                         android:layout_marginTop="@dimen/margin_extra_large"
+                        android:layout_row="0"
+                        android:layout_column="1"
                         />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/txtProductDesc2"
-                        android:text="@string/productDesc"
+                        android:id="@+id/txtProductName1"
+                        android:text="@string/productName"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginTop="@dimen/margin_small" 
+                        android:layout_row="1"
+                        android:layout_column="0"/>
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtProductName2"
+                        android:text="@string/productName"
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
-                    />
+                        android:layout_row="1"
+                        android:layout_column="1"                        
+                        />
+
                     <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtProductPrice1"
+                        android:text="@string/productPrice"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_row="2"
+                        android:layout_column="0"  />
+                    <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtProductPrice2"
                         android:text="@string/productPrice"
                         android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"/>
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_row="2"
+                        android:layout_column="1"/>
 
                     <Button
+                        android:layout_gravity="center"
                         android:text="@string/detail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btnDetail2"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
+                        android:id="@+id/btnDetail1"
                         android:layout_marginTop="@dimen/margin_small"
                         android:backgroundTint="@color/colorClickAble"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_row="1"
-                    android:layout_column="0"
-                    >
-                    <ImageButton
+                        android:textStyle="bold" 
+                        android:layout_row="3"
+                        android:layout_column="0"/>                 
+                    <Button
+                        android:layout_gravity="center"
+                        android:text="@string/detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnDetail2"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:backgroundTint="@color/colorClickAble"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:textStyle="bold" 
+                        android:layout_row="3"
+                        android:layout_column="1"/>
+                <ImageButton
+                        android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
                         android:layout_width="wrap_content"
@@ -148,47 +145,11 @@
                         android:minHeight="25px"
                         android:id="@+id/imgbtnProduct3"
                         android:layout_marginTop="@dimen/margin_extra_large"
+                        android:layout_row="4"
+                        android:layout_column="0"
                         />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtProductDesc3"
-                        android:text="@string/productDesc"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"
-                    />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtProductPrice3"
-                        android:text="@string/productPrice"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"/>
-
-                    <Button
-                        android:text="@string/detail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/btnDetail3"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_row="1"
-                    android:layout_column="1">
-
-                    <ImageButton
+                     <ImageButton
+                        android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
                         android:layout_width="wrap_content"
@@ -196,47 +157,82 @@
                         android:minWidth="25px"
                         android:minHeight="25px"
                         android:id="@+id/imgbtnProduct4"
-                        android:layout_marginTop="@dimen/margin_extra_large"                        
+                        android:layout_marginTop="@dimen/margin_extra_large"
+                        android:layout_row="4"
+                        android:layout_column="1"
                         />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/txtProductDesc4"
-                        android:text="@string/productDesc"
+                        android:id="@+id/txtProductName3"
+                        android:text="@string/productName"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginTop="@dimen/margin_small" 
+                        android:layout_row="5"
+                        android:layout_column="0"/>
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtProductName4"
+                        android:text="@string/productName"
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
-                    />
+                        android:layout_row="5"
+                        android:layout_column="1"                        
+                        />
+
                     <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtProductPrice3"
+                        android:text="@string/productPrice"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_row="6"
+                        android:layout_column="0"  />
+                    <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtProductPrice4"
                         android:text="@string/productPrice"
                         android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"/>
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_row="6"
+                        android:layout_column="1"/>
 
                     <Button
+                        android:layout_gravity="center"
                         android:text="@string/detail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btnDetail4"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
+                        android:id="@+id/btnDetail3"
                         android:layout_marginTop="@dimen/margin_small"
                         android:backgroundTint="@color/colorClickAble"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_row="2"
-                    android:layout_column="0"
-                    >
-                    <ImageButton
+                        android:textStyle="bold" 
+                        android:layout_row="7"
+                        android:layout_column="0"/>                 
+                    <Button
+                        android:layout_gravity="center"
+                        android:text="@string/detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnDetail4"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:backgroundTint="@color/colorClickAble"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:textStyle="bold" 
+                        android:layout_row="7"
+                        android:layout_column="1"/>
+                <ImageButton
+                        android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
                         android:layout_width="wrap_content"
@@ -245,47 +241,11 @@
                         android:minHeight="25px"
                         android:id="@+id/imgbtnProduct5"
                         android:layout_marginTop="@dimen/margin_extra_large"
+                        android:layout_row="8"
+                        android:layout_column="0"
                         />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtProductDesc5"
-                        android:text="@string/productDesc"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"
-                    />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtProductPrice5"
-                        android:text="@string/productPrice"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"/>
-
-                    <Button
-                        android:text="@string/detail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/btnDetail5"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_row="2"
-                    android:layout_column="1"
-                    >
-                    <ImageButton
+                     <ImageButton
+                        android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
                         android:layout_width="wrap_content"
@@ -294,47 +254,81 @@
                         android:minHeight="25px"
                         android:id="@+id/imgbtnProduct6"
                         android:layout_marginTop="@dimen/margin_extra_large"
+                        android:layout_row="8"
+                        android:layout_column="1"
                         />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/txtProductDesc6"
-                        android:text="@string/productDesc"
+                        android:id="@+id/txtProductName5"
+                        android:text="@string/productName"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginTop="@dimen/margin_small" 
+                        android:layout_row="9"
+                        android:layout_column="0"/>
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtProductName6"
+                        android:text="@string/productName"
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
-                    />
+                        android:layout_row="9"
+                        android:layout_column="1"                        
+                        />
+
                     <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtProductPrice5"
+                        android:text="@string/productPrice"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_row="10"
+                        android:layout_column="0"  />
+                    <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtProductPrice6"
                         android:text="@string/productPrice"
                         android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"/>
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_row="10"
+                        android:layout_column="1"/>
 
                     <Button
+                        android:layout_gravity="center"
                         android:text="@string/detail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btnDetail6"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
+                        android:id="@+id/btnDetail5"
                         android:layout_marginTop="@dimen/margin_small"
                         android:backgroundTint="@color/colorClickAble"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_row="3"
-                    android:layout_column="0"
-                    >
-
-                    <ImageButton
+                        android:textStyle="bold" 
+                        android:layout_row="11"
+                        android:layout_column="0"/>                 
+                    <Button
+                        android:layout_gravity="center"
+                        android:text="@string/detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnDetail6"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:backgroundTint="@color/colorClickAble"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:textStyle="bold" 
+                        android:layout_row="11"
+                        android:layout_column="1"/>
+                <ImageButton
+                        android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
                         android:layout_width="wrap_content"
@@ -342,47 +336,12 @@
                         android:minWidth="25px"
                         android:minHeight="25px"
                         android:id="@+id/imgbtnProduct7"
-                        android:layout_marginTop="@dimen/margin_extra_large"                        
+                        android:layout_marginTop="@dimen/margin_extra_large"
+                        android:layout_row="12"
+                        android:layout_column="0"
                         />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtProductDesc7"
-                        android:text="@string/productDesc"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"
-                    />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtProductPrice7"
-                        android:text="@string/productPrice"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"/>
-
-                    <Button
-                        android:text="@string/detail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/btnDetail7"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_row="3"
-                    android:layout_column="1"
-                    >
-                    <ImageButton
+                     <ImageButton
+                        android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
                         android:layout_width="wrap_content"
@@ -391,47 +350,81 @@
                         android:minHeight="25px"
                         android:id="@+id/imgbtnProduct8"
                         android:layout_marginTop="@dimen/margin_extra_large"
+                        android:layout_row="12"
+                        android:layout_column="1"
                         />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/txtProductDesc8"
-                        android:text="@string/productDesc"
+                        android:id="@+id/txtProductName7"
+                        android:text="@string/productName"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginTop="@dimen/margin_small" 
+                        android:layout_row="13"
+                        android:layout_column="0"/>
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtProductName8"
+                        android:text="@string/productName"
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
-                    />
+                        android:layout_row="13"
+                        android:layout_column="1"             
+                        />
+
                     <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtProductPrice7"
+                        android:text="@string/productPrice"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_row="14"
+                        android:layout_column="0"  />
+                    <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtProductPrice8"
                         android:text="@string/productPrice"
                         android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"/>
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_row="14"
+                        android:layout_column="1"/>
 
                     <Button
+                        android:layout_gravity="center"
                         android:text="@string/detail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btnDetail8"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
+                        android:id="@+id/btnDetail7"
                         android:layout_marginTop="@dimen/margin_small"
                         android:backgroundTint="@color/colorClickAble"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_row="4"
-                    android:layout_column="0"
-                    >
-                    <ImageButton
+                        android:textStyle="bold" 
+                        android:layout_row="15"
+                        android:layout_column="0"/>                 
+                    <Button
+                        android:layout_gravity="center"
+                        android:text="@string/detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnDetail8"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:backgroundTint="@color/colorClickAble"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:textStyle="bold" 
+                        android:layout_row="15"
+                        android:layout_column="1"/>
+                <ImageButton
+                        android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
                         android:layout_width="wrap_content"
@@ -440,45 +433,11 @@
                         android:minHeight="25px"
                         android:id="@+id/imgbtnProduct9"
                         android:layout_marginTop="@dimen/margin_extra_large"
+                        android:layout_row="16"
+                        android:layout_column="0"
                         />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtProductDesc9"
-                        android:text="@string/productDesc"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtProductPrice9"
-                        android:text="@string/productPrice"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"/>
-
-                    <Button
-                        android:text="@string/detail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/btnDetail9"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_row="4"
-                    android:layout_column="1"
-                    >
-                    <ImageButton
+                     <ImageButton
+                        android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
                         android:layout_width="wrap_content"
@@ -487,37 +446,80 @@
                         android:minHeight="25px"
                         android:id="@+id/imgbtnProduct10"
                         android:layout_marginTop="@dimen/margin_extra_large"
+                        android:layout_row="16"
+                        android:layout_column="1"
                         />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/txtProductDesc10"
-                        android:text="@string/productDesc"
+                        android:id="@+id/txtProductName9"
+                        android:text="@string/productName"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginTop="@dimen/margin_small" 
+                        android:layout_row="17"
+                        android:layout_column="0"/>
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtProductName10"
+                        android:text="@string/productName"
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
-                    />
+                        android:layout_row="17"
+                        android:layout_column="1"                        
+                        />
+
                     <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtProductPrice9"
+                        android:text="@string/productPrice"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_row="18"
+                        android:layout_column="0"  />
+                    <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtProductPrice10"
                         android:text="@string/productPrice"
                         android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small"/>
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_row="18"
+                        android:layout_column="1"/>
 
                     <Button
+                        android:layout_gravity="center"
                         android:text="@string/detail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btnDetail10"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
+                        android:id="@+id/btnDetail9"
                         android:layout_marginTop="@dimen/margin_small"
                         android:backgroundTint="@color/colorClickAble"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                        android:textStyle="bold" 
+                        android:layout_row="19"
+                        android:layout_column="0"/>                 
+                    <Button
+                        android:layout_gravity="center"
+                        android:text="@string/detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnDetail10"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:backgroundTint="@color/colorClickAble"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_sz_medium"
+                        android:textStyle="bold" 
+                        android:layout_row="19"
+                        android:layout_column="1"/>
+                
             </GridLayout>
         </ScrollView>
     </LinearLayout>

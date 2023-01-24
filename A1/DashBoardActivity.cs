@@ -31,16 +31,16 @@ namespace A1
         private ImageButton imgBtnProduct9;
         private ImageButton imgBtnProduct10;
 
-        private TextView txtProductDescription1;
-        private TextView txtProductDescription2;
-        private TextView txtProductDescription3;
-        private TextView txtProductDescription4;
-        private TextView txtProductDescription5;
-        private TextView txtProductDescription6;
-        private TextView txtProductDescription7;
-        private TextView txtProductDescription8;
-        private TextView txtProductDescription9;
-        private TextView txtProductDescription10;
+        private TextView txtProductName1;
+        private TextView txtProductName2;
+        private TextView txtProductName3;
+        private TextView txtProductName4;
+        private TextView txtProductName5;
+        private TextView txtProductName6;
+        private TextView txtProductName7;
+        private TextView txtProductName8;
+        private TextView txtProductName9;
+        private TextView txtProductName10;
 
         private TextView txtProductPrice1;
         private TextView txtProductPrice2;
@@ -54,7 +54,7 @@ namespace A1
         private TextView txtProductPrice10;
 
         private List<ImageButton> imageButtonList = new List<ImageButton>();
-        private List<TextView> descriptionViewList = new List<TextView>();
+        private List<TextView> nameViewList = new List<TextView>();
         private List<TextView> priceViewList = new List<TextView>();
 
 
@@ -80,16 +80,16 @@ namespace A1
             imgBtnProduct9 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct9);
             imgBtnProduct10 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct10);
 
-            txtProductDescription1 = FindViewById<TextView>(Resource.Id.txtProductDesc1);
-            txtProductDescription2 = FindViewById<TextView>(Resource.Id.txtProductDesc2);
-            txtProductDescription3 = FindViewById<TextView>(Resource.Id.txtProductDesc3);
-            txtProductDescription4 = FindViewById<TextView>(Resource.Id.txtProductDesc4);
-            txtProductDescription5 = FindViewById<TextView>(Resource.Id.txtProductDesc5);
-            txtProductDescription6 = FindViewById<TextView>(Resource.Id.txtProductDesc6);
-            txtProductDescription7 = FindViewById<TextView>(Resource.Id.txtProductDesc7);
-            txtProductDescription8 = FindViewById<TextView>(Resource.Id.txtProductDesc8);
-            txtProductDescription9 = FindViewById<TextView>(Resource.Id.txtProductDesc9);
-            txtProductDescription10 = FindViewById<TextView>(Resource.Id.txtProductDesc10);
+            txtProductName1 = FindViewById<TextView>(Resource.Id.txtProductName1);
+            txtProductName2 = FindViewById<TextView>(Resource.Id.txtProductName2);
+            txtProductName3 = FindViewById<TextView>(Resource.Id.txtProductName3);
+            txtProductName4 = FindViewById<TextView>(Resource.Id.txtProductName4);
+            txtProductName5 = FindViewById<TextView>(Resource.Id.txtProductName5);
+            txtProductName6 = FindViewById<TextView>(Resource.Id.txtProductName6);
+            txtProductName7 = FindViewById<TextView>(Resource.Id.txtProductName7);
+            txtProductName8 = FindViewById<TextView>(Resource.Id.txtProductName8);
+            txtProductName9 = FindViewById<TextView>(Resource.Id.txtProductName9);
+            txtProductName10 = FindViewById<TextView>(Resource.Id.txtProductName10);
 
             txtProductPrice1 = FindViewById<TextView>(Resource.Id.txtProductPrice1);
             txtProductPrice2 = FindViewById<TextView>(Resource.Id.txtProductPrice2);
@@ -113,16 +113,16 @@ namespace A1
             imageButtonList.Add(imgBtnProduct9);
             imageButtonList.Add(imgBtnProduct10);
 
-            descriptionViewList.Add(txtProductDescription1);
-            descriptionViewList.Add(txtProductDescription2);
-            descriptionViewList.Add(txtProductDescription3);
-            descriptionViewList.Add(txtProductDescription4);
-            descriptionViewList.Add(txtProductDescription5);
-            descriptionViewList.Add(txtProductDescription6);
-            descriptionViewList.Add(txtProductDescription7);
-            descriptionViewList.Add(txtProductDescription8);
-            descriptionViewList.Add(txtProductDescription9);
-            descriptionViewList.Add(txtProductDescription10);
+            nameViewList.Add(txtProductName1);
+            nameViewList.Add(txtProductName2);
+            nameViewList.Add(txtProductName3);
+            nameViewList.Add(txtProductName4);
+            nameViewList.Add(txtProductName5);
+            nameViewList.Add(txtProductName6);
+            nameViewList.Add(txtProductName7);
+            nameViewList.Add(txtProductName8);
+            nameViewList.Add(txtProductName9);
+            nameViewList.Add(txtProductName10);
 
 
             priceViewList.Add(txtProductPrice1);
@@ -167,13 +167,23 @@ namespace A1
                 for (int i = 0; i < productList.Count; i++)
                 {
                     // Retrieving the local Resource ID from the name
-                    int id = (int)typeof(Resource.Drawable).GetField(productList[i].ImageSmall).GetValue(null);
 
-                    // Converting Drawable Resource to Bitmap
-                    var bitmapImg = BitmapFactory.DecodeResource(Resources, id);
-                    imageButtonList[i].SetImageBitmap(bitmapImg);
-                    descriptionViewList[i].Text = productList[i].Description;
-                    priceViewList[i].Text = productList[i].Price.ToString();
+
+                    if (productList[i].ImageSmall == "ethicsparacetamol" || productList[i].ImageSmall=="panadol")
+                    {
+                        int id = (int)typeof(Resource.Drawable).GetField(productList[i].ImageSmall).GetValue(null);
+
+                        // Converting Drawable Resource to Bitmap
+                        var bitmapImg = BitmapFactory.DecodeResource(Resources, id);
+                        imageButtonList[i].SetImageBitmap(bitmapImg);
+                        nameViewList[i].Text = productList[i].Name;
+                        priceViewList[i].Text = productList[i].Price.ToString();
+                    }
+                    
+                   
+                    
+
+                    
 
                 }
             }
