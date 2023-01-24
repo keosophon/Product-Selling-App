@@ -166,26 +166,15 @@ namespace A1
 
                 for (int i = 0; i < productList.Count; i++)
                 {
-                    // Retrieving the local Resource ID from the name
+                    // Retrieving the local Resource ID from the name                    
+                    int id = (int)typeof(Resource.Drawable).GetField(productList[i].ImageSmall).GetValue(null);
 
-
-                    if (productList[i].ImageSmall == "ethicsparacetamol" || productList[i].ImageSmall=="panadol")
-                    {
-                        int id = (int)typeof(Resource.Drawable).GetField(productList[i].ImageSmall).GetValue(null);
-
-                        // Converting Drawable Resource to Bitmap
-                        var bitmapImg = BitmapFactory.DecodeResource(Resources, id);
-                        imageButtonList[i].SetImageBitmap(bitmapImg);
-                        nameViewList[i].Text = productList[i].Name;
-                        priceViewList[i].Text = productList[i].Price.ToString();
-                    }
-                    
-                   
-                    
-
-                    
-
-                }
+                    // Converting Drawable Resource to Bitmap
+                    var bitmapImg = BitmapFactory.DecodeResource(Resources, id);
+                    imageButtonList[i].SetImageBitmap(bitmapImg);
+                    nameViewList[i].Text = productList[i].Name;
+                    priceViewList[i].Text = productList[i].Price.ToString();
+                 }
             }
             catch (Exception ex)
             {

@@ -35,8 +35,7 @@
                 android:id="@+id/productGrid"
                 android:rowCount="20"
                 android:columnCount="2"
-                android:padding="@dimen/margin_small" 
-                android:layout_marginLeft="@dimen/margin_medium"
+                android:padding="@dimen/margin_small"                 
                 >
                 
                     <ImageButton
@@ -52,7 +51,7 @@
                         android:layout_row="0"
                         android:layout_column="0"
                         />
-                     <ImageButton
+                    <ImageButton
                         android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
@@ -75,7 +74,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small" 
                         android:layout_row="1"
-                        android:layout_column="0"/>
+                        android:layout_column="0"
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -85,7 +85,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="1"
-                        android:layout_column="1"                        
+                        android:layout_column="1"  
+                        android:textStyle="bold"
                         />
 
                     <TextView
@@ -97,7 +98,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="2"
-                        android:layout_column="0"  />
+                        android:layout_column="0"  
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -107,7 +109,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="2"
-                        android:layout_column="1"/>
+                        android:layout_column="1"
+                        android:textStyle="bold"/>
 
                     <Button
                         android:layout_gravity="center"
@@ -116,10 +119,10 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/btnDetail1"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
+                        android:backgroundTint="@color/colorClickAbleSecondary"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" 
+                        
                         android:layout_row="3"
                         android:layout_column="0"/>                 
                     <Button
@@ -129,13 +132,13 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/btnDetail2"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
+                        android:backgroundTint="@color/colorClickAbleSecondary"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" 
+                        
                         android:layout_row="3"
                         android:layout_column="1"/>
-                <ImageButton
+                    <ImageButton
                         android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
@@ -148,7 +151,7 @@
                         android:layout_row="4"
                         android:layout_column="0"
                         />
-                     <ImageButton
+                    <ImageButton
                         android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
@@ -171,7 +174,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small" 
                         android:layout_row="5"
-                        android:layout_column="0"/>
+                        android:layout_column="0"
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -182,7 +186,7 @@
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="5"
                         android:layout_column="1"                        
-                        />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:layout_gravity="center"
@@ -193,7 +197,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="6"
-                        android:layout_column="0"  />
+                        android:layout_column="0"  
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -203,7 +208,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="6"
-                        android:layout_column="1"/>
+                        android:layout_column="1"
+                        android:textStyle="bold"/>
 
                     <Button
                         android:layout_gravity="center"
@@ -212,10 +218,10 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/btnDetail3"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
+                        android:backgroundTint="@color/colorClickAbleSecondary"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" 
+                        
                         android:layout_row="7"
                         android:layout_column="0"/>                 
                     <Button
@@ -225,26 +231,26 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/btnDetail4"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
+                        android:backgroundTint="@color/colorClickAbleSecondary"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" 
+                        
                         android:layout_row="7"
                         android:layout_column="1"/>
-                <ImageButton
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/productImageSmall"
-                        android:src="@android:drawable/ic_menu_gallery"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:minWidth="25px"
-                        android:minHeight="25px"
-                        android:id="@+id/imgbtnProduct5"
-                        android:layout_marginTop="@dimen/margin_extra_large"
-                        android:layout_row="8"
-                        android:layout_column="0"
-                        />
-                     <ImageButton
+                    <ImageButton
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/productImageSmall"
+                            android:src="@android:drawable/ic_menu_gallery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="25px"
+                            android:minHeight="25px"
+                            android:id="@+id/imgbtnProduct5"
+                            android:layout_marginTop="@dimen/margin_extra_large"
+                            android:layout_row="8"
+                            android:layout_column="0"
+                            />
+                    <ImageButton
                         android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
@@ -267,7 +273,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small" 
                         android:layout_row="9"
-                        android:layout_column="0"/>
+                        android:layout_column="0"
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -277,7 +284,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="9"
-                        android:layout_column="1"                        
+                        android:layout_column="1" 
+                        android:textStyle="bold"
                         />
 
                     <TextView
@@ -289,7 +297,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="10"
-                        android:layout_column="0"  />
+                        android:layout_column="0"  
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -299,7 +308,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="10"
-                        android:layout_column="1"/>
+                        android:layout_column="1"
+                        android:textStyle="bold"/>
 
                     <Button
                         android:layout_gravity="center"
@@ -308,10 +318,10 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/btnDetail5"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
+                        android:backgroundTint="@color/colorClickAbleSecondary"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" 
+                        
                         android:layout_row="11"
                         android:layout_column="0"/>                 
                     <Button
@@ -321,13 +331,13 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/btnDetail6"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
+                        android:backgroundTint="@color/colorClickAbleSecondary"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" 
+                        
                         android:layout_row="11"
                         android:layout_column="1"/>
-                <ImageButton
+                    <ImageButton
                         android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
@@ -340,7 +350,7 @@
                         android:layout_row="12"
                         android:layout_column="0"
                         />
-                     <ImageButton
+                    <ImageButton
                         android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
@@ -355,15 +365,14 @@
                         />
 
                     <TextView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtProductName7"
+                        android:layout_gravity="center"                       android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"                        android:id="@+id/txtProductName7"
                         android:text="@string/productName"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginTop="@dimen/margin_small" 
-                        android:layout_row="13"
-                        android:layout_column="0"/>
+                        android:textSize="@dimen/text_sz_medium"                    
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_row="13"                 
+                        android:layout_column="0"                    
+                        android:textStyle="bold" />
                     <TextView
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -373,7 +382,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="13"
-                        android:layout_column="1"             
+                        android:layout_column="1"
+                        android:textStyle="bold"
                         />
 
                     <TextView
@@ -385,7 +395,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="14"
-                        android:layout_column="0"  />
+                        android:layout_column="0"  
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -395,7 +406,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="14"
-                        android:layout_column="1"/>
+                        android:layout_column="1"
+                        android:textStyle="bold"/>
 
                     <Button
                         android:layout_gravity="center"
@@ -404,10 +416,10 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/btnDetail7"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
+                        android:backgroundTint="@color/colorClickAbleSecondary"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" 
+                        
                         android:layout_row="15"
                         android:layout_column="0"/>                 
                     <Button
@@ -417,13 +429,13 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/btnDetail8"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
+                        android:backgroundTint="@color/colorClickAbleSecondary"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" 
+                        
                         android:layout_row="15"
                         android:layout_column="1"/>
-                <ImageButton
+                    <ImageButton
                         android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
@@ -436,7 +448,7 @@
                         android:layout_row="16"
                         android:layout_column="0"
                         />
-                     <ImageButton
+                    <ImageButton
                         android:layout_gravity="center"
                         android:contentDescription="@string/productImageSmall"
                         android:src="@android:drawable/ic_menu_gallery"
@@ -459,7 +471,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small" 
                         android:layout_row="17"
-                        android:layout_column="0"/>
+                        android:layout_column="0"
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -469,7 +482,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="17"
-                        android:layout_column="1"                        
+                        android:layout_column="1"  
+                        android:textStyle="bold"
                         />
 
                     <TextView
@@ -481,7 +495,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="18"
-                        android:layout_column="0"  />
+                        android:layout_column="0" 
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -491,7 +506,8 @@
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginTop="@dimen/margin_small"
                         android:layout_row="18"
-                        android:layout_column="1"/>
+                        android:layout_column="1"
+                        android:textStyle="bold"/>
 
                     <Button
                         android:layout_gravity="center"
@@ -500,10 +516,10 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/btnDetail9"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
+                        android:backgroundTint="@color/colorClickAbleSecondary"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" 
+                        
                         android:layout_row="19"
                         android:layout_column="0"/>                 
                     <Button
@@ -513,10 +529,10 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/btnDetail10"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:backgroundTint="@color/colorClickAble"
+                        android:backgroundTint="@color/colorClickAbleSecondary"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_sz_medium"
-                        android:textStyle="bold" 
+                        
                         android:layout_row="19"
                         android:layout_column="1"/>
                 
