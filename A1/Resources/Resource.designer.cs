@@ -3447,10 +3447,13 @@ namespace A1
 			public const int nurofen = 2131230851;
 			
 			// aapt resource value: 0x7F080084
-			public const int tooltip_frame_dark = 2131230852;
+			public const int panadol = 2131230852;
 			
 			// aapt resource value: 0x7F080085
-			public const int tooltip_frame_light = 2131230853;
+			public const int tooltip_frame_dark = 2131230853;
+			
+			// aapt resource value: 0x7F080086
+			public const int tooltip_frame_light = 2131230854;
 			
 			static Drawable()
 			{

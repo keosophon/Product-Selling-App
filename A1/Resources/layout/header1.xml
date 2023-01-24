@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:backgroundTint="@color/colorClickAble"   
             android:layout_marginRight="@dimen/margin_medium"
-            android:layout_marginTop="@dimen/margin_small"    
+            android:layout_marginTop="@dimen/margin_small"
         />
         <Button
             android:text="@string/viewCart"

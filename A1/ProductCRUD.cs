@@ -12,6 +12,9 @@ using System.Data.SqlClient;
 
 namespace A1
 {
+    /// <summary>
+    /// CRUD Implementation for Products Table
+    /// </summary>
     class ProductCRUD : ICRUD<Product>
     {
         private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
