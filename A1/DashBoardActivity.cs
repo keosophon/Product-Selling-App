@@ -52,6 +52,16 @@ namespace A1
         private TextView txtProductPrice8;
         private TextView txtProductPrice9;
         private TextView txtProductPrice10;
+        private Button btnSeeDetails1;
+        private Button btnSeeDetails2;
+        private Button btnSeeDetails3;
+        private Button btnSeeDetails4;
+        private Button btnSeeDetails5;
+        private Button btnSeeDetails6;
+        private Button btnSeeDetails7;
+        private Button btnSeeDetails8;
+        private Button btnSeeDetails9;
+        private Button btnSeeDetails10;
 
         private List<ImageButton> imageButtonList = new List<ImageButton>();
         private List<TextView> nameViewList = new List<TextView>();
@@ -101,6 +111,28 @@ namespace A1
             txtProductPrice8 = FindViewById<TextView>(Resource.Id.txtProductPrice8);
             txtProductPrice9 = FindViewById<TextView>(Resource.Id.txtProductPrice9);
             txtProductPrice10 = FindViewById<TextView>(Resource.Id.txtProductPrice10);
+            
+            btnSeeDetails1 = FindViewById<Button>(Resource.Id.btnDetail1);
+            btnSeeDetails1.Click += this.SeeDetails_Click;
+            btnSeeDetails2 = FindViewById<Button>(Resource.Id.btnDetail2);
+            btnSeeDetails2.Click += this.SeeDetails_Click;
+            btnSeeDetails3 = FindViewById<Button>(Resource.Id.btnDetail3);
+            btnSeeDetails3.Click += this.SeeDetails_Click;
+            btnSeeDetails4 = FindViewById<Button>(Resource.Id.btnDetail4);
+            btnSeeDetails4.Click += this.SeeDetails_Click;
+            btnSeeDetails5 = FindViewById<Button>(Resource.Id.btnDetail5);
+            btnSeeDetails5.Click += this.SeeDetails_Click;
+            btnSeeDetails6 = FindViewById<Button>(Resource.Id.btnDetail6);
+            btnSeeDetails6.Click += this.SeeDetails_Click;
+            btnSeeDetails7 = FindViewById<Button>(Resource.Id.btnDetail7);
+            btnSeeDetails7.Click += this.SeeDetails_Click;
+            btnSeeDetails8 = FindViewById<Button>(Resource.Id.btnDetail8);
+            btnSeeDetails8.Click += this.SeeDetails_Click;
+            btnSeeDetails9 = FindViewById<Button>(Resource.Id.btnDetail9);
+            btnSeeDetails9.Click += this.SeeDetails_Click;
+            btnSeeDetails10 = FindViewById<Button>(Resource.Id.btnDetail10);
+            btnSeeDetails10.Click += this.SeeDetails_Click;
+
 
             imageButtonList.Add(imgBtnProduct1);
             imageButtonList.Add(imgBtnProduct2);
@@ -171,7 +203,7 @@ namespace A1
 
                     // Converting Drawable Resource to Bitmap
                     var bitmapImg = BitmapFactory.DecodeResource(Resources, id);
-                    imageButtonList[i].SetImageBitmap(bitmapImg);
+                    imageButtonList[i].SetImageBitmap(bitmapImg);                    
                     nameViewList[i].Text = productList[i].Name;
                     priceViewList[i].Text = productList[i].Price.ToString();
                  }
@@ -180,7 +212,12 @@ namespace A1
             {
                 this.BuildAlertDialog("Connection Error", ex.Message);
             }
-        }     
+        }
+
+        private void SeeDetails_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(ProductViewActivity));
+        }
 
         public void BuildAlertDialog(string title, string message)
         {
@@ -192,5 +229,6 @@ namespace A1
             connectionException.Show();
         }
 
+        
     }
 }
