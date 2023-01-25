@@ -83,15 +83,25 @@ namespace A1
             txtLogOut = FindViewById<TextView>(Resource.Id.txtLogOut);
 
             imgBtnProduct1 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct1);
+            imgBtnProduct1.Click += this.SeeDetails1_Click;
             imgBtnProduct2 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct2);
+            imgBtnProduct2.Click += this.SeeDetails2_Click;
             imgBtnProduct3 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct3);
+            imgBtnProduct3.Click += this.SeeDetails3_Click;
             imgBtnProduct4 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct4);
+            imgBtnProduct4.Click += this.SeeDetails4_Click;
             imgBtnProduct5 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct5);
+            imgBtnProduct5.Click += this.SeeDetails5_Click;
             imgBtnProduct6 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct6);
+            imgBtnProduct6.Click += this.SeeDetails6_Click;
             imgBtnProduct7 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct7);
+            imgBtnProduct7.Click += this.SeeDetails7_Click;
             imgBtnProduct8 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct8);
+            imgBtnProduct8.Click += this.SeeDetails8_Click;
             imgBtnProduct9 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct9);
+            imgBtnProduct9.Click += this.SeeDetails9_Click;
             imgBtnProduct10 = FindViewById<ImageButton>(Resource.Id.imgbtnProduct10);
+            imgBtnProduct10.Click += this.SeeDetails10_Click;
 
             txtProductName1 = FindViewById<TextView>(Resource.Id.txtProductName1);
             txtProductName2 = FindViewById<TextView>(Resource.Id.txtProductName2);
