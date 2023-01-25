@@ -53,6 +53,7 @@ namespace A1
         private TextView txtProductPrice8;
         private TextView txtProductPrice9;
         private TextView txtProductPrice10;
+
         private Button btnSeeDetails1;
         private Button btnSeeDetails2;
         private Button btnSeeDetails3;
@@ -117,23 +118,23 @@ namespace A1
             btnSeeDetails1 = FindViewById<Button>(Resource.Id.btnDetail1);
             btnSeeDetails1.Click += this.SeeDetails1_Click;
             btnSeeDetails2 = FindViewById<Button>(Resource.Id.btnDetail2);
-            btnSeeDetails2.Click += this.SeeDetails_Click;
+            btnSeeDetails2.Click += this.SeeDetails2_Click;
             btnSeeDetails3 = FindViewById<Button>(Resource.Id.btnDetail3);
-            btnSeeDetails3.Click += this.SeeDetails_Click;
+            btnSeeDetails3.Click += this.SeeDetails3_Click;
             btnSeeDetails4 = FindViewById<Button>(Resource.Id.btnDetail4);
-            btnSeeDetails4.Click += this.SeeDetails_Click;
+            btnSeeDetails4.Click += this.SeeDetails4_Click;
             btnSeeDetails5 = FindViewById<Button>(Resource.Id.btnDetail5);
-            btnSeeDetails5.Click += this.SeeDetails_Click;
+            btnSeeDetails5.Click += this.SeeDetails5_Click;
             btnSeeDetails6 = FindViewById<Button>(Resource.Id.btnDetail6);
-            btnSeeDetails6.Click += this.SeeDetails_Click;
+            btnSeeDetails6.Click += this.SeeDetails6_Click;
             btnSeeDetails7 = FindViewById<Button>(Resource.Id.btnDetail7);
-            btnSeeDetails7.Click += this.SeeDetails_Click;
+            btnSeeDetails7.Click += this.SeeDetails7_Click;
             btnSeeDetails8 = FindViewById<Button>(Resource.Id.btnDetail8);
-            btnSeeDetails8.Click += this.SeeDetails_Click;
+            btnSeeDetails8.Click += this.SeeDetails8_Click;
             btnSeeDetails9 = FindViewById<Button>(Resource.Id.btnDetail9);
-            btnSeeDetails9.Click += this.SeeDetails_Click;
+            btnSeeDetails9.Click += this.SeeDetails9_Click;
             btnSeeDetails10 = FindViewById<Button>(Resource.Id.btnDetail10);
-            btnSeeDetails10.Click += this.SeeDetails_Click;
+            btnSeeDetails10.Click += this.SeeDetails10_Click;
 
 
             imageButtonList.Add(imgBtnProduct1);
@@ -207,7 +208,7 @@ namespace A1
                     var bitmapImg = BitmapFactory.DecodeResource(Resources, id);
                     imageButtonList[i].SetImageBitmap(bitmapImg);                    
                     nameViewList[i].Text = productList[i].Name;
-                    priceViewList[i].Text = productList[i].Price.ToString();
+                    priceViewList[i].Text = Resources.GetString(Resource.String.dollarSign) + productList[i].Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
                  }
             }
             catch (Exception ex)
@@ -219,7 +220,51 @@ namespace A1
         private void SeeDetails1_Click(object sender, EventArgs e)
         {
             this.OpenProductViewPage(productList[0]);
-            //StartActivity(typeof(ProductViewActivity));
+        }
+
+        private void SeeDetails2_Click(object sender, EventArgs e)
+        {
+            this.OpenProductViewPage(productList[1]);
+        }
+
+        private void SeeDetails3_Click(object sender, EventArgs e)
+        {
+            this.OpenProductViewPage(productList[2]);
+        }
+
+        private void SeeDetails4_Click(object sender, EventArgs e)
+        {
+            this.OpenProductViewPage(productList[3]);
+        }
+
+        private void SeeDetails5_Click(object sender, EventArgs e)
+        {
+            this.OpenProductViewPage(productList[4]);
+        }
+
+        private void SeeDetails6_Click(object sender, EventArgs e)
+        {
+            this.OpenProductViewPage(productList[5]);
+        }
+
+        private void SeeDetails7_Click(object sender, EventArgs e)
+        {
+            this.OpenProductViewPage(productList[6]);
+        }
+
+        private void SeeDetails8_Click(object sender, EventArgs e)
+        {
+            this.OpenProductViewPage(productList[7]);
+        }
+
+        private void SeeDetails9_Click(object sender, EventArgs e)
+        {
+            this.OpenProductViewPage(productList[8]);
+        }
+
+        private void SeeDetails10_Click(object sender, EventArgs e)
+        {
+            this.OpenProductViewPage(productList[9]);
         }
 
         private void OpenProductViewPage(Product product)

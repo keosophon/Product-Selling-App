@@ -28,6 +28,7 @@ namespace A1
             // Create your application here
             SetContentView(Resource.Layout.activity_productViewAdd);
 
+            
             imgBtnProduct = FindViewById<ImageButton>(Resource.Id.imgbtnProductView);
             txtProductName = FindViewById<TextView>(Resource.Id.txtProductName);
             txtProductPrice = FindViewById<TextView>(Resource.Id.txtProductPrice);
@@ -41,7 +42,7 @@ namespace A1
             var bitmapImg = BitmapFactory.DecodeResource(Resources, id);
             imgBtnProduct.SetImageBitmap(bitmapImg);
             txtProductName.Text = product.Name;
-            txtProductPrice.Text = product.Price.ToString();
+            txtProductPrice.Text = Resources.GetString(Resource.String.dollarSign) + product.Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
             txtProductDescription.Text = product.Description;
 
         }

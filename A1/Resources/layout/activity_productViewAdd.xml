@@ -36,23 +36,25 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtProductName"
             android:text="@string/productName"
-            android:textSize="@dimen/text_sz_large"
-            android:layout_marginTop="@dimen/margin_extra_large" />
+            android:textSize="@dimen/text_sz_extra_large"            
+            android:layout_marginTop="@dimen/margin_small" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtProductPrice"
             android:text="@string/productPrice"
-            android:textSize="@dimen/text_sz_large"
-            android:layout_marginTop="@dimen/margin_extra_large"/>
+            android:textSize="@dimen/text_sz_title"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_small"/>
 
         <TextView
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtProductDesc"
             android:text="@string/productDesc"
-            android:textSize="@dimen/text_sz_large"
-            android:layout_marginTop="@dimen/margin_extra_large"
+            android:textSize="@dimen/text_sz_extra_large"
+            android:layout_marginTop="@dimen/margin_small"
         />
         <Button
             android:text="@string/buyNow"

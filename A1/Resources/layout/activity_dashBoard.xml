@@ -29,7 +29,8 @@
             android:id="@+id/textView1" 
             android:layout_marginTop="@dimen/margin_large"
             android:layout_marginLeft="@dimen/margin_large"
-            android:textSize="@dimen/text_sz_medium"            
+            android:textSize="@dimen/text_sz_medium"     
+            android:textStyle="bold"
             />
         
         <ScrollView
