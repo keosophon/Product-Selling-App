@@ -11,6 +11,7 @@ using System.Text;
 using AndroidX.AppCompat.App;
 using System.Net;
 using Android.Graphics;
+using Newtonsoft.Json; 
 
 namespace A1
 {
@@ -66,6 +67,7 @@ namespace A1
         private List<ImageButton> imageButtonList = new List<ImageButton>();
         private List<TextView> nameViewList = new List<TextView>();
         private List<TextView> priceViewList = new List<TextView>();
+        private List<Product> productList;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -113,7 +115,7 @@ namespace A1
             txtProductPrice10 = FindViewById<TextView>(Resource.Id.txtProductPrice10);
             
             btnSeeDetails1 = FindViewById<Button>(Resource.Id.btnDetail1);
-            btnSeeDetails1.Click += this.SeeDetails_Click;
+            btnSeeDetails1.Click += this.SeeDetails1_Click;
             btnSeeDetails2 = FindViewById<Button>(Resource.Id.btnDetail2);
             btnSeeDetails2.Click += this.SeeDetails_Click;
             btnSeeDetails3 = FindViewById<Button>(Resource.Id.btnDetail3);
@@ -194,7 +196,7 @@ namespace A1
 
             try
             {
-                List<Product> productList = productCRUD.GetObjects();
+                productList = productCRUD.GetObjects();
 
                 for (int i = 0; i < productList.Count; i++)
                 {
@@ -214,8 +216,21 @@ namespace A1
             }
         }
 
+        private void SeeDetails1_Click(object sender, EventArgs e)
+        {
+            this.OpenProductViewPage(productList[0]);
+            //StartActivity(typeof(ProductViewActivity));
+        }
+
+        private void OpenProductViewPage(Product product)
+        {
+            var intent = new Intent(this, typeof(ProductViewActivity));
+            intent.PutExtra("product",JsonConvert.SerializeObject(product));
+            StartActivity(intent);
+        }
         private void SeeDetails_Click(object sender, EventArgs e)
         {
+            
             StartActivity(typeof(ProductViewActivity));
         }
 

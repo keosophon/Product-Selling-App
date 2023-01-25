@@ -56,7 +56,8 @@ namespace A1
                 product.Price = Convert.ToDecimal(reader[2].ToString());
                 product.Stock = Convert.ToInt32(reader[3].ToString());
                 product.Description = reader[4].ToString();
-                product.ImageSmall = reader[5].ToString();                
+                product.ImageSmall = reader[5].ToString();
+                product.ImageBig = reader[6].ToString();
                 productList.Add(product);
 
             }
