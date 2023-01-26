@@ -70,7 +70,6 @@ namespace A1
         private List<TextView> priceViewList = new List<TextView>();
         private List<Product> productList;
 
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
