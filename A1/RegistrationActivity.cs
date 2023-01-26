@@ -139,12 +139,7 @@ namespace A1
 
         public void BuildAlertDialog(string title, string message)
         {
-            Android.App.AlertDialog.Builder connectionException = new Android.App.AlertDialog.Builder(this);
-            connectionException.SetTitle(title);
-            connectionException.SetMessage(message);
-            connectionException.SetNegativeButton("Return", delegate { });
-            connectionException.Create();
-            connectionException.Show();
+            AlertDialogBuilder.BuildAlertDialog(this, title, message);
         }
 
     }

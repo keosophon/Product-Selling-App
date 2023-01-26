@@ -191,7 +191,7 @@ namespace A1
                 StartActivity(typeof(DashBoardActivity));
             };
 
-            this.DisplayAllProducts();
+            this.DisplayAllProducts();            
 
         }
         
@@ -208,14 +208,9 @@ namespace A1
             try
             {
                 productList = productCRUD.GetObjects();
-
                 for (int i = 0; i < productList.Count; i++)
-                {
-                    // Retrieving the local Resource ID from the name                    
-                    int id = (int)typeof(Resource.Drawable).GetField(productList[i].ImageSmall).GetValue(null);
-
-                    // Converting Drawable Resource to Bitmap
-                    var bitmapImg = BitmapFactory.DecodeResource(Resources, id);
+                {                    
+                    var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, productList[i].ImageSmall);
                     imageButtonList[i].SetImageBitmap(bitmapImg);                    
                     nameViewList[i].Text = productList[i].Name;
                     priceViewList[i].Text = Resources.GetString(Resource.String.dollarSign) + productList[i].Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
@@ -291,12 +286,7 @@ namespace A1
 
         public void BuildAlertDialog(string title, string message)
         {
-            Android.App.AlertDialog.Builder connectionException = new Android.App.AlertDialog.Builder(this);
-            connectionException.SetTitle(title);
-            connectionException.SetMessage(message);
-            connectionException.SetNegativeButton("Return", delegate { });
-            connectionException.Create();
-            connectionException.Show();
+            AlertDialogBuilder.BuildAlertDialog(this, title, message);
         }
 
         

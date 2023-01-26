@@ -34,13 +34,10 @@ namespace A1
             txtProductPrice = FindViewById<TextView>(Resource.Id.txtProductPrice);
             txtProductDescription = FindViewById<TextView>(Resource.Id.txtProductDesc);
 
-            var product = JsonConvert.DeserializeObject<Product>(Intent.GetStringExtra("product"));     
-
-            int id = (int)typeof(Resource.Drawable).GetField(product.ImageBig).GetValue(null);
-
-            // Converting Drawable Resource to Bitmap
-            var bitmapImg = BitmapFactory.DecodeResource(Resources, id);
+            var product = JsonConvert.DeserializeObject<Product>(Intent.GetStringExtra("product"));            
+            var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, product.ImageBig);
             imgBtnProduct.SetImageBitmap(bitmapImg);
+
             txtProductName.Text = product.Name;
             txtProductPrice.Text = Resources.GetString(Resource.String.dollarSign) + product.Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
             txtProductDescription.Text = product.Description;
