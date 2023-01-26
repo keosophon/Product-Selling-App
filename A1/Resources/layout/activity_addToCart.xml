@@ -86,16 +86,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/cbSenior" />
-                <CheckBox
-                    android:text="@string/weekends"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/cbWeekends" />
+
                 <CheckBox
                     android:text="@string/cities"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/cbCities" />
+
+                <CheckBox
+                    android:text="@string/weekends"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cbWeekends" />
+                
             </LinearLayout>
             
             <Button

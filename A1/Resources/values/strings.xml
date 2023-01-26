@@ -56,6 +56,8 @@
 	<string name="productImage">Product Image</string>
 	<string name="dollarSign">$</string>
 	<string name="nzd">NZD</string>
+	<string name="wellington">wellington</string>
+	<string name="auckland">auckland</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>
