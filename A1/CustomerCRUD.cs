@@ -88,6 +88,9 @@ namespace A1
             while (reader.Read())
             {
                 cus = new Customer();
+                cus.FirstName = reader[1].ToString();
+                cus.LastName = reader[1].ToString();
+                //cus.DoB = reader[1].ToString();
                 cus.Email = reader[4].ToString();
                 cus.Phone = reader[5].ToString();
                 cus.Password = reader[7].ToString();

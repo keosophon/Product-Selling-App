@@ -15,9 +15,10 @@ using Newtonsoft.Json;
 
 namespace A1
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
     public class DashBoardActivity : AppCompatActivity
     {
+        private Bundle bundle;
         private TextView txtDashBoard;
         private TextView txtLogOut;
 
@@ -76,6 +77,9 @@ namespace A1
 
             // Create your application here
             SetContentView(Resource.Layout.activity_dashBoard);
+
+            //Creating bundle which contains Sing In customer         
+            bundle = Intent.Extras;            
 
             //link variables to UI elements
             txtDashBoard = FindViewById<TextView>(Resource.Id.txtDashBoard);
@@ -187,13 +191,15 @@ namespace A1
 
             txtDashBoard.Click += delegate
             {
-                StartActivity(typeof(DashBoardActivity));
+                var intent = new Intent(this, typeof(DashBoardActivity));
+                intent.PutExtras(bundle);
+                StartActivity(intent);
             };
 
             this.DisplayAllProducts();            
 
         }
-        
+
         public override void OnBackPressed()
         {
             //disable back button
@@ -273,9 +279,20 @@ namespace A1
 
         private void OpenProductViewPage(Product product)
         {
+            var customer = JsonConvert.DeserializeObject<Customer>(bundle.GetString("customer"));
+            AlertDialogBuilder.BuildAlertDialog(this, "customer", customer.FirstName);
+            //pass Sing In customer, and product to Product View Activity
+            bundle.PutString("product", JsonConvert.SerializeObject(product));
             var intent = new Intent(this, typeof(ProductViewActivity));
+            intent.PutExtras(bundle);
+            StartActivity(intent);
+
+            /*
+            var intent = new Intent(this, typeof(ProductViewActivity));
+            intent.PutExtra("customer", JsonConvert.SerializeObject(customer));
             intent.PutExtra("product",JsonConvert.SerializeObject(product));
             StartActivity(intent);
+            */
         }
         private void SeeDetails_Click(object sender, EventArgs e)
         {

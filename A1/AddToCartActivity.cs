@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AndroidX.AppCompat.App;
+using Newtonsoft.Json;
 
 namespace A1
 {
@@ -26,12 +27,14 @@ namespace A1
         private ImageButton imgProduct;
         private TextView txtDescription;
         private TextView txtPrice;
+        private Product product;
+        private Bundle bundle;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.activity_addToCart);
+            SetContentView(Resource.Layout.activity_addToCart);            
 
             txtDashBoard = FindViewById<TextView>(Resource.Id.txtDashBoard);
             txtLogOut = FindViewById<TextView>(Resource.Id.txtLogOut);
@@ -55,11 +58,17 @@ namespace A1
             cbSenior.Enabled = false;
             cbWeekends.Enabled = false;
             cbCities.Enabled = false;
-            imgProduct.SetImageResource(Resource.Drawable.nurofen);
-            imgProduct.SetMaxWidth(100);
-            imgProduct.SetMaxHeight(100);
-            txtDescription.Text = "Nurofen Ibuprofen Pain & Inflammation 100 Tablets";
-            txtPrice.Text = "$9.99 NZD";
+
+            //Creating bundle containing Sing In customer and product
+            bundle = Intent.Extras;
+
+            //display info of the product that has been cliked in Dashboard
+            product = JsonConvert.DeserializeObject<Product>(bundle.GetString("product"));
+            //product = JsonConvert.DeserializeObject<Product>(Intent.GetStringExtra("product"));
+            var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, product.ImageSmall);
+            imgProduct.SetImageBitmap(bitmapImg);
+            txtPrice.Text = Resources.GetString(Resource.String.dollarSign) + product.Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
+            txtDescription.Text = product.Description;
 
             txtLogOut.Click += delegate
             {
@@ -68,8 +77,16 @@ namespace A1
 
             txtDashBoard.Click += delegate
             {
-                StartActivity(typeof(DashBoardActivity));
+                if (product != null)
+                {
+                    bundle.Remove("product");
+                }
+                var intent = new Intent(this, typeof(DashBoardActivity));
+                intent.PutExtras(bundle);
+                StartActivity(intent);
             };
         }
+
+        
     }
 }

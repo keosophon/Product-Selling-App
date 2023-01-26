@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Threading;
 using System;
+using Newtonsoft.Json;
 
 namespace A1
 {
@@ -71,7 +72,12 @@ namespace A1
 
                 if ((txtEmailPhoneLog.Text == cus.Email || txtEmailPhoneLog.Text == cus.Phone) && txtPassword.Text == cus.Password)
                 {
-                    StartActivity(typeof(DashBoardActivity));
+                    //pass Sign In customer to Dashboard Activity
+                    Bundle bundle = new Bundle();
+                    bundle.PutString("customer", JsonConvert.SerializeObject(cus));
+                    var intent = new Intent(this, typeof(DashBoardActivity));
+                    intent.PutExtras(bundle);
+                    StartActivity(intent);
                 }
                 else
                 {
