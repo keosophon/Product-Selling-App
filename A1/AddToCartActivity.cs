@@ -13,8 +13,12 @@ using AndroidX.AppCompat.App;
 namespace A1
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
+
     public class AddToCartActivity : AppCompatActivity
     {
+        private TextView txtDashBoard;
+        private TextView txtLogOut;
+
         private Spinner spQuantity;
         private CheckBox cbSenior;
         private CheckBox cbWeekends;
@@ -28,6 +32,9 @@ namespace A1
 
             // Create your application here
             SetContentView(Resource.Layout.activity_addToCart);
+
+            txtDashBoard = FindViewById<TextView>(Resource.Id.txtDashBoard);
+            txtLogOut = FindViewById<TextView>(Resource.Id.txtLogOut);
 
             spQuantity = FindViewById<Spinner>(Resource.Id.spQuantity);
             cbSenior = FindViewById<CheckBox>(Resource.Id.cbSenior);
@@ -53,6 +60,16 @@ namespace A1
             imgProduct.SetMaxHeight(100);
             txtDescription.Text = "Nurofen Ibuprofen Pain & Inflammation 100 Tablets";
             txtPrice.Text = "$9.99 NZD";
+
+            txtLogOut.Click += delegate
+            {
+                StartActivity(typeof(MainActivity));
+            };
+
+            txtDashBoard.Click += delegate
+            {
+                StartActivity(typeof(DashBoardActivity));
+            };
         }
     }
 }
