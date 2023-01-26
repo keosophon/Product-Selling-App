@@ -100,7 +100,7 @@ namespace A1
             }
             catch (Exception ex)
             {
-                this.BuildAlertDialog("Connection Error", ex.Message);
+                AlertDialogBuilder.BuildAlertDialog(this, "connection error", ex.Message);
             }
         }
 
