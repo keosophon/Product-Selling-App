@@ -75,11 +75,11 @@ namespace A1
                 {
                     //pass Sign In customer to Dashboard Activity
                     Bundle bundle = new Bundle();
-                    double discount = 0;
+                    //double discount = 0;
                     List<Tuple<Product, int>> cartList = new List<Tuple<Product, int>>();
                     bundle.PutString("customer", JsonConvert.SerializeObject(cus));
                     bundle.PutString("cartList", JsonConvert.SerializeObject(cartList));                    
-                    bundle.PutDouble("discount", discount);
+                    //bundle.PutDouble("discount", discount);
                     var intent = new Intent(this, typeof(DashBoardActivity));
                     intent.PutExtras(bundle);
                     StartActivity(intent);

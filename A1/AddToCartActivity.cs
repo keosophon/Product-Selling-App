@@ -33,8 +33,9 @@ namespace A1
         private List<Discount> discountList;
         private Button btnAddToCart;
         private List<Tuple<Product, int>> cartList;
-        private double discount;
         private Button btnViewCart1;
+        private TextView txtItemsInCart;
+        private int quantity;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -44,6 +45,7 @@ namespace A1
 
             txtDashBoard = FindViewById<TextView>(Resource.Id.txtDashBoard);
             txtLogOut = FindViewById<TextView>(Resource.Id.txtLogOut);
+            txtItemsInCart = FindViewById<TextView>(Resource.Id.txtItemsInCart);
 
             spQuantity = FindViewById<Spinner>(Resource.Id.spQuantity);
             cbSenior = FindViewById<CheckBox>(Resource.Id.cbSenior);
@@ -68,11 +70,16 @@ namespace A1
 
             //get cartList from bundle
             cartList = JsonConvert.DeserializeObject<List<Tuple<Product, int>>>(bundle.GetString("cartList"));
-            discount = bundle.GetDouble("discount");
+            txtItemsInCart.Text = Resources.GetString(Resource.String.itemsInCart) + " " + cartList.Count.ToString();
 
+            //set values for spinner
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.quantity, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spQuantity.Adapter = adapter;
+
+            //set quantity to seletected item in spinner
+            spQuantity.ItemSelected += SpQuantity_ItemSelected;
+
 
             cbSenior.Checked = false;
             cbWeekends.Checked = false;
@@ -171,6 +178,13 @@ namespace A1
             btnViewCart1.Click += BtnViewCart1_Click;
         }
 
+        //set quantity value
+        private void SpQuantity_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner spinner = (Spinner)sender;
+            quantity = Convert.ToInt32(spinner.GetItemAtPosition(e.Position).ToString());
+        }
+
         private void BtnViewCart1_Click(object sender, EventArgs e)
         {
             //testing
@@ -179,10 +193,15 @@ namespace A1
 
         private void BtnAddToCart_Click(object sender, EventArgs e)
         {
-            //testing
-            AlertDialogBuilder.BuildAlertDialog(this, "item in carts", cartList.Count.ToString());
-            int quantity = 2;
+            
+            
             cartList.Add(new Tuple<Product, int>(product, quantity));
+            txtItemsInCart.Text = Resources.GetString(Resource.String.itemsInCart) + " " + cartList.Count.ToString();
+
+            foreach (Tuple<Product, int> item in cartList)
+            {
+                AlertDialogBuilder.BuildAlertDialog(this, "item in list", item.Item1.Name + item.Item2.ToString());
+            }
         }
 
         

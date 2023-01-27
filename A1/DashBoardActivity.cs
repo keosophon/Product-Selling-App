@@ -207,6 +207,8 @@ namespace A1
 
         public void DisplayAllProducts()
         {
+            Customer customer = JsonConvert.DeserializeObject<Customer>(bundle.GetString("customer"));
+            AlertDialogBuilder.BuildAlertDialog(this, "customer", customer.FirstName);
             //create productCRUD through Factory Design Pattern
             ICRUD<Product> productCRUD = CRUDFactory.CreateCRUD<Product>();
 

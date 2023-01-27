@@ -62,6 +62,7 @@
 	<string name="percentageSign">%</string>
 	<string name="openParentheses">(</string>
 	<string name="closeParentheses">)</string>
+	<string name="itemsInCart">items in cart:</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>
