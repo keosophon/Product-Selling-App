@@ -32,6 +32,7 @@
 	<string name="change">: Change</string>
 	<string name="dbName">A1.db</string>
 	<string name="confirmPassword">Re-enter the password</string>
+	<string name="product">product</string>
 	<string name="productImageSmall">Small Image of Product</string>
 	<string name="productName">Name:</string>
 	<string name="productPrice">Price:</string>
@@ -63,6 +64,12 @@
 	<string name="openParentheses">(</string>
 	<string name="closeParentheses">)</string>
 	<string name="itemsInCart">items in cart:</string>
+	<string name="error">Error</string>
+	<string name="wrongInput">Wrong Input</string>
+	<string name="incorrectUserNamePassword">Username or Password is incorrect!</string>
+	<string name="customer">customer</string>
+	<string name="cartList">cartList</string>
+	<string name="orderSummary">Order Summary</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>

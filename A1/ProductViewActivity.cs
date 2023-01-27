@@ -46,7 +46,7 @@ namespace A1
             bundle = Intent.Extras;
 
             //display info of the product that has been cliked in Dashboard
-            product = JsonConvert.DeserializeObject<Product>(bundle.GetString("product"));                       
+            product = JsonConvert.DeserializeObject<Product>(bundle.GetString(Resources.GetString(Resource.String.product)));                       
             var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, product.ImageBig);
             imgBtnProduct.SetImageBitmap(bitmapImg);
             txtProductName.Text = product.Name;

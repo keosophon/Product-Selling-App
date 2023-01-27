@@ -66,7 +66,7 @@ namespace A1
                 Customer cus = customerCRUD.GetObject(txtEmailPhoneLog.Text);
                 if (cus == null)
                 {
-                    AlertDialogBuilder.BuildAlertDialog(this, "Wrong Input", "Username or Password is incorrect");
+                    AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.incorrectUserNamePassword));
                     return;
                 }
 
@@ -77,8 +77,8 @@ namespace A1
                     Bundle bundle = new Bundle();
                     //double discount = 0;
                     List<Tuple<Product, int>> cartList = new List<Tuple<Product, int>>();
-                    bundle.PutString("customer", JsonConvert.SerializeObject(cus));
-                    bundle.PutString("cartList", JsonConvert.SerializeObject(cartList));                    
+                    bundle.PutString(Resources.GetString(Resource.String.customer), JsonConvert.SerializeObject(cus));
+                    bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));                    
                     //bundle.PutDouble("discount", discount);
                     var intent = new Intent(this, typeof(DashBoardActivity));
                     intent.PutExtras(bundle);
@@ -86,12 +86,12 @@ namespace A1
                 }
                 else
                 {
-                    AlertDialogBuilder.BuildAlertDialog(this, "Wrong Input", "Username or Password is incorrect");                    
+                    AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.incorrectUserNamePassword));                    
                 }
             }
             catch (Exception ex)
             {
-                AlertDialogBuilder.BuildAlertDialog(this, "connection error", ex.Message);
+                AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.error), ex.Message);
             }
         }
 

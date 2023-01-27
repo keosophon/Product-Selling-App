@@ -61,15 +61,15 @@ namespace A1
             bundle = Intent.Extras;
 
             //display info of the product that has been cliked in Dashboard
-            product = JsonConvert.DeserializeObject<Product>(bundle.GetString("product"));
-            customer = JsonConvert.DeserializeObject<Customer>(bundle.GetString("customer"));
+            product = JsonConvert.DeserializeObject<Product>(bundle.GetString(Resources.GetString(Resource.String.product)));
+            customer = JsonConvert.DeserializeObject<Customer>(bundle.GetString(Resources.GetString(Resource.String.customer)));
             var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, product.ImageSmall);
             imgProduct.SetImageBitmap(bitmapImg);
             txtPrice.Text = Resources.GetString(Resource.String.dollarSign) + product.Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
             txtDescription.Text = product.Description;
 
             //get cartList from bundle
-            cartList = JsonConvert.DeserializeObject<List<Tuple<Product, int>>>(bundle.GetString("cartList"));
+            cartList = JsonConvert.DeserializeObject<List<Tuple<Product, int>>>(bundle.GetString(Resources.GetString(Resource.String.cartList)));
             txtItemsInCart.Text = Resources.GetString(Resource.String.itemsInCart) + " " + cartList.Count.ToString();
 
             //set values for spinner
@@ -159,7 +159,7 @@ namespace A1
             }
             catch (Exception ex)
             {
-                AlertDialogBuilder.BuildAlertDialog(this, "connection error", ex.Message);
+                AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.error), ex.Message);
             }
            
             txtLogOut.Click += delegate
@@ -170,7 +170,7 @@ namespace A1
             txtDashBoard.Click += delegate
             {
                 var intent = new Intent(this, typeof(DashBoardActivity));                               
-                bundle.PutString("cartList", JsonConvert.SerializeObject(cartList));
+                bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));
                 intent.PutExtras(bundle);
                 StartActivity(intent);
             };
@@ -187,21 +187,23 @@ namespace A1
 
         private void BtnViewCart1_Click(object sender, EventArgs e)
         {
-            //testing
-            AlertDialogBuilder.BuildAlertDialog(this, "item in carts", cartList.Count.ToString());
+            var intent = new Intent(this, typeof(PaymentActivity));
+            bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));
+            intent.PutExtras(bundle);
+            StartActivity(intent);
         }
 
         private void BtnAddToCart_Click(object sender, EventArgs e)
-        {
-            
+        {            
             
             cartList.Add(new Tuple<Product, int>(product, quantity));
             txtItemsInCart.Text = Resources.GetString(Resource.String.itemsInCart) + " " + cartList.Count.ToString();
-
+            /*
             foreach (Tuple<Product, int> item in cartList)
             {
                 AlertDialogBuilder.BuildAlertDialog(this, "item in list", item.Item1.Name + item.Item2.ToString());
             }
+            */
         }
 
         

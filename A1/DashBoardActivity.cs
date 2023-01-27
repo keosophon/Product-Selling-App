@@ -207,8 +207,7 @@ namespace A1
 
         public void DisplayAllProducts()
         {
-            Customer customer = JsonConvert.DeserializeObject<Customer>(bundle.GetString("customer"));
-            AlertDialogBuilder.BuildAlertDialog(this, "customer", customer.FirstName);
+            
             //create productCRUD through Factory Design Pattern
             ICRUD<Product> productCRUD = CRUDFactory.CreateCRUD<Product>();
 
@@ -225,7 +224,7 @@ namespace A1
             }
             catch (Exception ex)
             {
-                AlertDialogBuilder.BuildAlertDialog(this, "connection error", ex.Message);
+                AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.error), ex.Message);
             }
         }
 
@@ -282,7 +281,7 @@ namespace A1
         private void OpenProductViewPage(Product product)
         {
             //pass Sing In customer, and product to Product View Activity
-            bundle.PutString("product", JsonConvert.SerializeObject(product));
+            bundle.PutString(Resources.GetString(Resource.String.product), JsonConvert.SerializeObject(product));
             var intent = new Intent(this, typeof(ProductViewActivity));
             intent.PutExtras(bundle);
             StartActivity(intent);
