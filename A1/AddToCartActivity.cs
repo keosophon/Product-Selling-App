@@ -67,12 +67,24 @@ namespace A1
             cbWeekends.Checked = false;
             cbCities.Checked = false;
 
+            //calculate customer age
+            DateTime zeroTime = new DateTime(1, 1, 1);
 
-            //DateTime date = DateTime.Now;
-            //double result = date.Subtract(customer.DoB).TotalDays/365;
+            DateTime date = DateTime.Now;
 
-            //AlertDialogBuilder.BuildAlertDialog(this, "how many days?", result.ToString());
+            TimeSpan span = date - customer.DoB;
+            int years = (zeroTime + span).Year-1;
+            int months = (zeroTime + span).Month - 1;
+            int days = (zeroTime + span).Day - 1;
 
+            int yearMonthDay = Convert.ToInt32(years.ToString() + months.ToString() + days.ToString());
+
+            if (years>=60 && yearMonthDay > 6000)
+            {
+                cbSenior.Checked = true;
+            }
+
+            //find DayOfWeek of Today
             DayOfWeek day = DateTime.Now.DayOfWeek;
 
             if (day == DayOfWeek.Saturday || day == DayOfWeek.Sunday)
@@ -80,11 +92,7 @@ namespace A1
                 cbWeekends.Checked = true;
             }
 
-            cbSenior.Enabled = false;
-            cbWeekends.Enabled = false;
-            cbCities.Enabled = false;
-
-
+            //find the city of customer
             string wellington = Resources.GetString(Resource.String.wellington);
             string auckland = Resources.GetString(Resource.String.auckland);
             string address = customer.Address.ToLower();
@@ -92,7 +100,12 @@ namespace A1
             if (address.Contains(wellington) || address.Contains(auckland))
             {
                 cbCities.Checked = true;
-            }            
+            }
+
+            //customer can see but cannot change
+            cbSenior.Enabled = false;
+            cbWeekends.Enabled = false;
+            cbCities.Enabled = false;
 
 
             txtLogOut.Click += delegate
