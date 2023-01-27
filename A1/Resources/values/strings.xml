@@ -43,7 +43,8 @@
 	<string name="courier">Courier</string>
 	<string name="pickup">Pickup from the shop</string>
 	<string name="discountApplied">Discounts Applied:</string>
-	<string name="senior">Senior about 60</string>
+	<string name="seniorAbout60">Senior about 60</string>
+	<string name="senior">Senior</string>
 	<string name="weekends">Weekends</string>
 	<string name="cities">Aukland or Wellington</string>
 	<string name="courierCharge">Note: Courier charge is $10.00 NZD</string>
@@ -58,6 +59,9 @@
 	<string name="nzd">NZD</string>
 	<string name="wellington">wellington</string>
 	<string name="auckland">auckland</string>
+	<string name="percentageSign">%</string>
+	<string name="openParentheses">(</string>
+	<string name="closeParentheses">)</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>

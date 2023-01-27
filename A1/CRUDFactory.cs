@@ -22,9 +22,10 @@ namespace A1
             Type type = typeof(T);
             if (type == typeof(Customer))
                 return (ICRUD<T>)new CustomerCRUD();
-
             else if (type == typeof(Product))
                 return (ICRUD<T>)new ProductCRUD();
+            else if (type == typeof(Discount))
+                return (ICRUD<T>)new DiscountCRUD();
 
             return null;
 

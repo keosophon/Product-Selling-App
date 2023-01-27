@@ -30,6 +30,7 @@ namespace A1
         private Product product;
         private Customer customer;
         private Bundle bundle;
+        private List<Discount> discountList;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -102,12 +103,48 @@ namespace A1
                 cbCities.Checked = true;
             }
 
+            
             //customer can see but cannot change
             cbSenior.Enabled = false;
             cbWeekends.Enabled = false;
             cbCities.Enabled = false;
+                       
+            try
+            {
+                
+            //add discount percentages to checkboxes UI
+            //create discountCRUD through Factory Design Pattern
+            ICRUD<Discount> discountCRUD = CRUDFactory.CreateCRUD<Discount>();
+            discountList = discountCRUD.GetObjects();            
+            for (int i = 0; i < discountList.Count; i++)
+            {
+                string senior = Resources.GetString(Resource.String.senior).ToLower();
+                string weekends = Resources.GetString(Resource.String.weekends).ToLower();                
+                string openParentheses = Resources.GetString(Resource.String.openParentheses);
+                string closeParenthese = Resources.GetString(Resource.String.closeParentheses);
+                string percentageSign = Resources.GetString(Resource.String.percentageSign);                
 
+                if (discountList[i].Description.ToLower().Contains(senior))
+                {
+                    cbSenior.Text = cbSenior.Text + openParentheses + Convert.ToInt32((discountList[i].Percentage * 100)).ToString() + percentageSign + closeParenthese;
+                    
+                }
+                else if (discountList[i].Description.ToLower().Contains(weekends))
+                {
+                    cbWeekends.Text = cbWeekends.Text + openParentheses + (discountList[i].Percentage * 100).ToString() + percentageSign + closeParenthese;
+                }
+                else
+                {
+                    cbCities.Text = cbCities.Text + openParentheses + (discountList[i].Percentage * 100).ToString() + percentageSign + closeParenthese;
+                }
 
+            }
+            }
+            catch (Exception ex)
+            {
+                AlertDialogBuilder.BuildAlertDialog(this, "connection error", ex.Message);
+            }
+           
             txtLogOut.Click += delegate
             {
                 StartActivity(typeof(MainActivity));
