@@ -10,6 +10,7 @@ using System.Data;
 using System.Threading;
 using System;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace A1
 {
@@ -65,7 +66,7 @@ namespace A1
                 Customer cus = customerCRUD.GetObject(txtEmailPhoneLog.Text);
                 if (cus == null)
                 {
-                    this.BuildAlertDialog("Wrong Input", "Username or Password is incorrect");
+                    AlertDialogBuilder.BuildAlertDialog(this, "Wrong Input", "Username or Password is incorrect");
                     return;
                 }
 
@@ -74,14 +75,18 @@ namespace A1
                 {
                     //pass Sign In customer to Dashboard Activity
                     Bundle bundle = new Bundle();
+                    double discount = 0;
+                    List<Tuple<Product, int>> cartList = new List<Tuple<Product, int>>();
                     bundle.PutString("customer", JsonConvert.SerializeObject(cus));
+                    bundle.PutString("cartList", JsonConvert.SerializeObject(cartList));                    
+                    bundle.PutDouble("discount", discount);
                     var intent = new Intent(this, typeof(DashBoardActivity));
                     intent.PutExtras(bundle);
                     StartActivity(intent);
                 }
                 else
                 {
-                    this.BuildAlertDialog("Wrong Input", "Username or Password is incorrect");
+                    AlertDialogBuilder.BuildAlertDialog(this, "Wrong Input", "Username or Password is incorrect");                    
                 }
             }
             catch (Exception ex)
@@ -90,10 +95,7 @@ namespace A1
             }
         }
 
-        public void BuildAlertDialog(string title, string message)
-        {
-            AlertDialogBuilder.BuildAlertDialog(this, title, message);
-        }
+        
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

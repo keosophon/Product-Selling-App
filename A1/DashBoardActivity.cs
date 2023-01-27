@@ -279,25 +279,11 @@ namespace A1
 
         private void OpenProductViewPage(Product product)
         {
-            var customer = JsonConvert.DeserializeObject<Customer>(bundle.GetString("customer"));
-            AlertDialogBuilder.BuildAlertDialog(this, "customer", customer.FirstName);
             //pass Sing In customer, and product to Product View Activity
             bundle.PutString("product", JsonConvert.SerializeObject(product));
             var intent = new Intent(this, typeof(ProductViewActivity));
             intent.PutExtras(bundle);
             StartActivity(intent);
-
-            /*
-            var intent = new Intent(this, typeof(ProductViewActivity));
-            intent.PutExtra("customer", JsonConvert.SerializeObject(customer));
-            intent.PutExtra("product",JsonConvert.SerializeObject(product));
-            StartActivity(intent);
-            */
-        }
-        private void SeeDetails_Click(object sender, EventArgs e)
-        {
-            
-            StartActivity(typeof(ProductViewActivity));
         }
 
         public void BuildAlertDialog(string title, string message)

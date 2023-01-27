@@ -31,6 +31,10 @@ namespace A1
         private Customer customer;
         private Bundle bundle;
         private List<Discount> discountList;
+        private Button btnAddToCart;
+        private List<Tuple<Product, int>> cartList;
+        private double discount;
+        private Button btnViewCart1;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -48,6 +52,8 @@ namespace A1
             imgProduct = FindViewById<ImageButton>(Resource.Id.imgbtnProductSmall);
             txtDescription = FindViewById<TextView>(Resource.Id.txtProductDescCart);
             txtPrice = FindViewById<TextView>(Resource.Id.txtProductPrice);
+            btnAddToCart = FindViewById<Button>(Resource.Id.btnAddToCart);
+            btnViewCart1 = FindViewById<Button>(Resource.Id.btnViewCart1);
 
             //Creating bundle containing Sing In customer and product
             bundle = Intent.Extras;
@@ -59,6 +65,10 @@ namespace A1
             imgProduct.SetImageBitmap(bitmapImg);
             txtPrice.Text = Resources.GetString(Resource.String.dollarSign) + product.Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
             txtDescription.Text = product.Description;
+
+            //get cartList from bundle
+            cartList = JsonConvert.DeserializeObject<List<Tuple<Product, int>>>(bundle.GetString("cartList"));
+            discount = bundle.GetDouble("discount");
 
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.quantity, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
@@ -152,14 +162,27 @@ namespace A1
 
             txtDashBoard.Click += delegate
             {
-                if (product != null)
-                {
-                    bundle.Remove("product");
-                }
-                var intent = new Intent(this, typeof(DashBoardActivity));
+                var intent = new Intent(this, typeof(DashBoardActivity));                               
+                bundle.PutString("cartList", JsonConvert.SerializeObject(cartList));
                 intent.PutExtras(bundle);
                 StartActivity(intent);
             };
+            btnAddToCart.Click += BtnAddToCart_Click;
+            btnViewCart1.Click += BtnViewCart1_Click;
+        }
+
+        private void BtnViewCart1_Click(object sender, EventArgs e)
+        {
+            //testing
+            AlertDialogBuilder.BuildAlertDialog(this, "item in carts", cartList.Count.ToString());
+        }
+
+        private void BtnAddToCart_Click(object sender, EventArgs e)
+        {
+            //testing
+            AlertDialogBuilder.BuildAlertDialog(this, "item in carts", cartList.Count.ToString());
+            int quantity = 2;
+            cartList.Add(new Tuple<Product, int>(product, quantity));
         }
 
         

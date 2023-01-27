@@ -26,7 +26,6 @@ namespace A1
         private Button btnBuyNow;
         private Bundle bundle;
         private Product product;
-        //private Customer customer;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -42,18 +41,12 @@ namespace A1
             txtDashBoard = FindViewById<TextView>(Resource.Id.txtDashBoard);
             txtLogOut = FindViewById<TextView>(Resource.Id.txtLogOut);
             btnBuyNow = FindViewById<Button>(Resource.Id.btnBuyNow);
-
-
-            //Getting customer from Dashboard
-            //customer = JsonConvert.DeserializeObject<Customer>(Intent.GetStringExtra("customer"));
-
             
             //Creating bundle containing Sing In customer and product
             bundle = Intent.Extras;
 
             //display info of the product that has been cliked in Dashboard
-            product = JsonConvert.DeserializeObject<Product>(bundle.GetString("product"));
-            //product = JsonConvert.DeserializeObject<Product>(Intent.GetStringExtra("product"));            
+            product = JsonConvert.DeserializeObject<Product>(bundle.GetString("product"));                       
             var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, product.ImageBig);
             imgBtnProduct.SetImageBitmap(bitmapImg);
             txtProductName.Text = product.Name;
@@ -67,10 +60,6 @@ namespace A1
 
             txtDashBoard.Click += delegate
             {
-                if (product!=null)
-                {
-                    bundle.Remove("product");
-                }
                 var intent = new Intent(this, typeof(DashBoardActivity));
                 intent.PutExtras(bundle);
                 StartActivity(intent);                
@@ -81,11 +70,11 @@ namespace A1
 
         private void BtnBuyNow_Click(object sender, EventArgs e)
         {
-            this.OpenAddToCartActivity(product);
+            this.OpenAddToCartActivity();
         }
 
         //passing bundle containing sing-in customer and product to addToCartActivity
-        private void OpenAddToCartActivity(Product product)
+        private void OpenAddToCartActivity()
         {
             var intent = new Intent(this, typeof(AddToCartActivity));
             intent.PutExtras(bundle);
