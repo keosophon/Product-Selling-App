@@ -57,6 +57,7 @@ namespace A1
                 GridLayout.LayoutParams param = new GridLayout.LayoutParams();
                 param.RowSpec = GridLayout.InvokeSpec(currentRow);
                 param.ColumnSpec = GridLayout.InvokeSpec(currentColumn);
+                //param.Width = -2;
                 currentColumn += 1;
                 itemDescription.LayoutParameters = param;
                 //itemDescription.Gravity = GravityFlags.Center;

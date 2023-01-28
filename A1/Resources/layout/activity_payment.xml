@@ -91,13 +91,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_gravity=""
+                >
                 <GridLayout
                     android:minWidth="25px"
                     android:minHeight="25px"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/itemGrid">
+                    android:id="@+id/itemGrid"
+                    android:layout_marginTop="@dimen/margin_medium">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -107,7 +110,7 @@
                         android:id="@+id/txtItem"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:textSize="@dimen/text_sz_medium"
+                        android:textSize="@dimen/text_sz_medium"                         
                         />
                     <TextView
                         android:layout_width="wrap_content"
@@ -118,7 +121,8 @@
                         android:id="@+id/txtQtyPayment"
                         android:layout_row="0"
                         android:layout_column="1"
-                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginRight="@dimen/margin_medium"
+                        android:textSize="@dimen/text_sz_medium"                       
                         />
                     <TextView
                         android:layout_width="wrap_content"
@@ -129,6 +133,7 @@
                         android:id="@+id/txtUnitPrice"
                         android:layout_row="0"
                         android:layout_column="2"
+                        android:layout_marginRight="@dimen/margin_medium"
                         android:textSize="@dimen/text_sz_medium"
                         />
                     <TextView
@@ -139,7 +144,7 @@
                         android:minHeight="25px"
                         android:id="@+id/txtSubTotal"
                         android:layout_row="0"
-                        android:layout_column="3"
+                        android:layout_column="3"                        
                         android:textSize="@dimen/text_sz_medium"
                         />
                 </GridLayout>
@@ -147,10 +152,12 @@
                     android:text="@string/checkout"
                     android:id="@+id/btnCheckOut"
                     android:backgroundTint="@color/colorClickAble"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="@dimen/text_sz_large"
+                    android:textSize="@dimen/text_sz_large"                    
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_gravity="center"
                 />
             </LinearLayout>
         </ScrollView>
