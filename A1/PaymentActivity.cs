@@ -23,6 +23,8 @@ namespace A1
         private double discount = 0.0;
         private double discountPercentage;
         private TextView txtDiscountPrice;
+        private TextView txtSubTotalValue;
+        private double subTotalValue;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -31,7 +33,7 @@ namespace A1
             SetContentView(Resource.Layout.activity_payment);
 
             txtDiscountPrice = FindViewById<TextView>(Resource.Id.txtDiscountValue);
-
+            txtSubTotalValue = FindViewById<TextView>(Resource.Id.txtSubTotalValue);
 
             //Creating bundle containing Sing In customer and product
             bundle = Intent.Extras;
@@ -41,11 +43,11 @@ namespace A1
             discountPercentage = bundle.GetDouble(Resources.GetString(Resource.String.discount));
 
             itemGrid = FindViewById<GridLayout>(Resource.Id.itemGrid);
-            itemGrid.RowCount = cartList.Count*2+1;
+            itemGrid.RowCount = cartList.Count+1;
 
             foreach (Tuple<Product, int> item in cartList)
             {
-                discount += Convert.ToDouble(item.Item1.Price) * Convert.ToDouble(item.Item2) *discountPercentage;
+                subTotalValue += Convert.ToDouble(item.Item1.Price) * Convert.ToDouble(item.Item2);                
                 currentRow += 1;
                 int currentColumn = 0;
                 TextView itemDescription = new TextView(this);
@@ -96,7 +98,9 @@ namespace A1
                 itemGrid.AddView(subTotal);                
             }
 
-            txtDiscountPrice.Text = Math.Round(discount,2).ToString();
+            txtSubTotalValue.Text = subTotalValue.ToString();
+            discount += subTotalValue * discountPercentage;
+            txtDiscountPrice.Text = Resources.GetString(Resource.String.minus) + Math.Round(discount,2).ToString();
 
         }
 

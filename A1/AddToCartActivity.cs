@@ -154,7 +154,7 @@ namespace A1
                 }
                 else if (discountList[i].Description.ToLower().Contains(weekends))
                 {
-                    cbWeekends.Text = cbWeekends.Text + openParentheses + (discountList[i].Percentage * 100).ToString() + percentageSign + closeParenthese;
+                    cbWeekends.Text = cbWeekends.Text + openParentheses + Convert.ToInt32((discountList[i].Percentage * 100)).ToString() + percentageSign + closeParenthese;
 
                     if (cbWeekends.Checked == true)
                     {
@@ -163,7 +163,7 @@ namespace A1
                 }
                 else
                 {
-                    cbCities.Text = cbCities.Text + openParentheses + (discountList[i].Percentage * 100).ToString() + percentageSign + closeParenthese;
+                    cbCities.Text = cbCities.Text + openParentheses + Convert.ToInt32((discountList[i].Percentage * 100)).ToString() + percentageSign + closeParenthese;
                     if (cbCities.Checked == true)
                     {
                             discount += discountList[i].Percentage;
