@@ -36,6 +36,7 @@ namespace A1
         private Button btnViewCart1;
         private TextView txtItemsInCart;
         private int quantity;
+        private decimal discount= 0;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -135,6 +136,7 @@ namespace A1
             discountList = discountCRUD.GetObjects();            
             for (int i = 0; i < discountList.Count; i++)
             {
+
                 string senior = Resources.GetString(Resource.String.senior).ToLower();
                 string weekends = Resources.GetString(Resource.String.weekends).ToLower();                
                 string openParentheses = Resources.GetString(Resource.String.openParentheses);
@@ -143,16 +145,29 @@ namespace A1
 
                 if (discountList[i].Description.ToLower().Contains(senior))
                 {
-                    cbSenior.Text = cbSenior.Text + openParentheses + Convert.ToInt32((discountList[i].Percentage * 100)).ToString() + percentageSign + closeParenthese;
-                    
+                    cbSenior.Text = cbSenior.Text + openParentheses + Convert.ToInt32((discountList[i].Percentage * 100)).ToString() + percentageSign + closeParenthese;   
+                    if (cbSenior.Checked == true)
+                    {
+                            discount += discountList[i].Percentage;
+                    }
+                
                 }
                 else if (discountList[i].Description.ToLower().Contains(weekends))
                 {
                     cbWeekends.Text = cbWeekends.Text + openParentheses + (discountList[i].Percentage * 100).ToString() + percentageSign + closeParenthese;
+
+                    if (cbWeekends.Checked == true)
+                    {
+                        discount += discountList[i].Percentage;
+                    }
                 }
                 else
                 {
                     cbCities.Text = cbCities.Text + openParentheses + (discountList[i].Percentage * 100).ToString() + percentageSign + closeParenthese;
+                    if (cbCities.Checked == true)
+                    {
+                            discount += discountList[i].Percentage;
+                    }
                 }
 
             }
@@ -168,9 +183,9 @@ namespace A1
             };
 
             txtDashBoard.Click += delegate
-            {
-                var intent = new Intent(this, typeof(DashBoardActivity));                               
-                bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));
+            {                
+                var intent = new Intent(this, typeof(DashBoardActivity));                
+                bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));                
                 intent.PutExtras(bundle);
                 StartActivity(intent);
             };
@@ -187,8 +202,10 @@ namespace A1
 
         private void BtnViewCart1_Click(object sender, EventArgs e)
         {
+            AlertDialogBuilder.BuildAlertDialog(this, "discount", discount.ToString());
             var intent = new Intent(this, typeof(PaymentActivity));
             bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));
+            bundle.PutDouble(Resources.GetString(Resource.String.discount), Convert.ToDouble(discount));
             intent.PutExtras(bundle);
             StartActivity(intent);
         }
@@ -198,14 +215,6 @@ namespace A1
             
             cartList.Add(new Tuple<Product, int>(product, quantity));
             txtItemsInCart.Text = Resources.GetString(Resource.String.itemsInCart) + " " + cartList.Count.ToString();
-            /*
-            foreach (Tuple<Product, int> item in cartList)
-            {
-                AlertDialogBuilder.BuildAlertDialog(this, "item in list", item.Item1.Name + item.Item2.ToString());
-            }
-            */
         }
-
-        
     }
 }

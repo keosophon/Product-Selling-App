@@ -20,6 +20,9 @@ namespace A1
         private List<Tuple<Product, int>> cartList;
         private GridLayout itemGrid;
         private int currentRow = 0;
+        private double discount = 0.0;
+        private double discountPercentage;
+        private TextView txtDiscountPrice;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -27,20 +30,22 @@ namespace A1
             // Create your application here
             SetContentView(Resource.Layout.activity_payment);
 
+            txtDiscountPrice = FindViewById<TextView>(Resource.Id.txtDiscountValue);
+
 
             //Creating bundle containing Sing In customer and product
             bundle = Intent.Extras;
 
             //get cartList from bundle
             cartList = JsonConvert.DeserializeObject<List<Tuple<Product, int>>>(bundle.GetString(Resources.GetString(Resource.String.cartList)));
+            discountPercentage = bundle.GetDouble(Resources.GetString(Resource.String.discount));
 
             itemGrid = FindViewById<GridLayout>(Resource.Id.itemGrid);
             itemGrid.RowCount = cartList.Count+1;
-            
-            
 
             foreach (Tuple<Product, int> item in cartList)
             {
+                discount += Convert.ToDouble(item.Item1.Price) * Convert.ToDouble(item.Item2) *discountPercentage;
                 currentRow += 1;
                 int currentColumn = 0;
                 TextView itemDescription = new TextView(this);
@@ -85,6 +90,8 @@ namespace A1
                 subTotal.LayoutParameters = param3;
                 itemGrid.AddView(subTotal);                
             }
+
+            txtDiscountPrice.Text = Math.Round(discount,2).ToString();
 
         }
 

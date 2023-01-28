@@ -70,6 +70,7 @@
 	<string name="customer">customer</string>
 	<string name="cartList">cartList</string>
 	<string name="orderSummary">Order Summary</string>
+	<string name="discount">Discount</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>
