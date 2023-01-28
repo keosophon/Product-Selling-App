@@ -95,6 +95,7 @@
                 android:layout_gravity=""
                 >
                 <GridLayout
+                    android:layout_marginLeft="@dimen/margin_medium"
                     android:minWidth="25px"
                     android:minHeight="25px"
                     android:layout_width="wrap_content"
@@ -110,7 +111,8 @@
                         android:id="@+id/txtItem"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:textSize="@dimen/text_sz_medium"                         
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginRight="@dimen/margin_extra_large"
                         />
                     <TextView
                         android:layout_width="wrap_content"
@@ -121,8 +123,10 @@
                         android:id="@+id/txtQtyPayment"
                         android:layout_row="0"
                         android:layout_column="1"
+                        android:layout_marginLeft="@dimen/margin_small"
                         android:layout_marginRight="@dimen/margin_medium"
-                        android:textSize="@dimen/text_sz_medium"                       
+                        android:textSize="@dimen/text_sz_medium"
+                        android:gravity="end"
                         />
                     <TextView
                         android:layout_width="wrap_content"
@@ -135,6 +139,7 @@
                         android:layout_column="2"
                         android:layout_marginRight="@dimen/margin_medium"
                         android:textSize="@dimen/text_sz_medium"
+                        android:gravity="end"
                         />
                     <TextView
                         android:layout_width="wrap_content"
@@ -146,6 +151,7 @@
                         android:layout_row="0"
                         android:layout_column="3"                        
                         android:textSize="@dimen/text_sz_medium"
+                        android:gravity="end"
                         />
                 </GridLayout>
                 <View
@@ -157,6 +163,7 @@
                     android:layout_marginRight="@dimen/margin_small"
                 />
                 <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
@@ -166,15 +173,17 @@
                         android:layout_marginTop="@dimen/margin_medium"
                         android:id="@id/txtDiscount" 
                         android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginLeft="@dimen/margin_medium"
                     />
                     <TextView
-                        android:text="Text"
+                        android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:id="@+id/txtDiscountValue" 
                         android:textSize="@dimen/text_sz_medium"
                         android:gravity="end"
+                        android:layout_marginRight="@dimen/margin_extra_large"
                     />
                 </LinearLayout>
                 

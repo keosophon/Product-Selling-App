@@ -41,7 +41,7 @@ namespace A1
             discountPercentage = bundle.GetDouble(Resources.GetString(Resource.String.discount));
 
             itemGrid = FindViewById<GridLayout>(Resource.Id.itemGrid);
-            itemGrid.RowCount = cartList.Count+1;
+            itemGrid.RowCount = cartList.Count*2+1;
 
             foreach (Tuple<Product, int> item in cartList)
             {
@@ -62,16 +62,19 @@ namespace A1
                 GridLayout.LayoutParams param = new GridLayout.LayoutParams();
                 param.RowSpec = GridLayout.InvokeSpec(currentRow);
                 param.ColumnSpec = GridLayout.InvokeSpec(currentColumn);
-                //param.Width = -2;
-                currentColumn += 1;
-                itemDescription.LayoutParameters = param;
-                //itemDescription.Gravity = GravityFlags.Center;
-                
+                param.Width = GridLayout.LayoutParams.WrapContent;
+                currentColumn = 1;
+                itemDescription.SetWidth(500);
+                itemDescription.LayoutParameters = param;                
+                itemDescription.SetSingleLine(false);                
+                itemDescription.SetLines(2);                
+                                               
                 itemGrid.AddView(itemDescription);
 
                 GridLayout.LayoutParams param1 = new GridLayout.LayoutParams();
                 param1.RowSpec = GridLayout.InvokeSpec(currentRow);
                 param1.ColumnSpec = GridLayout.InvokeSpec(currentColumn);
+                param1.SetGravity(GravityFlags.Center);
                 currentColumn += 1;
                 quantiy.LayoutParameters = param1;
                 itemGrid.AddView(quantiy);
@@ -79,6 +82,7 @@ namespace A1
                 GridLayout.LayoutParams param2 = new GridLayout.LayoutParams();
                 param2.RowSpec = GridLayout.InvokeSpec(currentRow);
                 param2.ColumnSpec = GridLayout.InvokeSpec(currentColumn);
+                param2.SetGravity(GravityFlags.Center);
                 currentColumn += 1;
                 unitPrice.LayoutParameters = param2;
                 itemGrid.AddView(unitPrice);
@@ -86,6 +90,7 @@ namespace A1
                 GridLayout.LayoutParams param3 = new GridLayout.LayoutParams();
                 param3.RowSpec = GridLayout.InvokeSpec(currentRow);
                 param3.ColumnSpec = GridLayout.InvokeSpec(currentColumn);
+                param3.SetGravity(GravityFlags.Center);
                 currentColumn += 1;
                 subTotal.LayoutParameters = param3;
                 itemGrid.AddView(subTotal);                

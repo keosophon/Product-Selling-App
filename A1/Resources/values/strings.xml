@@ -51,7 +51,7 @@
 	<string name="courierCharge">Note: Courier charge is $10.00 NZD</string>
 	<string name="item">Item</string>
 	<string name="unitPrice">Unit Price</string>
-	<string name="subTotal">Sub-Total</string>
+	<string name="subTotal">SubTotal</string>
 	<string name="checkout">Check Out</string>
 	<string name="emailOrPhone">Email Address or Phone Number</string>
 	<string name="detail">See Details</string>
