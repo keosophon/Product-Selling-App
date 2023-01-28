@@ -70,6 +70,8 @@
     <Compile Include="AlertDialogBuilder.cs" />
     <Compile Include="BitMapImageCreator.cs" />
     <Compile Include="CRUDFactory.cs" />
+    <Compile Include="DeliveryType.cs" />
+    <Compile Include="DeliveryTypeCRUD.cs" />
     <Compile Include="Discount.cs" />
     <Compile Include="DiscountCRUD.cs" />
     <Compile Include="PaymentActivity.cs" />

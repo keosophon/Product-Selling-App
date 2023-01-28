@@ -207,6 +207,7 @@
                         android:id="@id/txtDiscount" 
                         android:textSize="@dimen/text_sz_medium"
                         android:layout_marginLeft="@dimen/margin_medium"
+                        android:layout_marginBottom="@dimen/margin_small"
                     />
                     <TextView
                         android:text=""
@@ -218,7 +219,39 @@
                         android:gravity="end"
                         android:layout_marginRight="@dimen/margin_extra_large"
                     />
-                </LinearLayout>                
+                </LinearLayout>      
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#808080"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginRight="@dimen/margin_small"
+                />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="@string/deliveryCharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:id="@+id/txtDeliveryCharge" 
+                        android:textSize="@dimen/text_sz_medium"
+                        android:layout_marginLeft="@dimen/margin_medium"
+                    />
+                    <TextView
+                        android:text=""
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:id="@+id/txtDeliveryChargeValue" 
+                        android:textSize="@dimen/text_sz_medium"
+                        android:gravity="end"
+                        android:layout_marginRight="@dimen/margin_extra_large"
+                    />
+                </LinearLayout>
                 <Button
                     android:text="@string/checkout"
                     android:id="@+id/btnCheckOut"

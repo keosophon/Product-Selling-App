@@ -26,6 +26,8 @@ namespace A1
                 return (ICRUD<T>)new ProductCRUD();
             else if (type == typeof(Discount))
                 return (ICRUD<T>)new DiscountCRUD();
+            else if (type == typeof(DeliveryType))
+                return (ICRUD<T>)new DeliveryTypeCRUD();
 
             return null;
 

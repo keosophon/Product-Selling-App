@@ -13,54 +13,57 @@ using System.Data.SqlClient;
 namespace A1
 {
     /// <summary>
-    /// CRUD Implementation for Discount Table
+    /// CRUD Implementation for DeliveryType Table
     /// </summary>
-    class DiscountCRUD : ICRUD<Discount>
+    class DeliveryTypeCRUD : ICRUD<DeliveryType>
     {
         private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
         private static readonly SqlConnection conn = dbConnInstance.GetConnection();
 
-        public int Add(Discount discount)
+        public int Add(DeliveryType deliveryType)
         {
             //not required to implement
             return -1;
         }
 
-        public Discount GetObject(string name)
+        public DeliveryType GetObject(string name)
         {
             //no required to implement
 
-            Discount discount = null;
-            return discount;
-            ;
+            DeliveryType deliveryType = null;
+            return deliveryType;
         }
 
-        public Discount GetObject(int id)
+        public DeliveryType GetObject(int id)
         {
             //no required to implement
-            Discount discount = null;
+            DeliveryType deliveryType = null;
 
-            return discount;
+
+
+            return deliveryType;
         }
 
-        public List<Discount> GetObjects()
+        public List<DeliveryType> GetObjects()
         {
             dbConnInstance.OpenConnection();
-            string commandText = "SELECT * FROM Discounts;";
-            List<Discount> discountList = new List<Discount>();
+            string commandText = "SELECT * FROM DeliveryTypes;";
+            List<DeliveryType> deliveryTypeList = new List<DeliveryType>();
             SqlCommand command = new SqlCommand(commandText, conn);
             command.Prepare();
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                Discount discount = new Discount();
-                discount.Percentage = Convert.ToDecimal(reader[1].ToString());                
-                discount.Description = reader[2].ToString();
-                discountList.Add(discount);
+                DeliveryType deliveryType = new DeliveryType();
+                deliveryType.Mechanism = reader[1].ToString();
+                deliveryType.Description = reader[2].ToString();
+                deliveryType.ExtraCharge = Convert.ToDecimal(reader[3].ToString());
+                deliveryTypeList.Add(deliveryType);
+
             }
             reader.Close();
             conn.Close();
-            return discountList;
+            return deliveryTypeList;
         }
     }
 }
