@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AndroidX.AppCompat.App;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,8 @@ using System.Text;
 
 namespace A1
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
-    public class PaymentActivity : Activity
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
+    public class PaymentActivity : AppCompatActivity
     {
         private Bundle bundle;
         private List<Tuple<Product, int>> cartList;
