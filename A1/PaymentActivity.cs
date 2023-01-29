@@ -33,6 +33,8 @@ namespace A1
         private TextView txtDeliveryChargeValue;
         private decimal courierCharge;
         private TextView txtTotalValue;
+        private TextView txtLogOut;
+        private TextView txtDashBoard;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -48,6 +50,8 @@ namespace A1
             rdPickUp = FindViewById<RadioButton>(Resource.Id.rdPickup);
             txtDeliveryChargeValue = FindViewById<TextView>(Resource.Id.txtDeliveryChargeValue);
             txtTotalValue = FindViewById<TextView>(Resource.Id.txtTotalValue);
+            txtLogOut = FindViewById<TextView>(Resource.Id.txtLogOut);
+            txtDashBoard = FindViewById<TextView>(Resource.Id.txtDashBoard);
 
 
             //Creating bundle containing Sing In customer and product
@@ -128,6 +132,20 @@ namespace A1
 
             //Total
             txtTotalValue.Text = this.calculateTotal().ToString();
+
+            txtLogOut.Click += delegate
+            {
+                StartActivity(typeof(MainActivity));
+            };
+
+            txtDashBoard.Click += delegate
+            {
+                var intent = new Intent(this, typeof(DashBoardActivity));
+                bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));
+                intent.PutExtras(bundle);
+                StartActivity(intent);
+            };
+
         }
 
         private double calculateTotal()
