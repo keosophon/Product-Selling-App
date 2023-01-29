@@ -21,7 +21,7 @@ namespace A1
         public int Add(Order order)
         {
             dbConnInstance.OpenConnection();
-            string commandText = "INSERT INTO Orders(OrderPlaced, OrderFulfilled, CustomerId, DeliveryId) " +
+            string commandText = "INSERT INTO Orders(OrderPlaced, OrderFulfilled, CustomerId, DeliveryId) output INSERTED.ID " +
                 "VALUES (@orderPlaced, @orderFullfilled, @customerId, @deliveryId)";
             SqlCommand command = new SqlCommand(commandText, conn);
 
@@ -45,7 +45,7 @@ namespace A1
 
             // Call Prepare after setting the Commandtext and Parameters.
             command.Prepare();
-            int result = command.ExecuteNonQuery();
+            int result = (int)command.ExecuteScalar();
             conn.Close();
             return result;
 

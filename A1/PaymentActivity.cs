@@ -183,7 +183,8 @@ namespace A1
             }
             //create orderCRUD through Factory Design Pattern
             ICRUD<Order> orderCRUD = CRUDFactory.CreateCRUD<Order>();
-            orderCRUD.Add(order);
+            int generatedOrderId = orderCRUD.Add(order);
+            AlertDialogBuilder.BuildAlertDialog(this, "id", generatedOrderId.ToString());
 
 
 
