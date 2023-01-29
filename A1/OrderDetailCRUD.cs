@@ -13,34 +13,32 @@ using System.Data.SqlClient;
 
 namespace A1
 {
-    class PaymentCRUD:ICRUD<Payment>
+    class OrderDetailCRUD
     {
         private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
         private static readonly SqlConnection conn = dbConnInstance.GetConnection();
 
-        public int Add(Payment payment)
+        public int Add(OrderDetail orderDetail)
         {
             dbConnInstance.OpenConnection();
-            string commandText = "INSERT INTO Payments(PaymentDate, OrderId, Amount) " +
-                "VALUES (@paymentDate, @orderId, @amount)";
+            string commandText = "INSERT INTO OrderDetail(Quantity, OrderId, ProductId) " +
+                "VALUES (@quantity, @orderId, @productId)";
             SqlCommand command = new SqlCommand(commandText, conn);
 
-            SqlParameter paymentDateParam =
-                new SqlParameter("@paymentDate", SqlDbType.Date, 8);
+            SqlParameter quantityParam =
+                new SqlParameter("@quantity", SqlDbType.Int, 4);
             SqlParameter orderIdParam =
                 new SqlParameter("@orderId", SqlDbType.Int, 4);
-            SqlParameter amountParam =
-                new SqlParameter("@amount", SqlDbType.Decimal, 7);
-            amountParam.Precision = 7;
-            amountParam.Scale = 2;
+            SqlParameter productIdParam =
+                new SqlParameter("@productIdParam", SqlDbType.Int, 4);
 
-            paymentDateParam.Value = payment.PaymentDate;
-            orderIdParam.Value = payment.OrderId;
-            amountParam.Value = payment.Amount;
-           
-            command.Parameters.Add(paymentDateParam);
+            quantityParam.Value = orderDetail.Quantity;
+            orderIdParam.Value = orderDetail.OrderId;
+            productIdParam.Value = orderDetail.ProductId;
+            
+            command.Parameters.Add(quantityParam);
             command.Parameters.Add(orderIdParam);
-            command.Parameters.Add(amountParam  );
+            command.Parameters.Add(productIdParam);
 
             // Call Prepare after setting the Commandtext and Parameters.
             command.Prepare();
