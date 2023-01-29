@@ -30,7 +30,8 @@ namespace A1
                 return (ICRUD<T>)new DeliveryTypeCRUD();
             else if (type == typeof(Order))
                 return (ICRUD<T>)new OrderCRUD();
-
+            else if (type == typeof(Payment))
+                return (ICRUD<T>)new PaymentCRUD();
             return null;
 
         }

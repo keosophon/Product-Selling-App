@@ -14,7 +14,7 @@ using System.Data.SqlClient;
 namespace A1
 {
    
-    class PaymentCRUD
+    class PaymentCRUD:ICRUD<Payment>
     {
         private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
         private static readonly SqlConnection conn = dbConnInstance.GetConnection();
@@ -27,7 +27,7 @@ namespace A1
             SqlCommand command = new SqlCommand(commandText, conn);
 
             SqlParameter paymentDateParam =
-                new SqlParameter("@paymentDate", SqlDbType.Date, 8);
+                new SqlParameter("@paymentDate", SqlDbType.DateTime, 8);
             SqlParameter orderIdParam =
                 new SqlParameter("@orderId", SqlDbType.Int, 4);
             SqlParameter amountParam =
@@ -49,6 +49,25 @@ namespace A1
             conn.Close();
             return result;
 
+        }
+
+        public Payment GetObject(string param1)
+        {
+            Payment payment = null;
+            return payment;
+
+        }
+
+        public Payment GetObject(int id)
+        {
+            Payment payment = null;
+            return payment;
+        }
+        public List<Payment> GetObjects()
+        {
+            //not required to implement in detail because not in project scope
+            List<Payment> paymentList = null;
+            return paymentList;
         }
     }
 }

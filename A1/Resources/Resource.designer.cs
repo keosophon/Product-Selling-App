@@ -5184,121 +5184,124 @@ namespace A1
 			public const int openParentheses = 2131624021;
 			
 			// aapt resource value: 0x7F0E0056
-			public const int orderSummary = 2131624022;
+			public const int orderSuccess = 2131624022;
 			
 			// aapt resource value: 0x7F0E0057
-			public const int password = 2131624023;
+			public const int orderSummary = 2131624023;
 			
 			// aapt resource value: 0x7F0E0058
-			public const int password_toggle_content_description = 2131624024;
+			public const int password = 2131624024;
 			
 			// aapt resource value: 0x7F0E0059
-			public const int path_password_eye = 2131624025;
+			public const int password_toggle_content_description = 2131624025;
 			
 			// aapt resource value: 0x7F0E005A
-			public const int path_password_eye_mask_strike_through = 2131624026;
+			public const int path_password_eye = 2131624026;
 			
 			// aapt resource value: 0x7F0E005B
-			public const int path_password_eye_mask_visible = 2131624027;
+			public const int path_password_eye_mask_strike_through = 2131624027;
 			
 			// aapt resource value: 0x7F0E005C
-			public const int path_password_strike_through = 2131624028;
+			public const int path_password_eye_mask_visible = 2131624028;
 			
 			// aapt resource value: 0x7F0E005D
-			public const int percentageSign = 2131624029;
+			public const int path_password_strike_through = 2131624029;
 			
 			// aapt resource value: 0x7F0E005E
-			public const int phoneNumber = 2131624030;
+			public const int percentageSign = 2131624030;
 			
 			// aapt resource value: 0x7F0E005F
-			public const int pickup = 2131624031;
+			public const int phoneNumber = 2131624031;
 			
 			// aapt resource value: 0x7F0E0060
-			public const int product = 2131624032;
+			public const int pickup = 2131624032;
 			
 			// aapt resource value: 0x7F0E0061
-			public const int productDesc = 2131624033;
+			public const int product = 2131624033;
 			
 			// aapt resource value: 0x7F0E0062
-			public const int productImage = 2131624034;
+			public const int productDesc = 2131624034;
 			
 			// aapt resource value: 0x7F0E0063
-			public const int productImageSmall = 2131624035;
+			public const int productImage = 2131624035;
 			
 			// aapt resource value: 0x7F0E0064
-			public const int productName = 2131624036;
+			public const int productImageSmall = 2131624036;
 			
 			// aapt resource value: 0x7F0E0065
-			public const int productPrice = 2131624037;
+			public const int productName = 2131624037;
 			
 			// aapt resource value: 0x7F0E0066
-			public const int qty = 2131624038;
+			public const int productPrice = 2131624038;
 			
 			// aapt resource value: 0x7F0E0067
-			public const int registerNow = 2131624039;
+			public const int qty = 2131624039;
 			
 			// aapt resource value: 0x7F0E0068
-			public const int registration = 2131624040;
+			public const int registerNow = 2131624040;
 			
 			// aapt resource value: 0x7F0E0069
-			public const int registrationSuccess = 2131624041;
+			public const int registration = 2131624041;
 			
 			// aapt resource value: 0x7F0E006A
-			public const int rememberMe = 2131624042;
+			public const int registrationSuccess = 2131624042;
 			
 			// aapt resource value: 0x7F0E006B
-			public const int samePasswordRequired = 2131624043;
+			public const int rememberMe = 2131624043;
 			
 			// aapt resource value: 0x7F0E006C
-			public const int search = 2131624044;
+			public const int samePasswordRequired = 2131624044;
 			
 			// aapt resource value: 0x7F0E006D
-			public const int search_menu_title = 2131624045;
+			public const int search = 2131624045;
 			
 			// aapt resource value: 0x7F0E006E
-			public const int selectDate = 2131624046;
+			public const int search_menu_title = 2131624046;
 			
 			// aapt resource value: 0x7F0E006F
-			public const int senior = 2131624047;
+			public const int selectDate = 2131624047;
 			
 			// aapt resource value: 0x7F0E0070
-			public const int seniorAbout60 = 2131624048;
+			public const int senior = 2131624048;
 			
 			// aapt resource value: 0x7F0E0071
-			public const int signUp = 2131624049;
+			public const int seniorAbout60 = 2131624049;
 			
 			// aapt resource value: 0x7F0E0072
-			public const int status_bar_notification_info_overflow = 2131624050;
+			public const int signUp = 2131624050;
 			
 			// aapt resource value: 0x7F0E0073
-			public const int subTotal = 2131624051;
+			public const int status_bar_notification_info_overflow = 2131624051;
 			
 			// aapt resource value: 0x7F0E0074
-			public const int success = 2131624052;
+			public const int subTotal = 2131624052;
 			
 			// aapt resource value: 0x7F0E0075
-			public const int total = 2131624053;
+			public const int success = 2131624053;
 			
 			// aapt resource value: 0x7F0E0076
-			public const int unitPrice = 2131624054;
+			public const int total = 2131624054;
 			
 			// aapt resource value: 0x7F0E0077
-			public const int verticalLine = 2131624055;
+			public const int unitPrice = 2131624055;
 			
 			// aapt resource value: 0x7F0E0078
-			public const int viewCart = 2131624056;
+			public const int verticalLine = 2131624056;
 			
 			// aapt resource value: 0x7F0E0079
-			public const int vitamin = 2131624057;
+			public const int viewCart = 2131624057;
 			
 			// aapt resource value: 0x7F0E007A
-			public const int weekends = 2131624058;
+			public const int vitamin = 2131624058;
 			
 			// aapt resource value: 0x7F0E007B
-			public const int wellington = 2131624059;
+			public const int weekends = 2131624059;
 			
 			// aapt resource value: 0x7F0E007C
-			public const int wrongInput = 2131624060;
+			public const int wellington = 2131624060;
+			
+			// aapt resource value: 0x7F0E007D
+			public const int wrongInput = 2131624061;
 			
 			static String()
 			{

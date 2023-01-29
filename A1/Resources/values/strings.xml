@@ -78,6 +78,7 @@
 	<string name="registrationSuccess">Registration Succeed</string>
 	<string name="emptyPassword">Password cannot be empty!</string>
 	<string name="samePasswordRequired">Password and Re-enter password must be the same!</string>
+	<string name="orderSuccess">Your order has been completed. Thank you for order!</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>

@@ -184,9 +184,17 @@ namespace A1
             //create orderCRUD through Factory Design Pattern
             ICRUD<Order> orderCRUD = CRUDFactory.CreateCRUD<Order>();
             int generatedOrderId = orderCRUD.Add(order);
-            AlertDialogBuilder.BuildAlertDialog(this, "id", generatedOrderId.ToString());
 
+            //Add payment to payments table
+            Payment payment = new Payment();
+            payment.PaymentDate = DateTime.Now;
+            payment.OrderId = generatedOrderId;
+            payment.Amount = Convert.ToDecimal(txtTotalValue.Text);
 
+            //create orderCRUD through Factory Design Pattern
+            ICRUD<Payment> paymentCRUD = CRUDFactory.CreateCRUD<Payment>();
+            paymentCRUD.Add(payment);
+            AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.orderSuccess));
 
         }
 

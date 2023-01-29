@@ -52,45 +52,9 @@ namespace A1
         }
 
        
-        public Order GetObject(string emailOrPhone)
+        public Order GetObject(string param1)
         {
             Order order = null;
-            /*
-            dbConnInstance.OpenConnection();
-            string commandText = "SELECT * FROM Customers WHERE Email=@email OR Phone=@phone;";
-            Customer cus = null;
-            SqlCommand command = new SqlCommand(commandText, conn);
-
-            SqlParameter email =
-                new SqlParameter("@email", SqlDbType.VarChar, 50);
-            SqlParameter phone =
-                new SqlParameter("@phone", SqlDbType.VarChar, 15);
-
-            email.Value = emailOrPhone;
-            phone.Value = emailOrPhone;
-
-            command.Parameters.Add(email);
-            command.Parameters.Add(phone);
-            command.Prepare();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                cus = new Customer();
-                cus.Id = Convert.ToInt32(reader[0].ToString());
-                cus.FirstName = reader[1].ToString();
-                cus.LastName = reader[1].ToString();
-                cus.DoB = Convert.ToDateTime(reader[3].ToString());
-                cus.Email = reader[4].ToString();
-                cus.Phone = reader[5].ToString();
-                cus.Address = reader[6].ToString();
-                cus.Password = reader[7].ToString();
-
-            }
-            reader.Close();
-            conn.Close();
-            return cus;
-            */
-
             return order;
 
         }
