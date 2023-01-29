@@ -28,6 +28,10 @@ namespace A1
         private double subTotalValue;
         private TextView txtCourierChargeNote;
         private List<DeliveryType> deliveryTypeList;
+        private RadioButton rdCourier;
+        private RadioButton rdPickUp;
+        private TextView txtDeliveryChargeValue;
+        private decimal courierCharge;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -39,6 +43,9 @@ namespace A1
             txtDiscountPrice = FindViewById<TextView>(Resource.Id.txtDiscountValue);
             txtSubTotalValue = FindViewById<TextView>(Resource.Id.txtSubTotalValue);
             txtCourierChargeNote = FindViewById<TextView>(Resource.Id.txtNote);
+            rdCourier = FindViewById<RadioButton>(Resource.Id.rdCourier);
+            rdPickUp = FindViewById<RadioButton>(Resource.Id.rdPickup);
+            txtDeliveryChargeValue = FindViewById<TextView>(Resource.Id.txtDeliveryChargeValue);
 
 
             //Creating bundle containing Sing In customer and product
@@ -111,6 +118,24 @@ namespace A1
 
             this.GetDeliveryTypeList();
 
+            //setting courier charge
+            //by default courier radio button is clicked
+            txtDeliveryChargeValue.Text = "+" + courierCharge.ToString();
+            rdCourier.Click += DeliveryType_Click;
+            rdPickUp.Click += DeliveryType_Click;
+        }
+
+        private void DeliveryType_Click(object sender, EventArgs e)
+        {
+            RadioButton rd = (RadioButton)sender;
+            if (rd.Text == Resources.GetString(Resource.String.courier))
+            {
+                txtDeliveryChargeValue.Text = "+" + courierCharge.ToString();
+            }
+            else
+            {
+                txtDeliveryChargeValue.Text = "0";
+            }
         }
 
         public void GetDeliveryTypeList()
@@ -126,6 +151,7 @@ namespace A1
                 {
                     if (deliveryTypeList[i].Mechanism.ToLower() == Resources.GetString(Resource.String.courier).ToLower())
                     {
+                        courierCharge = deliveryTypeList[i].ExtraCharge;
                         txtCourierChargeNote.Text += " " + Resources.GetString(Resource.String.dollarSign) + deliveryTypeList[i].ExtraCharge + Resources.GetString(Resource.String.nzd);
                     }
                 }
