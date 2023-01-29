@@ -13,7 +13,7 @@ using System.Data.SqlClient;
 
 namespace A1
 {
-    class OrderDiscountCRUD:ICRUD<OrderDiscount>
+    class OrderDiscountCRUD
     {
         private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
         private static readonly SqlConnection conn = dbConnInstance.GetConnection();

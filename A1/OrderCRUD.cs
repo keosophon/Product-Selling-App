@@ -21,18 +21,18 @@ namespace A1
         public int Add(Order order)
         {
             dbConnInstance.OpenConnection();
-            string commandText = "INSERT INTO Order(OrderPlaced, OrderFulfilled, CustomerId, DeliveryId) " +
+            string commandText = "INSERT INTO Orders(OrderPlaced, OrderFulfilled, CustomerId, DeliveryId) " +
                 "VALUES (@orderPlaced, @orderFullfilled, @customerId, @deliveryId)";
             SqlCommand command = new SqlCommand(commandText, conn);
 
             SqlParameter orderPlacedParam =
-                new SqlParameter("@orderPlaced", SqlDbType.Date, 8);
+                new SqlParameter("@orderPlaced", SqlDbType.DateTime, 8);
             SqlParameter orderFullfilledParam =
-                new SqlParameter("@orderFullfilled", SqlDbType.Date, 8);
+                new SqlParameter("@orderFullfilled", SqlDbType.DateTime, 8);
             SqlParameter customerIdParam =
                 new SqlParameter("@customerId", SqlDbType.Int, 4);
             SqlParameter deliveryIdParam =
-                new SqlParameter("@deliveryId", SqlDbType.Int, 4);
+                new SqlParameter("@deliveryId", SqlDbType.TinyInt);
 
             orderPlacedParam.Value = order.OrderPlaced;
             orderFullfilledParam.Value = order.OrderFulfilled;
@@ -51,9 +51,11 @@ namespace A1
 
         }
 
-        /*
-        public Customer GetObject(string emailOrPhone)
+       
+        public Order GetObject(string emailOrPhone)
         {
+            Order order = null;
+            /*
             dbConnInstance.OpenConnection();
             string commandText = "SELECT * FROM Customers WHERE Email=@email OR Phone=@phone;";
             Customer cus = null;
@@ -87,21 +89,23 @@ namespace A1
             reader.Close();
             conn.Close();
             return cus;
+            */
 
+            return order;
 
         }
 
-        public Customer GetObject(int id)
+        public Order GetObject(int id)
         {
-            Customer cs = null;
-            return cs;
+            Order order = null;
+            return order;
         }
-        public List<Customer> GetObjects()
+        public List<Order> GetObjects()
         {
             //not required to implement in detail because not in project scope
-            List<Customer> customersList = null;
-            return customersList;
+            List<Order> orderList = null;
+            return orderList;
         }
-        */
+        
     }
 }

@@ -13,7 +13,8 @@ using System.Data.SqlClient;
 
 namespace A1
 {
-    class PaymentCRUD:ICRUD<Payment>
+   
+    class PaymentCRUD
     {
         private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
         private static readonly SqlConnection conn = dbConnInstance.GetConnection();

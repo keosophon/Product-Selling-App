@@ -35,6 +35,8 @@ namespace A1
         private TextView txtTotalValue;
         private TextView txtLogOut;
         private TextView txtDashBoard;
+        private Button btnCheckOut;
+        private Customer customer;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -52,7 +54,7 @@ namespace A1
             txtTotalValue = FindViewById<TextView>(Resource.Id.txtTotalValue);
             txtLogOut = FindViewById<TextView>(Resource.Id.txtLogOut);
             txtDashBoard = FindViewById<TextView>(Resource.Id.txtDashBoard);
-
+            btnCheckOut = FindViewById<Button>(Resource.Id.btnCheckOut);
 
             //Creating bundle containing Sing In customer and product
             bundle = Intent.Extras;
@@ -60,6 +62,7 @@ namespace A1
             //get cartList from bundle
             cartList = JsonConvert.DeserializeObject<List<Tuple<Product, int>>>(bundle.GetString(Resources.GetString(Resource.String.cartList)));
             discountPercentage = bundle.GetDouble(Resources.GetString(Resource.String.discount));
+            customer = JsonConvert.DeserializeObject<Customer>(bundle.GetString(Resources.GetString(Resource.String.customer)));
 
 
             //display items in cart in gridlayout
@@ -145,6 +148,44 @@ namespace A1
                 intent.PutExtras(bundle);
                 StartActivity(intent);
             };
+
+            btnCheckOut.Click += BtnCheckOut_Click;
+        }
+
+        private void BtnCheckOut_Click(object sender, EventArgs e)
+        {
+            //Add order to into OrderTable
+            Order order = new Order();
+            order.OrderPlaced = DateTime.Now;               
+            order.CustomerId = customer.Id;
+            for (int i = 0; i < deliveryTypeList.Count; i++)
+            {
+                if (rdCourier.Checked)
+                {
+                    if (deliveryTypeList[i].Mechanism.ToLower() == Resources.GetString(Resource.String.courier).ToLower())
+                    {
+                        order.DeliveryId = deliveryTypeList[i].Id;
+                        //just assume that order through courier fullfilled in 3 days from now;
+                        order.OrderFulfilled = DateTime.Now.AddDays(3);
+                        break;
+                    }
+                }
+                else
+                {
+                    if (deliveryTypeList[i].Mechanism.ToLower() != Resources.GetString(Resource.String.courier).ToLower())
+                    {
+                        order.DeliveryId = deliveryTypeList[i].Id;
+                        //just assume that order through pickup fullfilled in 1 days from now;
+                        order.OrderFulfilled = DateTime.Now.AddDays(1);
+                        break;
+                    }
+                }
+            }
+            //create orderCRUD through Factory Design Pattern
+            ICRUD<Order> orderCRUD = CRUDFactory.CreateCRUD<Order>();
+            orderCRUD.Add(order);
+
+
 
         }
 
