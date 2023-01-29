@@ -74,7 +74,11 @@
     <Compile Include="DeliveryTypeCRUD.cs" />
     <Compile Include="Discount.cs" />
     <Compile Include="DiscountCRUD.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderCRUD.cs" />
+    <Compile Include="Payment.cs" />
     <Compile Include="PaymentActivity.cs" />
+    <Compile Include="PaymentCRUD.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductCRUD.cs" />
     <Compile Include="ProductViewActivity.cs" />
