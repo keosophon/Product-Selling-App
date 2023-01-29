@@ -54,8 +54,10 @@ namespace A1
             while (reader.Read())
             {
                 Discount discount = new Discount();
-                discount.Percentage = Convert.ToDecimal(reader[1].ToString());                
-                discount.Description = reader[2].ToString();
+                discount.Id = Convert.ToInt32(reader[0].ToString());
+                discount.Name = reader[1].ToString();
+                discount.Percentage = Convert.ToDecimal(reader[2].ToString());                
+                discount.Description = reader[3].ToString();
                 discountList.Add(discount);
             }
             reader.Close();

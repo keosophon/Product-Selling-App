@@ -13,7 +13,9 @@ namespace A1
 {
     public class Discount
     {
-        //public int id;
+        public int Id { get; set; }
+
+        public string Name { get; set; }
         public Decimal Percentage { get; set; }
         public string Description { get; set; }
     }

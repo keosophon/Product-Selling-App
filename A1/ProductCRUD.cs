@@ -52,6 +52,7 @@ namespace A1
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())            {
                 Product product = new Product();
+                product.Id = Convert.ToInt32(reader[0].ToString());
                 product.Name = reader[1].ToString();
                 product.Price = Convert.ToDecimal(reader[2].ToString());
                 product.Stock = Convert.ToInt32(reader[3].ToString());

@@ -88,6 +88,7 @@ namespace A1
             while (reader.Read())
             {
                 cus = new Customer();
+                cus.Id = Convert.ToInt32(reader[0].ToString());
                 cus.FirstName = reader[1].ToString();
                 cus.LastName = reader[1].ToString();
                 cus.DoB = Convert.ToDateTime(reader[3].ToString());                

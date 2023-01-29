@@ -55,6 +55,7 @@ namespace A1
             while (reader.Read())
             {
                 DeliveryType deliveryType = new DeliveryType();
+                deliveryType.Id = Convert.ToInt32(reader[0].ToString());
                 deliveryType.Mechanism = reader[1].ToString();
                 deliveryType.Description = reader[2].ToString();
                 deliveryType.ExtraCharge = Convert.ToDecimal(reader[3].ToString());
