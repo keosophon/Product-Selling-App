@@ -32,6 +32,7 @@ namespace A1
         private RadioButton rdPickUp;
         private TextView txtDeliveryChargeValue;
         private decimal courierCharge;
+        private TextView txtTotalValue;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -46,6 +47,7 @@ namespace A1
             rdCourier = FindViewById<RadioButton>(Resource.Id.rdCourier);
             rdPickUp = FindViewById<RadioButton>(Resource.Id.rdPickup);
             txtDeliveryChargeValue = FindViewById<TextView>(Resource.Id.txtDeliveryChargeValue);
+            txtTotalValue = FindViewById<TextView>(Resource.Id.txtTotalValue);
 
 
             //Creating bundle containing Sing In customer and product
@@ -123,8 +125,22 @@ namespace A1
             txtDeliveryChargeValue.Text = "+" + courierCharge.ToString();
             rdCourier.Click += DeliveryType_Click;
             rdPickUp.Click += DeliveryType_Click;
+
+            //Total
+            txtTotalValue.Text = this.calculateTotal().ToString();
         }
 
+        private double calculateTotal()
+        {
+            if (rdCourier.Checked){
+                return Math.Round(subTotalValue - discount + Convert.ToDouble(courierCharge), 2);
+            }
+            else
+            {
+                return Math.Round(subTotalValue - discount, 2);
+            }
+            
+        }
         private void DeliveryType_Click(object sender, EventArgs e)
         {
             RadioButton rd = (RadioButton)sender;
@@ -136,6 +152,7 @@ namespace A1
             {
                 txtDeliveryChargeValue.Text = "0";
             }
+            txtTotalValue.Text = this.calculateTotal().ToString();
         }
 
         public void GetDeliveryTypeList()
