@@ -50,8 +50,7 @@ namespace A1
             return result;
 
         }
-
-       
+               
         public Order GetObject(string param1)
         {
             Order order = null;

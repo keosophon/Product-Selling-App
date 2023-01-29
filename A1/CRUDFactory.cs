@@ -32,6 +32,8 @@ namespace A1
                 return (ICRUD<T>)new OrderCRUD();
             else if (type == typeof(Payment))
                 return (ICRUD<T>)new PaymentCRUD();
+            else if (type == typeof(OrderDiscount))
+                return (ICRUD<T>)new OrderDiscountCRUD();
             return null;
 
         }

@@ -37,6 +37,7 @@ namespace A1
         private TextView txtDashBoard;
         private Button btnCheckOut;
         private Customer customer;
+        private List<int> discountIdList;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -63,6 +64,7 @@ namespace A1
             cartList = JsonConvert.DeserializeObject<List<Tuple<Product, int>>>(bundle.GetString(Resources.GetString(Resource.String.cartList)));
             discountPercentage = bundle.GetDouble(Resources.GetString(Resource.String.discount));
             customer = JsonConvert.DeserializeObject<Customer>(bundle.GetString(Resources.GetString(Resource.String.customer)));
+            discountIdList = JsonConvert.DeserializeObject<List<int>>(bundle.GetString(Resources.GetString(Resource.String.discountIdList)));
 
 
             //display items in cart in gridlayout
@@ -194,6 +196,19 @@ namespace A1
             //create orderCRUD through Factory Design Pattern
             ICRUD<Payment> paymentCRUD = CRUDFactory.CreateCRUD<Payment>();
             paymentCRUD.Add(payment);
+
+            //create orderDiscountCRUD through Factory Design Pattern
+            ICRUD<OrderDiscount> orderDiscountCRUD = CRUDFactory.CreateCRUD<OrderDiscount>();
+
+            //add OrderDiscount into OrderDiscount table            
+            for (int i=0; i < discountIdList.Count; i++)
+            {
+                OrderDiscount orderDiscount = new OrderDiscount();
+                orderDiscount.OrderId = generatedOrderId;
+                orderDiscount.DiscountId = discountIdList[i];
+                orderDiscountCRUD.Add(orderDiscount);
+            }
+                        
             AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.orderSuccess));
 
         }

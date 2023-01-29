@@ -13,7 +13,7 @@ using System.Data.SqlClient;
 
 namespace A1
 {
-    class OrderDiscountCRUD
+    class OrderDiscountCRUD:ICRUD<OrderDiscount>
     {
         private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
         private static readonly SqlConnection conn = dbConnInstance.GetConnection();
@@ -28,7 +28,7 @@ namespace A1
             SqlParameter orderIdParam =
                 new SqlParameter("@orderId", SqlDbType.Int, 4);
             SqlParameter discountIdParam =
-                new SqlParameter("@amount", SqlDbType.Int, 4);
+                new SqlParameter("@discountId", SqlDbType.Int, 4);
 
             orderIdParam.Value = orderDiscount.OrderId;
             discountIdParam.Value = orderDiscount.DiscountId;
@@ -42,6 +42,24 @@ namespace A1
             conn.Close();
             return result;
 
+        }
+
+        public OrderDiscount GetObject(string param1)
+        {
+            OrderDiscount orderDiscount = null;
+            return orderDiscount;
+        }
+
+        public OrderDiscount GetObject(int id)
+        {
+            OrderDiscount orderDiscount = null;
+            return orderDiscount;
+        }
+        public List<OrderDiscount> GetObjects()
+        {
+            //not required to implement in detail because not in project scope
+            List<OrderDiscount> orderDiscountList = null;
+            return orderDiscountList;
         }
     }
 }

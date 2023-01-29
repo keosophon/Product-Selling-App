@@ -37,6 +37,7 @@ namespace A1
         private TextView txtItemsInCart;
         private int quantity;
         private decimal discount= 0;
+        private List<int> discountIdList = new List<int>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -149,6 +150,7 @@ namespace A1
                     if (cbSenior.Checked == true)
                     {
                             discount += discountList[i].Percentage;
+                            discountIdList.Add(discountList[i].Id);
                     }
                 
                 }
@@ -159,6 +161,7 @@ namespace A1
                     if (cbWeekends.Checked == true)
                     {
                         discount += discountList[i].Percentage;
+                        discountIdList.Add(discountList[i].Id);
                     }
                 }
                 else
@@ -167,6 +170,7 @@ namespace A1
                     if (cbCities.Checked == true)
                     {
                             discount += discountList[i].Percentage;
+                            discountIdList.Add(discountList[i].Id);
                     }
                 }
 
@@ -205,6 +209,7 @@ namespace A1
             AlertDialogBuilder.BuildAlertDialog(this, "discount", discount.ToString());
             var intent = new Intent(this, typeof(PaymentActivity));
             bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));
+            bundle.PutString(Resources.GetString(Resource.String.discountIdList), JsonConvert.SerializeObject(discountIdList));
             bundle.PutDouble(Resources.GetString(Resource.String.discount), Convert.ToDouble(discount));
             intent.PutExtras(bundle);
             StartActivity(intent);
