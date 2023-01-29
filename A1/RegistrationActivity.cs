@@ -63,13 +63,13 @@ namespace A1
 
             if (txtPassword.Text == "")
             {
-                this.BuildAlertDialog("Password Error", "Password cannot be empty!");
+                AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.error), Resources.GetString(Resource.String.emptyPassword));
                 return;
             }
 
             if (txtPassword.Text != txtReEnterPassword.Text)
             {
-                this.BuildAlertDialog("Password Error", "Password and Re-enter password must be the same!");
+                AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.error), Resources.GetString(Resource.String.samePasswordRequired));
                 return;
             }
 
@@ -86,7 +86,7 @@ namespace A1
                 cs.Password = txtPassword.Text;
                 if (customerCRUD.Add(cs) == 1)
                 {
-                    this.BuildAlertDialog("Success!", "Registration succeed!");
+                    AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.registrationSuccess));
                     txtFirstName.Text = "";
                     txtLastName.Text = "";
                     txtDoB.Text = "";
@@ -100,7 +100,7 @@ namespace A1
             }
             catch (Exception ex)
             {
-                AlertDialogBuilder.BuildAlertDialog(this, "connection error", ex.Message);
+                AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.error), ex.Message);
             }
         }
 
@@ -135,11 +135,6 @@ namespace A1
 
             DateTime selectedDate = new DateTime(year, month + 1, dayOfMonth);
             txtDoB.Text = selectedDate.ToShortDateString();
-        }
-
-        public void BuildAlertDialog(string title, string message)
-        {
-            AlertDialogBuilder.BuildAlertDialog(this, title, message);
         }
 
     }
