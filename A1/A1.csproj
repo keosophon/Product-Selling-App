@@ -76,6 +76,8 @@
     <Compile Include="DiscountCRUD.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderCRUD.cs" />
+    <Compile Include="OrderDiscount.cs" />
+    <Compile Include="OrderDiscountCRUD.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="PaymentActivity.cs" />
     <Compile Include="PaymentCRUD.cs" />
