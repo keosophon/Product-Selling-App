@@ -208,7 +208,20 @@ namespace A1
                 orderDiscount.DiscountId = discountIdList[i];
                 orderDiscountCRUD.Add(orderDiscount);
             }
-                        
+
+
+            //create orderDiscountCRUD through Factory Design Pattern
+            ICRUD<OrderDetail> orderDetailCRUD = CRUDFactory.CreateCRUD<OrderDetail>();
+            //add order detail into OrderDetail table
+            foreach(Tuple<Product,int> item in cartList)
+            {
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.Quantity = item.Item2;
+                orderDetail.OrderId = generatedOrderId;
+                orderDetail.ProductId = item.Item1.Id;
+                orderDetailCRUD.Add(orderDetail);
+            }
+
             AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.orderSuccess));
 
         }

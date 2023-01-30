@@ -13,7 +13,7 @@ using System.Data.SqlClient;
 
 namespace A1
 {
-    class OrderDetailCRUD
+    class OrderDetailCRUD:ICRUD<OrderDetail>
     {
         private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
         private static readonly SqlConnection conn = dbConnInstance.GetConnection();
@@ -30,7 +30,7 @@ namespace A1
             SqlParameter orderIdParam =
                 new SqlParameter("@orderId", SqlDbType.Int, 4);
             SqlParameter productIdParam =
-                new SqlParameter("@productIdParam", SqlDbType.Int, 4);
+                new SqlParameter("@productId", SqlDbType.Int, 4);
 
             quantityParam.Value = orderDetail.Quantity;
             orderIdParam.Value = orderDetail.OrderId;
@@ -46,6 +46,24 @@ namespace A1
             conn.Close();
             return result;
 
+        }
+
+        public OrderDetail GetObject(string param1)
+        {
+            OrderDetail orderDetail = null;
+            return orderDetail;
+        }
+
+        public OrderDetail GetObject(int id)
+        {
+            OrderDetail orderDetail = null;
+            return orderDetail;
+        }
+        public List<OrderDetail> GetObjects()
+        {
+            //not required to implement in detail because not in project scope
+            List<OrderDetail> orderDetailList = null;
+            return orderDetailList;
         }
     }
 }
