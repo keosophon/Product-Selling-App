@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:contentDescription="LogInPage">
     <ImageView
         android:contentDescription="@string/logo"
         android:src="@drawable/logo"
@@ -42,7 +43,7 @@
             android:background="@drawable/editTextBackground"
             android:layout_marginLeft="@dimen/margin_medium"
             android:layout_marginRight="@dimen/margin_medium"
-            android:textSize="@dimen/text_sz_large"
+            android:textSize="@dimen/text_sz_large"            
             />
 
         <EditText

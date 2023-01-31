@@ -3,14 +3,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground">
+    android:background="@color/colorBackground"
+    android:contentDescription="RegistrationPage">
     <ImageView
         android:src="@drawable/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imgLogoReg"        
         android:layout_marginTop="@dimen/margin_medium"
-        android:contentDescription="@string/logo" />
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
