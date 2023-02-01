@@ -48,6 +48,8 @@ namespace A1
 
             while (_conn.State != ConnectionState.Open && retries > 0)
             {
+                
+                
                 try
                 {
                     _conn.Open();
@@ -57,6 +59,7 @@ namespace A1
                     throw new Exception(ex.Message);
 
                 }
+                
                 Thread.Sleep(500);
                 retries--;
             }

@@ -38,6 +38,8 @@ namespace A1
         private Button btnCheckOut;
         private Customer customer;
         private List<int> discountIdList;
+        private RadioButton rdCard;
+        private List<PaymentMode> paymentModeList;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -56,6 +58,8 @@ namespace A1
             txtLogOut = FindViewById<TextView>(Resource.Id.txtLogOut);
             txtDashBoard = FindViewById<TextView>(Resource.Id.txtDashBoard);
             btnCheckOut = FindViewById<Button>(Resource.Id.btnCheckOut);
+            rdCard = FindViewById<RadioButton>(Resource.Id.rdCard);
+            
 
             //Creating bundle containing Sing In customer and product
             bundle = Intent.Extras;
@@ -133,7 +137,7 @@ namespace A1
             //by default courier radio button is clicked
             txtDeliveryChargeValue.Text = "+" + courierCharge.ToString();
             rdCourier.Click += DeliveryType_Click;
-            rdPickUp.Click += DeliveryType_Click;
+            rdPickUp.Click += DeliveryType_Click;           
 
             //Total
             txtTotalValue.Text = this.calculateTotal().ToString();
@@ -186,7 +190,7 @@ namespace A1
             //create orderCRUD through Factory Method Pattern
             FactoryMethod_OrderCRUD factoryMethod_OrderCRUD = new FactoryMethod_OrderCRUD();
             ICRUD<Order> orderCRUD = factoryMethod_OrderCRUD.CreateCRUD();
-            int generatedOrderId = orderCRUD.Add(order);
+            int generatedOrderId = orderCRUD.Add(order);            
 
             //Add payment to payments table
             Payment payment = new Payment();
@@ -194,10 +198,36 @@ namespace A1
             payment.OrderId = generatedOrderId;
             payment.Amount = Convert.ToDecimal(txtTotalValue.Text);
 
+            //create paymentModeCRUD through Factory Method Pattern
+            FactoryMethod_PaymentModeCRUD factoryMethod_PaymentModeCRUD = new FactoryMethod_PaymentModeCRUD();
+            ICRUD<PaymentMode> paymentModeCRUD = factoryMethod_PaymentModeCRUD.CreateCRUD();
+            paymentModeList = paymentModeCRUD.GetObjects();
+
+            for (int i = 0; i < paymentModeList.Count; i++)
+            {
+                if (rdCard.Checked)
+                {
+                    if (paymentModeList[i].Name.ToLower() == Resources.GetString(Resource.String.card).ToLower())
+                    {
+                        payment.PaymentModeId = paymentModeList[i].Id;
+                        break;
+                    }
+                }
+                else
+                {
+                    if (paymentModeList[i].Name.ToLower() != Resources.GetString(Resource.String.card).ToLower())
+                    {
+                        payment.PaymentModeId = paymentModeList[i].Id;
+                        break;
+                    }
+                }
+            }
+
             //create paymentCRUD through Factory Method Pattern
             FactoryMethod_PaymentCRUD factoryMethod_PaymentCRUD = new FactoryMethod_PaymentCRUD();
             ICRUD<Payment> paymentCRUD = factoryMethod_PaymentCRUD.CreateCRUD();
             paymentCRUD.Add(payment);
+
 
             //create orderDiscountCRUD through Factory Method Pattern
             FactoryMethod_OrderDiscountCRUD factoryMethod_OrderDiscountCRUD = new FactoryMethod_OrderDiscountCRUD();
@@ -212,7 +242,7 @@ namespace A1
                 orderDiscountCRUD.Add(orderDiscount);
             }
 
-            //create orderDiscountCRUD through Factory Method Pattern
+            //create orderDetailCRUD through Factory Method Pattern
             FactoryMethod_OrderDetailsCRUD factoryMethod_OrderDetailsCRUD = new FactoryMethod_OrderDetailsCRUD();
             ICRUD<OrderDetail> orderDetailCRUD = factoryMethod_OrderDetailsCRUD.CreateCRUD();
 
@@ -224,7 +254,9 @@ namespace A1
                 orderDetail.OrderId = generatedOrderId;
                 orderDetail.ProductId = item.Item1.Id;
                 orderDetailCRUD.Add(orderDetail);
-            }
+            }           
+
+            
             cartList.Clear(); //reset carList
             AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.orderSuccess));
 

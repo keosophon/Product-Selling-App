@@ -11,12 +11,9 @@ using System.Text;
 
 namespace A1
 {
-    class Payment
+    class PaymentMode
     {
-        public int Id { get; set; }
-        public DateTime PaymentDate { get; set; }
-        public int OrderId { get; set; }
-        public decimal Amount { get; set; }
-        public int PaymentModeId { get; set; }
+        public int Id;
+        public string Name { get; set; }
     }
 }

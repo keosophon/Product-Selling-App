@@ -22,8 +22,8 @@ namespace A1
         public int Add(Payment payment)
         {
             dbConnInstance.OpenConnection();
-            string commandText = "INSERT INTO Payments(PaymentDate, OrderId, Amount) " +
-                "VALUES (@paymentDate, @orderId, @amount)";
+            string commandText = "INSERT INTO Payments(PaymentDate, OrderId, Amount, PaymentModeId) " +
+                "VALUES (@paymentDate, @orderId, @amount, @paymentModeId)";
             SqlCommand command = new SqlCommand(commandText, conn);
 
             SqlParameter paymentDateParam =
@@ -32,16 +32,21 @@ namespace A1
                 new SqlParameter("@orderId", SqlDbType.Int, 4);
             SqlParameter amountParam =
                 new SqlParameter("@amount", SqlDbType.Decimal, 7);
+            SqlParameter paymentModeIdParam =
+                new SqlParameter("@paymentModeId", SqlDbType.Int, 4);
             amountParam.Precision = 7;
             amountParam.Scale = 2;
 
             paymentDateParam.Value = payment.PaymentDate;
             orderIdParam.Value = payment.OrderId;
             amountParam.Value = payment.Amount;
-           
+            paymentModeIdParam.Value = payment.PaymentModeId;
+
+
             command.Parameters.Add(paymentDateParam);
             command.Parameters.Add(orderIdParam);
             command.Parameters.Add(amountParam  );
+            command.Parameters.Add(paymentModeIdParam);
 
             // Call Prepare after setting the Commandtext and Parameters.
             command.Prepare();
