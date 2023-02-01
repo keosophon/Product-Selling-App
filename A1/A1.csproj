@@ -74,6 +74,14 @@
     <Compile Include="DeliveryTypeCRUD.cs" />
     <Compile Include="Discount.cs" />
     <Compile Include="DiscountCRUD.cs" />
+    <Compile Include="FactoryMethod_CustomerCRUD.cs" />
+    <Compile Include="FactoryMethod_DeliveryTypeCRUD.cs" />
+    <Compile Include="FactoryMethod_DiscountCRUD.cs" />
+    <Compile Include="FactoryMethod_OrderCRUD.cs" />
+    <Compile Include="FactoryMethod_OrderDetailsCRUD.cs" />
+    <Compile Include="FactoryMethod_OrderDiscountCRUD.cs" />
+    <Compile Include="FactoryMethod_PaymentCRUD.cs" />
+    <Compile Include="FactoryMethod_ProductCRUD.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderCRUD.cs" />
     <Compile Include="OrderDetail.cs" />

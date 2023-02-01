@@ -129,52 +129,53 @@ namespace A1
             cbCities.Enabled = false;
                        
             try
-            {
-                
-            //add discount percentages to checkboxes UI
-            //create discountCRUD through Factory Design Pattern
-            ICRUD<Discount> discountCRUD = CRUDFactory.CreateCRUD<Discount>();
-            discountList = discountCRUD.GetObjects();            
-            for (int i = 0; i < discountList.Count; i++)
-            {
+            {              
 
-                string senior = Resources.GetString(Resource.String.senior).ToLower();
-                string weekends = Resources.GetString(Resource.String.weekends).ToLower();                
-                string openParentheses = Resources.GetString(Resource.String.openParentheses);
-                string closeParenthese = Resources.GetString(Resource.String.closeParentheses);
-                string percentageSign = Resources.GetString(Resource.String.percentageSign);                
-
-                if (discountList[i].Description.ToLower().Contains(senior))
+                //add discount percentages to checkboxes UI
+                //create discountCRUD through Factory Method Pattern
+                FactoryMethod_DiscountCRUD factoryMethod_DiscountCRUD = new FactoryMethod_DiscountCRUD();
+                ICRUD<Discount> discountCRUD = factoryMethod_DiscountCRUD.CreateCRUD();
+                discountList = discountCRUD.GetObjects();
+                for (int i = 0; i < discountList.Count; i++)
                 {
-                    cbSenior.Text = cbSenior.Text + openParentheses + Convert.ToInt32((discountList[i].Percentage * 100)).ToString() + percentageSign + closeParenthese;   
-                    if (cbSenior.Checked == true)
+
+                    string senior = Resources.GetString(Resource.String.senior).ToLower();
+                    string weekends = Resources.GetString(Resource.String.weekends).ToLower();                
+                    string openParentheses = Resources.GetString(Resource.String.openParentheses);
+                    string closeParenthese = Resources.GetString(Resource.String.closeParentheses);
+                    string percentageSign = Resources.GetString(Resource.String.percentageSign);                
+
+                    if (discountList[i].Description.ToLower().Contains(senior))
                     {
+                        cbSenior.Text = cbSenior.Text + openParentheses + Convert.ToInt32((discountList[i].Percentage * 100)).ToString() + percentageSign + closeParenthese;   
+                        if (cbSenior.Checked == true)
+                        {
+                                discount += discountList[i].Percentage;
+                                discountIdList.Add(discountList[i].Id);
+                        }
+                
+                    }
+                    else if (discountList[i].Description.ToLower().Contains(weekends))
+                    {
+                        cbWeekends.Text = cbWeekends.Text + openParentheses + Convert.ToInt32((discountList[i].Percentage * 100)).ToString() + percentageSign + closeParenthese;
+
+                        if (cbWeekends.Checked == true)
+                        {
                             discount += discountList[i].Percentage;
                             discountIdList.Add(discountList[i].Id);
+                        }
                     }
-                
-                }
-                else if (discountList[i].Description.ToLower().Contains(weekends))
-                {
-                    cbWeekends.Text = cbWeekends.Text + openParentheses + Convert.ToInt32((discountList[i].Percentage * 100)).ToString() + percentageSign + closeParenthese;
-
-                    if (cbWeekends.Checked == true)
+                    else
                     {
-                        discount += discountList[i].Percentage;
-                        discountIdList.Add(discountList[i].Id);
+                        cbCities.Text = cbCities.Text + openParentheses + Convert.ToInt32((discountList[i].Percentage * 100)).ToString() + percentageSign + closeParenthese;
+                        if (cbCities.Checked == true)
+                        {
+                                discount += discountList[i].Percentage;
+                                discountIdList.Add(discountList[i].Id);
+                        }
                     }
-                }
-                else
-                {
-                    cbCities.Text = cbCities.Text + openParentheses + Convert.ToInt32((discountList[i].Percentage * 100)).ToString() + percentageSign + closeParenthese;
-                    if (cbCities.Checked == true)
-                    {
-                            discount += discountList[i].Percentage;
-                            discountIdList.Add(discountList[i].Id);
-                    }
-                }
 
-            }
+                }
             }
             catch (Exception ex)
             {

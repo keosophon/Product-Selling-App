@@ -73,7 +73,11 @@ namespace A1
                 return;
             }
 
-            ICRUD<Customer> customerCRUD = CRUDFactory.CreateCRUD<Customer>();
+
+            FactoryMethod_CustomerCRUD factoryMethod_Customer = new FactoryMethod_CustomerCRUD();
+            ICRUD<Customer> customerCRUD = factoryMethod_Customer.CreateCRUD();
+            //ICRUD<Customer> customerCRUD = FactoryMethod_CustomerCRUD.<Customer>();
+            //ICRUD<Customer> customerCRUD = CRUDFactory.CreateCRUD<Customer>();
             try
             {
                 Customer cs = new Customer();

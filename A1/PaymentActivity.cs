@@ -183,8 +183,9 @@ namespace A1
                     }
                 }
             }
-            //create orderCRUD through Factory Design Pattern
-            ICRUD<Order> orderCRUD = CRUDFactory.CreateCRUD<Order>();
+            //create orderCRUD through Factory Method Pattern
+            FactoryMethod_OrderCRUD factoryMethod_OrderCRUD = new FactoryMethod_OrderCRUD();
+            ICRUD<Order> orderCRUD = factoryMethod_OrderCRUD.CreateCRUD();
             int generatedOrderId = orderCRUD.Add(order);
 
             //Add payment to payments table
@@ -193,12 +194,14 @@ namespace A1
             payment.OrderId = generatedOrderId;
             payment.Amount = Convert.ToDecimal(txtTotalValue.Text);
 
-            //create orderCRUD through Factory Design Pattern
-            ICRUD<Payment> paymentCRUD = CRUDFactory.CreateCRUD<Payment>();
+            //create paymentCRUD through Factory Method Pattern
+            FactoryMethod_PaymentCRUD factoryMethod_PaymentCRUD = new FactoryMethod_PaymentCRUD();
+            ICRUD<Payment> paymentCRUD = factoryMethod_PaymentCRUD.CreateCRUD();
             paymentCRUD.Add(payment);
 
-            //create orderDiscountCRUD through Factory Design Pattern
-            ICRUD<OrderDiscount> orderDiscountCRUD = CRUDFactory.CreateCRUD<OrderDiscount>();
+            //create orderDiscountCRUD through Factory Method Pattern
+            FactoryMethod_OrderDiscountCRUD factoryMethod_OrderDiscountCRUD = new FactoryMethod_OrderDiscountCRUD();
+            ICRUD<OrderDiscount> orderDiscountCRUD = factoryMethod_OrderDiscountCRUD.CreateCRUD();
 
             //add OrderDiscount into OrderDiscount table            
             for (int i=0; i < discountIdList.Count; i++)
@@ -209,9 +212,10 @@ namespace A1
                 orderDiscountCRUD.Add(orderDiscount);
             }
 
+            //create orderDiscountCRUD through Factory Method Pattern
+            FactoryMethod_OrderDetailsCRUD factoryMethod_OrderDetailsCRUD = new FactoryMethod_OrderDetailsCRUD();
+            ICRUD<OrderDetail> orderDetailCRUD = factoryMethod_OrderDetailsCRUD.CreateCRUD();
 
-            //create orderDiscountCRUD through Factory Design Pattern
-            ICRUD<OrderDetail> orderDetailCRUD = CRUDFactory.CreateCRUD<OrderDetail>();
             //add order detail into OrderDetail table
             foreach(Tuple<Product,int> item in cartList)
             {
@@ -221,7 +225,7 @@ namespace A1
                 orderDetail.ProductId = item.Item1.Id;
                 orderDetailCRUD.Add(orderDetail);
             }
-
+            cartList.Clear(); //reset carList
             AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.orderSuccess));
 
         }
@@ -254,8 +258,9 @@ namespace A1
         public void GetDeliveryTypeList()
         {
 
-            // create deliveryTypeCRUD through Factory Design Pattern
-            ICRUD<DeliveryType> deliveryTypeCRUD = CRUDFactory.CreateCRUD<DeliveryType>();
+            // create deliveryTypeCRUD through Factory Method Pattern
+            FactoryMethod_DeliveryTypeCRUD factoryMethod_DeliveryTypeCRUD = new FactoryMethod_DeliveryTypeCRUD();
+            ICRUD<DeliveryType> deliveryTypeCRUD = factoryMethod_DeliveryTypeCRUD.CreateCRUD();
 
             try
             {

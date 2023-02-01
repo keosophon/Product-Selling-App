@@ -58,8 +58,9 @@ namespace A1
                 return;
             }
 
-            //create customerCrud through Factory Design Pattern
-            ICRUD<Customer> customerCRUD = CRUDFactory.CreateCRUD<Customer>();
+            //create customerCrud through Factory Method Pattern
+            FactoryMethod_CustomerCRUD factoryCustomerCRUD = new FactoryMethod_CustomerCRUD();
+            ICRUD<Customer> customerCRUD = factoryCustomerCRUD.CreateCRUD();            
             try
             {               
 
