@@ -282,7 +282,7 @@ namespace A1
         private void OpenProductViewPage(Product product)
         {
             //pass Sing In customer, empyt cartList and product to Product View Activity to see product details
-            //like in real world, users grab the product from shelves, need to see its details before putting into the cart.
+            //like in real world, users grab a product from shelves, need to see its details before putting into the cart.
             bundle.PutString(Resources.GetString(Resource.String.product), JsonConvert.SerializeObject(product));
             var intent = new Intent(this, typeof(ProductViewActivity));
             intent.PutExtras(bundle);
