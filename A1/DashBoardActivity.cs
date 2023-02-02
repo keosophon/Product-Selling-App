@@ -1,16 +1,16 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
+//using Android.Runtime;
+//using Android.Views;
 using Android.Widget;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+//using System.Linq;
+//using System.Text;
 using AndroidX.AppCompat.App;
-using System.Net;
-using Android.Graphics;
+//using System.Net;
+//using Android.Graphics;
 using Newtonsoft.Json; 
 
 namespace A1
@@ -281,7 +281,8 @@ namespace A1
 
         private void OpenProductViewPage(Product product)
         {
-            //pass Sing In customer, and product to Product View Activity
+            //pass Sing In customer, empyt cartList and product to Product View Activity to see product details
+            //like in real world, users grab the product from shelves, need to see its details before putting into the cart.
             bundle.PutString(Resources.GetString(Resource.String.product), JsonConvert.SerializeObject(product));
             var intent = new Intent(this, typeof(ProductViewActivity));
             intent.PutExtras(bundle);
