@@ -3,11 +3,11 @@ using Android.OS;
 using Android.Runtime;
 using AndroidX.AppCompat.App;
 using Android.Widget;
-using Android.Views;
+//using Android.Views;
 using Android.Content;
-using System.Data.SqlClient;
-using System.Data;
-using System.Threading;
+//using System.Data.SqlClient;
+//using System.Data;
+//using System.Threading;
 using System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -74,13 +74,12 @@ namespace A1
 
                 if ((txtEmailPhoneLog.Text == cus.Email || txtEmailPhoneLog.Text == cus.Phone) && txtPassword.Text == cus.Password)
                 {
-                    //pass Sign In customer to Dashboard Activity
-                    Bundle bundle = new Bundle();
-                    //double discount = 0;
+                    //pass Sign In customer and empty cartList to Dashboard Activity after signin
+                    //like in real world, users go in a store through gate with empty cart
+                    Bundle bundle = new Bundle();                    
                     List<Tuple<Product, int>> cartList = new List<Tuple<Product, int>>();
                     bundle.PutString(Resources.GetString(Resource.String.customer), JsonConvert.SerializeObject(cus));
-                    bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));                    
-                    //bundle.PutDouble("discount", discount);
+                    bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));
                     var intent = new Intent(this, typeof(DashBoardActivity));
                     intent.PutExtras(bundle);
                     StartActivity(intent);
