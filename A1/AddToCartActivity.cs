@@ -207,6 +207,11 @@ namespace A1
 
         private void BtnViewCart1_Click(object sender, EventArgs e)
         {
+            if (cartList.Count == 0)
+            {
+                AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.information), Resources.GetString(Resource.String.noItemInCart));
+                return;
+            }
             var intent = new Intent(this, typeof(PaymentActivity));
             bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));
             bundle.PutString(Resources.GetString(Resource.String.discountIdList), JsonConvert.SerializeObject(discountIdList));

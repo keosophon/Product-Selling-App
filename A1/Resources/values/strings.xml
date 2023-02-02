@@ -86,6 +86,8 @@
 	<string name="paymentPage">Payment</string>
 	<string name="card">Card</string>
 	<string name="cash">Cash</string>
+	<string name="information">Information</string>
+	<string name="noItemInCart">There is no item in cart!</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>
