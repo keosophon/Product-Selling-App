@@ -9,8 +9,6 @@
     android:background="@color/colorBackground">
     <include
         layout="@layout/header" />
-    <include
-        layout="@layout/header1"/>
     <ScrollView
         android:minWidth="25px"
         android:minHeight="25px"

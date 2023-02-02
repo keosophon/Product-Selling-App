@@ -8,8 +8,6 @@
     >
     <include
         layout="@layout/header" />
-    <include
-        layout="@layout/header1"/>
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"

@@ -9,8 +9,6 @@
     android:background="@color/colorBackground">
     <include
         layout="@layout/header" />
-    <include
-        layout="@layout/header1"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
