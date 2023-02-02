@@ -80,8 +80,10 @@
 	<string name="samePasswordRequired">Password and Re-enter password must be the same!</string>
 	<string name="orderSuccess">Your order has been completed. Thank you for order!</string>
 	<string name="discountIdList">discountIdList</string>
-	<string name="paymentMode">Payment Mode</string>
+	<string name="paymentMode">Payment</string>
 	<string name="productPage">Product</string>
+	<string name="addToCartPage">AddToCart</string>
+	<string name="paymentPage">Payment</string>
 	<string name="card">Card</string>
 	<string name="cash">Cash</string>
 	<string-array name="quantity">

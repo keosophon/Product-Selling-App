@@ -10,68 +10,34 @@
     <include
         layout="@layout/header" />
     <LinearLayout
+        android:id="@+id/linearLayoutPaymentPage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/colorWhite"
         android:layout_marginLeft="@dimen/margin_small"
         android:layout_marginRight="@dimen/margin_small"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        >
         <TextView
+            android:gravity="left"
+            android:text="@string/paymentPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtDelivery"
-            android:text="@string/delivery"
-            android:textSize="@dimen/text_sz_large"
+            android:minWidth="@dimen/min_width"
+            android:minHeight="@dimen/min_height"
+            android:id="@+id/txtAddToCartPage" 
+            android:layout_marginTop="@dimen/margin_large"
             android:layout_marginLeft="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_medium"/>
-        <RadioGroup
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rdDelivery"
-            android:layout_marginLeft="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:orientation="horizontal"
-            >
-
-            <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/courier"
-            android:id="@+id/rdCourier" />
-            <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pickup"
-            android:id="@+id/rdPickup" />
-        </RadioGroup>
-    </LinearLayout>
-    <LinearLayout
+            android:textSize="@dimen/text_sz_medium"     
+            android:textColor="@android:color/holo_blue_light"
+            />
+        
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/colorWhite"
-        android:layout_marginLeft="@dimen/margin_small"
-        android:layout_marginRight="@dimen/margin_small">
-        <TextView
-            android:text="@string/courierCharge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtNote"
-            android:layout_marginLeft="@dimen/margin_small"
-            android:layout_marginBottom="@dimen/margin_small"/>
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#808080"
-            android:layout_marginLeft="@dimen/margin_small"
-            android:layout_marginRight="@dimen/margin_small"
-        />
-
+        android:background="@color/colorWhite"        
+        android:layout_marginRight="@dimen/margin_small">      
         <TextView
             android:text="@string/orderSummary"
             android:layout_width="match_parent"
@@ -90,8 +56,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity=""
+                android:orientation="vertical"                
                 >
                 <GridLayout
                     android:layout_marginLeft="@dimen/margin_medium"
@@ -121,8 +86,7 @@
                         android:minHeight="25px"
                         android:id="@+id/txtQtyPayment"
                         android:layout_row="0"
-                        android:layout_column="1"
-                        android:layout_marginLeft="@dimen/margin_small"
+                        android:layout_column="1"                        
                         android:layout_marginRight="@dimen/margin_medium"
                         android:textSize="@dimen/text_sz_medium"
                         android:gravity="end"
@@ -280,48 +244,102 @@
                         android:id="@+id/txtTotalValue" 
                         android:textSize="@dimen/text_sz_medium"
                         android:gravity="end"
+                        android:textStyle="bold"
                         android:layout_marginRight="@dimen/margin_extra_large"
                     />
-                </LinearLayout>                
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorWhite"
-                    android:layout_marginLeft="@dimen/margin_small"
-                    android:layout_marginRight="@dimen/margin_small"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtPaymentMode"
-                        android:text="@string/paymentMode"
-                        android:textSize="@dimen/text_sz_large"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginTop="@dimen/margin_medium"/>
-                    <RadioGroup
-                        android:minWidth="25px"
-                        android:minHeight="25px"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/rdPamentMode"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginTop="@dimen/margin_medium"
-                        android:orientation="horizontal"
-                        >
+                </LinearLayout>
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#808080"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_extra_large"
+        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtDelivery"
+                android:text="@string/delivery"
+                android:textSize="@dimen/text_sz_large"                
+                android:layout_marginTop="@dimen/margin_medium"/>
+            <RadioGroup
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rdDelivery"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/courier"
+                android:id="@+id/rdCourier" />
+                <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pickup"
+                android:id="@+id/rdPickup" />
+            </RadioGroup>
+        </LinearLayout>
+        <TextView
+            android:text="@string/courierCharge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNote"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_small"/>        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtPaymentMode"
+                android:text="@string/paymentMode"
+                android:textSize="@dimen/text_sz_large"                
+                android:layout_marginTop="@dimen/margin_medium"/>
+            <RadioGroup
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rdPamentMode"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:orientation="horizontal"
+                >
 
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:text="@string/card"
-                            android:id="@+id/rdCard" />
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cash"
-                            android:id="@+id/rdCash" />
-                </RadioGroup>
-            </LinearLayout>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/card"
+                    android:id="@+id/rdCard" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cash"
+                    android:id="@+id/rdCash" />
+        </RadioGroup>
+    </LinearLayout>
 
                 <Button
                     android:text="@string/checkout"
@@ -336,5 +354,6 @@
                 />
             </LinearLayout>
         </ScrollView>
+    </LinearLayout>
     </LinearLayout>
 </LinearLayout>
