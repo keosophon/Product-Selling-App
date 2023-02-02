@@ -9,7 +9,30 @@
     android:background="@color/colorBackground">
     <include
         layout="@layout/header" />
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/linearLayoutProductPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:gravity="left"
+            android:text="@string/productPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/min_width"
+            android:minHeight="@dimen/min_height"
+            android:id="@+id/txtProductPage" 
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_large"
+            android:textSize="@dimen/text_sz_medium"     
+            android:textColor="@android:color/holo_blue_light"
+            />
+
+     <ScrollView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
@@ -72,4 +95,5 @@
             android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
+    </LinearLayout>
 </LinearLayout>
