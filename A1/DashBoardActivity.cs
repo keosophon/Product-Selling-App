@@ -208,7 +208,7 @@ namespace A1
         public void DisplayAllProducts()
         {
 
-            //create productCRUD through Factory Method Pattern
+            //create productCRUD through Factory Method Design Pattern
             FactoryMethod_ProductCRUD factoryMethod_ProductCRUD = new FactoryMethod_ProductCRUD();
             ICRUD<Product> productCRUD = factoryMethod_ProductCRUD.CreateCRUD();
 

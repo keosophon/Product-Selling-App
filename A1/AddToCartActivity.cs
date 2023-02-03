@@ -131,8 +131,8 @@ namespace A1
             try
             {              
 
-                //add discount percentages to checkboxes UI
-                //create discountCRUD through Factory Method Pattern
+                //get discount percentages from Discounts table and add discount percentages to checkboxes UI
+                //create discountCRUD through Factory Method Design Pattern
                 FactoryMethod_DiscountCRUD factoryMethod_DiscountCRUD = new FactoryMethod_DiscountCRUD();
                 ICRUD<Discount> discountCRUD = factoryMethod_DiscountCRUD.CreateCRUD();
                 discountList = discountCRUD.GetObjects();

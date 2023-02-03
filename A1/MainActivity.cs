@@ -58,7 +58,7 @@ namespace A1
                 return;
             }
 
-            //create customerCrud through Factory Method Pattern
+            //create customerCRUD through Factory Method Pattern
             FactoryMethod_CustomerCRUD factoryCustomerCRUD = new FactoryMethod_CustomerCRUD();
             ICRUD<Customer> customerCRUD = factoryCustomerCRUD.CreateCRUD();            
             try
@@ -74,7 +74,7 @@ namespace A1
 
                 if ((txtEmailPhoneLog.Text == cus.Email || txtEmailPhoneLog.Text == cus.Phone) && txtPassword.Text == cus.Password)
                 {
-                    //pass Sign In customer and empty cartList to Dashboard Activity after signin
+                    //pass Sign In customer and empty cart to Dashboard Activity after signin
                     //like in real world, users go in a store through gate with empty cart
                     Bundle bundle = new Bundle();                    
                     List<Tuple<Product, int>> cartList = new List<Tuple<Product, int>>();
