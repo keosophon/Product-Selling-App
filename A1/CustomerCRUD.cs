@@ -1,16 +1,18 @@
-﻿using Android.App;
+﻿/*
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+*/
+using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Threading;
 
 namespace A1
 {

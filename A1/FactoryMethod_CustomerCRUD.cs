@@ -15,7 +15,7 @@ namespace A1
     class FactoryMethod_CustomerCRUD :CRUDFactory<Customer>
     {
         /// <summary>
-        /// Factory Method to create Customer    CRUD Implementation
+        /// Factory Method to create Customer CRUD Implementation
         /// </summary>
         protected override ICRUD<Customer> MakeCRUD()
         {
