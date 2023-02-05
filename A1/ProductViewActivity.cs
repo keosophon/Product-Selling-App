@@ -68,6 +68,11 @@ namespace A1
             btnBuyNow.Click += BtnBuyNow_Click;
         }
 
+        public override void OnBackPressed()
+        {
+            //disable back button
+        }
+
         private void BtnBuyNow_Click(object sender, EventArgs e)
         {
             this.OpenAddToCartActivity();

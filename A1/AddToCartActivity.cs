@@ -198,6 +198,11 @@ namespace A1
             btnViewCart1.Click += BtnViewCart1_Click;
         }
 
+        public override void OnBackPressed()
+        {
+            //disable back button
+        }
+
         //set quantity value
         private void SpQuantity_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {

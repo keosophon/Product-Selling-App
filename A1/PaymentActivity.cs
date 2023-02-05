@@ -158,6 +158,11 @@ namespace A1
             btnCheckOut.Click += BtnCheckOut_Click;
         }
 
+        public override void OnBackPressed()
+        {
+            //disable back button
+        }
+
         private void BtnCheckOut_Click(object sender, EventArgs e)
         {
             //Add order to into OrderTable
