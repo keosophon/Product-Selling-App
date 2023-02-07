@@ -58,36 +58,48 @@ namespace A1
                 return;
             }
 
+            //create adminCRUD through Factory Method Pattern
+            FactoryMethod_AdminsCRUD factoryAdminCRUD = new FactoryMethod_AdminsCRUD();
+            ICRUD<Admin> adminCRUD = factoryAdminCRUD.CreateCRUD();
+
             //create customerCRUD through Factory Method Pattern
             FactoryMethod_CustomerCRUD factoryCustomerCRUD = new FactoryMethod_CustomerCRUD();
             ICRUD<Customer> customerCRUD = factoryCustomerCRUD.CreateCRUD();            
             try
-            {               
-
-                Customer cus = customerCRUD.GetObject(txtEmailPhoneLog.Text);
-                if (cus == null)
+            {
+                Admin admin = adminCRUD.GetObject(txtEmailPhoneLog.Text);
+                if (admin!= null && admin.Password == txtPassword.Text)
                 {
-                    AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.incorrectUserNamePassword));
-                    return;
-                }
-
-
-                if ((txtEmailPhoneLog.Text == cus.Email || txtEmailPhoneLog.Text == cus.Phone) && txtPassword.Text == cus.Password)
-                {
-                    //pass Sign In customer and empty cart to Dashboard Activity after signin
-                    //like in real world, users go in a store through gate with empty cart
-                    Bundle bundle = new Bundle();                    
-                    List<Tuple<Product, int>> cartList = new List<Tuple<Product, int>>();
-                    bundle.PutString(Resources.GetString(Resource.String.customer), JsonConvert.SerializeObject(cus));
-                    bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));
-                    var intent = new Intent(this, typeof(DashBoardActivity));
-                    intent.PutExtras(bundle);
-                    StartActivity(intent);
+                    var intent = new Intent(this, typeof(AdminDashBoardActivity));                    
+                    StartActivity(intent);                   
                 }
                 else
                 {
-                    AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.incorrectUserNamePassword));                    
-                }
+                    Customer cus = customerCRUD.GetObject(txtEmailPhoneLog.Text);
+                    if (cus == null)
+                    {
+                        AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.incorrectUserNamePassword));
+                        return;
+                    }
+
+
+                    if ((txtEmailPhoneLog.Text == cus.Email || txtEmailPhoneLog.Text == cus.Phone) && txtPassword.Text == cus.Password)
+                    {
+                        //pass Sign In customer and empty cart to Dashboard Activity after signin
+                        //like in real world, users go in a store through gate with empty cart
+                        Bundle bundle = new Bundle();
+                        List<Tuple<Product, int>> cartList = new List<Tuple<Product, int>>();
+                        bundle.PutString(Resources.GetString(Resource.String.customer), JsonConvert.SerializeObject(cus));
+                        bundle.PutString(Resources.GetString(Resource.String.cartList), JsonConvert.SerializeObject(cartList));
+                        var intent = new Intent(this, typeof(DashBoardActivity));
+                        intent.PutExtras(bundle);
+                        StartActivity(intent);
+                    }
+                    else
+                    {
+                        AlertDialogBuilder.BuildAlertDialog(this, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.incorrectUserNamePassword));
+                    }
+                }         
             }
             catch (Exception ex)
             {

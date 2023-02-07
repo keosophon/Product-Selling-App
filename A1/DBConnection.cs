@@ -22,7 +22,7 @@ namespace A1
         private static DBConnection _dbConnInstance;
         private readonly SqlConnection _conn = new SqlConnection();
         //private readonly string _url = @"Persist Security Info=False;User ID=admin;Password=123456789;Initial Catalog=A1;Server=192.168.1.106\SQLEXPRESS;Encrypt=False;Connection Timeout=30;MultipleActiveResultSets=true";
-        private readonly string _url = @"Server=10.0.2.2\SQLEXPRESS;Initial Catalog=A1;User ID=admin;Password=123456789;Encrypt=False;Persist Security Info=False;Connection Timeout=30;MultipleActiveResultSets=true";
+        private readonly string _url = @"Server=10.0.2.2\SQLEXPRESS;Initial Catalog=A11;User ID=admin;Password=123456789;Encrypt=False;Persist Security Info=False;Connection Timeout=30;MultipleActiveResultSets=true";
 
         private DBConnection()
         {

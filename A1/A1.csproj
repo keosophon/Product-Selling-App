@@ -66,7 +66,10 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDashBoardActivity.cs" />
     <Compile Include="AddToCartActivity.cs" />
+    <Compile Include="Admin.cs" />
+    <Compile Include="AdminCRUD.cs" />
     <Compile Include="AlertDialogBuilder.cs" />
     <Compile Include="BitMapImageCreator.cs" />
     <Compile Include="CRUDFactory.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="DeliveryTypeCRUD.cs" />
     <Compile Include="Discount.cs" />
     <Compile Include="DiscountCRUD.cs" />
+    <Compile Include="FactoryMethod_AdminsCRUD.cs" />
     <Compile Include="FactoryMethod_CustomerCRUD.cs" />
     <Compile Include="FactoryMethod_DeliveryTypeCRUD.cs" />
     <Compile Include="FactoryMethod_DiscountCRUD.cs" />
@@ -259,6 +263,11 @@
     <AndroidResource Include="Resources\layout\activity_payment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResourceAnalysisConfig Include="Resources\layout\activity_AdminDashBoard.xml">
+      <SubType>Designer</SubType>
+    </AndroidResourceAnalysisConfig>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
