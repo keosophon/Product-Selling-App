@@ -1,13 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_centerInParent="true"
-android:text="Second Fragment"
-android:textSize="40dp"
-android:textStyle="bold" />
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/frame_layout"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        >
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:inputType="text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:id="@+id/txtProductSearchAdmin"
+                android:textSize="@dimen/text_sz_medium"
+                android:hint="@string/itemSearch"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:background="@drawable/edittextbackground"
+                android:layout_marginRight="@dimen/margin_small"
+                />
+            <Button
+                android:text="@string/search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"                
+                android:id="@+id/btnSearch"
+                android:backgroundTint="@color/colorClickAble"
+                android:layout_marginRight="@dimen/margin_small"/>
+
+        </LinearLayout>
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#808080"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_medium"
+        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/linearLayout1ProductAdmin"
+            android:layout_marginTop="@dimen/margin_small">
+            <TextView
+            android:text="@string/productDetail"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/min_width"
+            android:minHeight="@dimen/min_height"
+            android:textAlignment="center"
+            android:id="@+id/txtTitleProductAdmin"
+            android:textSize="@dimen/text_sz_extra_large"
+            
+        />
+            <TextView
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_height"
+                android:id="@+id/txtProducIdAdmin"
+                android:layout_marginTop="@dimen/margin_small"
+                android:hint = "@string/id"
+                android:background="@drawable/editTextBackground"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginRight="@dimen/margin_small"
+                android:textSize="@dimen/text_sz_large"/>
+
+            <EditText
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_height"
+                android:id="@+id/txtProductNameAdmin"
+                android:layout_marginTop="@dimen/margin_small"
+                android:hint = "@string/name"
+                android:background="@drawable/editTextBackground"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginRight="@dimen/margin_small"
+                android:textSize="@dimen/text_sz_large"/>
+
+            <EditText
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:id="@+id/txtProductPriceAdmin"
+                android:hint="@string/productPrice"
+                android:background="@drawable/edittextbackground"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginRight="@dimen/margin_small"
+                android:layout_height="@dimen/layout_height"
+                android:textSize="@dimen/text_sz_large"
+        />
+            <EditText
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_height"
+                android:id="@+id/txtProductStockAdmin"
+                android:hint = "@string/stock"
+                android:background="@drawable/editTextBackground"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginRight="@dimen/margin_small"
+                android:textSize="@dimen/text_sz_large"
+        />
+            <EditText
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:id="@+id/txtProductDescriptionAdmin"
+                android:hint="@string/description"
+                android:background="@drawable/edittextbackground"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginRight="@dimen/margin_small"
+                android:layout_height="@dimen/layout_height"
+                android:textSize="@dimen/text_sz_large"
+            />
+            <EditText
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_height"
+                android:id="@+id/txtProductImageSmallUrl"
+                android:layout_marginTop="@dimen/margin_small"
+                android:hint = "@string/imageSmallUrl"
+                android:background="@drawable/editTextBackground"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginRight="@dimen/margin_small"
+                android:textSize="@dimen/text_sz_large"
+            />
+            <EditText
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_height"
+                android:id="@+id/txtProductImageBigUrl"
+                android:layout_marginTop="@dimen/margin_small"
+                android:hint = "@string/imageBigUrl"
+                android:background="@drawable/editTextBackground"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginRight="@dimen/margin_small"
+                android:textSize="@dimen/text_sz_large"
+            />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/margin_small">
+            <Button
+                android:text="@string/addProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAddProductAdmin"
+                android:layout_marginRight="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:backgroundTint="@color/colorClickAble"
+            />
+            <Button
+                android:text="@string/deleteProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnDeleteProductAdmin"
+                android:layout_marginRight="@dimen/margin_small"
+                android:backgroundTint="@color/colorClickAble"/>
+            <Button
+                android:text="@string/editProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnEditProductAdmin"
+                android:backgroundTint="@color/colorClickAble"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
 </FrameLayout>
