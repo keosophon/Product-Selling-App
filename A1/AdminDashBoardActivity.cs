@@ -1,18 +1,8 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using AndroidX.AppCompat.App;
 using Google.Android.Material.Tabs;
-//using AndroidX.Fragment.App;
-//using Android.Support.V4.App.Fragment;
-
 
 namespace A1
 {
@@ -28,7 +18,6 @@ namespace A1
 
             // Create your application here            
             SetContentView(Resource.Layout.activity_adminDashBoard);
-
             tabLayout = FindViewById<TabLayout>(Resource.Id.tabLayout1);
             TabLayout.Tab paymentDetailsTab = tabLayout.NewTab();
             paymentDetailsTab.SetText("Payment Details");
@@ -38,11 +27,8 @@ namespace A1
             tabLayout.AddTab(productDetailsTab,1);
 
             frameLayout = (FrameLayout)FindViewById(Resource.Id.frameLayout1);
-
             tabLayout.TabSelected += TabLayout_TabSelected;
-
         }
-
         
         private void TabLayout_TabSelected(object sender, TabLayout.TabSelectedEventArgs e)
         {
@@ -59,12 +45,10 @@ namespace A1
                     fragment = new Fragment_AdminProductDetails();
                     break;
             }
-            
+
             var fragmentTransaction = SupportFragmentManager.BeginTransaction()
-                                                            .Replace(Resource.Id.frameLayout1,fragment)
-                                                            .Commit();
-            
-            
+                                                            .Replace(Resource.Id.frameLayout1, fragment)
+                                                            .Commit();  
         }
     }
 }

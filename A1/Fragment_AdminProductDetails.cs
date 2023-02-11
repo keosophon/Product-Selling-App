@@ -28,8 +28,6 @@ namespace A1
         {
             // Use this to return your custom view for this Fragment
              return inflater.Inflate(Resource.Layout.fragment_ProductDetails, container, false);
-
-            //return base.OnCreateView(inflater, container, savedInstanceState);
         }
     }
 }
