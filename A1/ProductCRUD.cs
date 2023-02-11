@@ -22,8 +22,46 @@ namespace A1
 
         public int Add(Product product)
         {
-            //not required to implement
-            return -1;
+            dbConnInstance.OpenConnection();
+            string commandText = "INSERT INTO Customers(FirstName, LastName, DoB, Email, Phone, Address, Password) " +
+                "VALUES (@fname, @lname, @dob, @email, @phone, @address,@password)";
+            SqlCommand command = new SqlCommand(commandText, conn);
+
+            SqlParameter fnameParam =
+                new SqlParameter("@fname", SqlDbType.VarChar, 30);
+            SqlParameter lnameParam =
+                new SqlParameter("@lname", SqlDbType.VarChar, 30);
+            SqlParameter dobParam =
+                new SqlParameter("@dob", SqlDbType.Date, 8);
+            SqlParameter emailParam =
+                new SqlParameter("@email", SqlDbType.VarChar, 50);
+            SqlParameter phoneParam =
+                new SqlParameter("@phone", SqlDbType.VarChar, 10);
+            SqlParameter addressParam =
+                new SqlParameter("@address", SqlDbType.VarChar, 100);
+            SqlParameter passwordParam = new SqlParameter("@password", SqlDbType.VarChar, 20);
+
+            fnameParam.Value = cs.FirstName;
+            lnameParam.Value = cs.LastName;
+            dobParam.Value = cs.DoB;
+            emailParam.Value = cs.Email;
+            phoneParam.Value = cs.Phone;
+            addressParam.Value = cs.Address;
+            passwordParam.Value = cs.Password;
+            command.Parameters.Add(fnameParam);
+            command.Parameters.Add(lnameParam);
+            command.Parameters.Add(dobParam);
+            command.Parameters.Add(emailParam);
+            command.Parameters.Add(phoneParam);
+            command.Parameters.Add(addressParam);
+            command.Parameters.Add(passwordParam);
+
+            // Call Prepare after setting the Commandtext and Parameters.
+            command.Prepare();
+            int result = command.ExecuteNonQuery();
+            conn.Close();
+            return result;
+
         }
 
         public Product GetObject(string name)
