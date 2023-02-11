@@ -10,6 +10,9 @@ using System.Linq;
 using System.Text;
 using AndroidX.AppCompat.App;
 using Google.Android.Material.Tabs;
+//using AndroidX.Fragment.App;
+//using Android.Support.V4.App.Fragment;
+
 
 namespace A1
 {
@@ -17,6 +20,8 @@ namespace A1
     public class AdminDashBoardActivity : AppCompatActivity
     {
         private TabLayout tabLayout;
+        private FrameLayout frameLayout;
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -31,6 +36,35 @@ namespace A1
             TabLayout.Tab productDetailsTab = tabLayout.NewTab();
             productDetailsTab.SetText("Product Details");
             tabLayout.AddTab(productDetailsTab,1);
+
+            frameLayout = (FrameLayout)FindViewById(Resource.Id.frameLayout1);
+
+            tabLayout.TabSelected += TabLayout_TabSelected;
+
+        }
+
+        
+        private void TabLayout_TabSelected(object sender, TabLayout.TabSelectedEventArgs e)
+        {
+            var tab = e.Tab;
+            int position = tab.Position;
+
+            AndroidX.Fragment.App.Fragment fragment = null;
+            switch (position)
+            {
+                case 0:
+                    fragment = new Fragment_AdminPaymentDetails();
+                    break;
+                case 1:
+                    fragment = new Fragment_AdminProductDetails();
+                    break;
+            }
+            
+            var fragmentTransaction = SupportFragmentManager.BeginTransaction()
+                                                            .Replace(Resource.Id.frameLayout1,fragment)
+                                                            .Commit();
+            
+            
         }
     }
 }

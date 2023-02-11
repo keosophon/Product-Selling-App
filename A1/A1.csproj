@@ -96,10 +96,12 @@
     <Compile Include="Payment.cs" />
     <Compile Include="PaymentActivity.cs" />
     <Compile Include="PaymentCRUD.cs" />
+    <Compile Include="Fragment_AdminPaymentDetails.cs" />
     <Compile Include="PaymentMode.cs" />
     <Compile Include="PaymentModeCRUD.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductCRUD.cs" />
+    <Compile Include="Fragment_AdminProductDetails.cs" />
     <Compile Include="ProductViewActivity.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerCRUD.cs" />
@@ -152,7 +154,16 @@
     <PackageReference Include="Newtonsoft.Json.Schema">
       <Version>3.0.14</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v4">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.2.0.5" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4">
+      <Version>1.0.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
+      <Version>2.2.0.3</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.0.0.1" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -266,6 +277,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_adminDashBoard.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\fragment_PaymentDetailsAdmin.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\fragment_ProductDetails.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
