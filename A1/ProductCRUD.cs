@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace A1
 {
@@ -23,39 +24,41 @@ namespace A1
         public int Add(Product product)
         {
             dbConnInstance.OpenConnection();
-            string commandText = "INSERT INTO Customers(FirstName, LastName, DoB, Email, Phone, Address, Password) " +
-                "VALUES (@fname, @lname, @dob, @email, @phone, @address,@password)";
+            string commandText = "INSERT INTO Products(Name, Price, Stock, Description, ImageSmall, ImageBig) " +
+                "VALUES (@name, @price, @stock, @description, @imagesmall, @imagebig)";
             SqlCommand command = new SqlCommand(commandText, conn);
 
-            SqlParameter fnameParam =
-                new SqlParameter("@fname", SqlDbType.VarChar, 30);
-            SqlParameter lnameParam =
-                new SqlParameter("@lname", SqlDbType.VarChar, 30);
-            SqlParameter dobParam =
-                new SqlParameter("@dob", SqlDbType.Date, 8);
-            SqlParameter emailParam =
-                new SqlParameter("@email", SqlDbType.VarChar, 50);
-            SqlParameter phoneParam =
-                new SqlParameter("@phone", SqlDbType.VarChar, 10);
-            SqlParameter addressParam =
-                new SqlParameter("@address", SqlDbType.VarChar, 100);
-            SqlParameter passwordParam = new SqlParameter("@password", SqlDbType.VarChar, 20);
+            SqlParameter nameParam =
+                new SqlParameter("@name", SqlDbType.VarChar, 50);
+            SqlParameter priceParam =
+                new SqlParameter("@price", SqlDbType.Decimal, 6);
+            SqlParameter stockParam =
+                new SqlParameter("@stock", SqlDbType.Int, 4);
+            SqlParameter descriptionParam =
+                new SqlParameter("@description", SqlDbType.VarChar, 200);
+            SqlParameter imageSmallParam =
+                new SqlParameter("@imagesmall", SqlDbType.VarChar, 50);
+            SqlParameter imageBigParam =
+                new SqlParameter("@imagebig", SqlDbType.VarChar, 50);
 
-            fnameParam.Value = cs.FirstName;
-            lnameParam.Value = cs.LastName;
-            dobParam.Value = cs.DoB;
-            emailParam.Value = cs.Email;
-            phoneParam.Value = cs.Phone;
-            addressParam.Value = cs.Address;
-            passwordParam.Value = cs.Password;
-            command.Parameters.Add(fnameParam);
-            command.Parameters.Add(lnameParam);
-            command.Parameters.Add(dobParam);
-            command.Parameters.Add(emailParam);
-            command.Parameters.Add(phoneParam);
-            command.Parameters.Add(addressParam);
-            command.Parameters.Add(passwordParam);
 
+            nameParam.Value = product.Name;
+            priceParam.Value = product.Price;
+            stockParam.Value = product.Stock;
+            descriptionParam.Value = product.Description;
+            imageSmallParam.Value = product.ImageSmall;
+            imageBigParam.Value = product.ImageBig;
+
+            priceParam.Precision = 6;
+            priceParam.Scale = 2;
+
+            command.Parameters.Add(nameParam);
+            command.Parameters.Add(priceParam);
+            command.Parameters.Add(stockParam);
+            command.Parameters.Add(descriptionParam);
+            command.Parameters.Add(imageSmallParam);
+            command.Parameters.Add(imageBigParam);
+            
             // Call Prepare after setting the Commandtext and Parameters.
             command.Prepare();
             int result = command.ExecuteNonQuery();

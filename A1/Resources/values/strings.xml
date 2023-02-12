@@ -98,6 +98,7 @@
 	<string name="imageSmallUrl">Product small image url</string>
 	<string name="imageBigUrl">Product big image url</string>
 	<string name="productDetail">Product Details</string>
+	<string name="productAddSuccess">Adding new product is successful.</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>

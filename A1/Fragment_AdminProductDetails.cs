@@ -55,6 +55,7 @@ namespace A1
                 //create productCRUD through Factory Method Design Pattern
                 FactoryMethod_ProductCRUD factoryMethod_ProductCRUD = new FactoryMethod_ProductCRUD();
                 ICRUD<Product> productCRUD = factoryMethod_ProductCRUD.CreateCRUD();
+
                 try
                 {
                     Product product = new Product();
@@ -64,13 +65,23 @@ namespace A1
                     product.Description = txtProductDescriptionAdmin.Text;
                     product.ImageSmall = txtProductImageSmallUrl.Text;
                     product.ImageBig = txtProductImageBigUrl.Text;
-
+                    if (productCRUD.Add(product) == 1)
+                    {
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.productAddSuccess));
+                        txtProductNameAdmin.Text = "";
+                        txtProductPriceAdmin.Text = "";
+                        txtProductStockAdmin.Text = "";
+                        txtProductDescriptionAdmin.Text = "";
+                        txtProductImageSmallUrl.Text = "";
+                        txtProductImageBigUrl.Text = "";
+                    }
+                    txtProductNameAdmin.RequestFocus();
+                    
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-
+                    AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.error), ex.Message);
                 }
-
             }
         }
     }

@@ -216,7 +216,12 @@ namespace A1
             {
                 productList = productCRUD.GetObjects();
                 for (int i = 0; i < productList.Count; i++)
-                {                    
+                {   
+                    if (i== imageButtonList.Count)
+                    {
+                        break;
+                    }
+
                     var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, productList[i].ImageSmall);
                     imageButtonList[i].SetImageBitmap(bitmapImg);                    
                     nameViewList[i].Text = productList[i].Name;
