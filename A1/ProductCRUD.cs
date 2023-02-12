@@ -67,15 +67,42 @@ namespace A1
 
         }
 
-        public Product GetObject(string name)
+        public Product GetObject(int id)
         {
             //no required to implement
             
             Product product = null;
+
+            dbConnInstance.OpenConnection();
+            string commandText = "SELECT * FROM Products WHERE Id=@id";            
+            SqlCommand command = new SqlCommand(commandText, conn);
+
+            SqlParameter idParam =
+                new SqlParameter("@id", SqlDbType.Int, 4);
+
+            idParam.Value = id;            
+
+            command.Parameters.Add(idParam);            
+            command.Prepare();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                product = new Product();
+                product.Id = Convert.ToInt32(reader[0].ToString());
+                product.Name = reader[1].ToString();
+                product.Price = Convert.ToDecimal(reader[2].ToString());
+                product.Stock = Convert.ToInt32(reader[3].ToString());
+                product.Description = reader[4].ToString();
+                product.ImageSmall = reader[5].ToString();
+                product.ImageBig = reader[6].ToString();
+
+            }
+            reader.Close();
+            conn.Close();
             return product;
         }
 
-        public Product GetObject(int id)
+        public Product GetObject(string name)
         {
             //no required to implement
             Product product = null;
@@ -106,6 +133,22 @@ namespace A1
             reader.Close();
             conn.Close();
             return productList;
+        }
+
+        public void DeleteObject(int id)
+        {
+            dbConnInstance.OpenConnection();
+            string commandText = "DELETE FROM Products WHERE id=@id;";
+            SqlCommand command = new SqlCommand(commandText, conn);
+
+            SqlParameter idParam =
+                new SqlParameter("@id", SqlDbType.Int, 4);
+
+            idParam.Value = id;
+
+            command.Parameters.Add(idParam);
+            command.Prepare();
+            command.ExecuteNonQuery();
         }
     }
 }

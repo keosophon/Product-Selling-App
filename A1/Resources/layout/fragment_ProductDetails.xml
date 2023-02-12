@@ -60,28 +60,17 @@
             android:id="@+id/linearLayout1ProductAdmin"
             android:layout_marginTop="@dimen/margin_small">
             <TextView
-            android:text="@string/productDetail"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minWidth="@dimen/min_width"
-            android:minHeight="@dimen/min_height"
-            android:textAlignment="center"
-            android:id="@+id/txtTitleProductAdmin"
-            android:textSize="@dimen/text_sz_extra_large"
-            
-        />
-            <TextView
-                android:inputType="text"
+                android:text="@string/productDetail"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/layout_height"
-                android:id="@+id/txtProducIdAdmin"
-                android:layout_marginTop="@dimen/margin_small"
-                android:hint = "@string/id"
-                android:background="@drawable/editTextBackground"
-                android:layout_marginLeft="@dimen/margin_small"
-                android:layout_marginRight="@dimen/margin_small"
-                android:textSize="@dimen/text_sz_large"/>
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/min_width"
+                android:minHeight="@dimen/min_height"
+                android:textAlignment="center"
+                android:id="@+id/txtTitleProductAdmin"
+                android:textSize="@dimen/text_sz_extra_large"
+            
+            />
 
             <EditText
                 android:inputType="text"
@@ -180,11 +169,12 @@
                 android:layout_marginRight="@dimen/margin_small"
                 android:backgroundTint="@color/colorClickAble"/>
             <Button
-                android:text="@string/editProduct"
+                android:text="@string/update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnEditProductAdmin"
+                android:id="@+id/btnUpdateProductAdmin"
                 android:backgroundTint="@color/colorClickAble"/>
+            
 
         </LinearLayout>
     </LinearLayout>

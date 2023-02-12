@@ -19,6 +19,10 @@ namespace A1
         private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
         private static readonly SqlConnection conn = dbConnInstance.GetConnection();
 
+        public void DeleteObject(int id)
+        {
+
+        }
         public int Add(Payment payment)
         {
             dbConnInstance.OpenConnection();

@@ -15,6 +15,7 @@ namespace A1
 	//CRUD Interface for entities
 	public interface ICRUD<T>
 	{
+		public void DeleteObject(int id);
 		public int Add(T obj) ;
 		public T GetObject(string par);
 

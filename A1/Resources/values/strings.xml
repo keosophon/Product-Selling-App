@@ -20,7 +20,7 @@
 	<string name="dashBoard">Dashboard</string>
 	<string name="logOut">Log Out</string>
 	<string name="verticalLine">|</string>
-	<string name="itemSearch">Product Name or Id to search...</string>
+	<string name="itemSearch">Id of the product...</string>
 	<string name="search">Search</string>
 	<string name="viewCart"> View Cart</string>
 	<string name="companyName">Ahera Taera</string>
@@ -92,13 +92,14 @@
 	<string name="noItemInCart">There is no item in cart!</string>
 	<string name="addProduct">Add </string>
 	<string name="deleteProduct">Delete</string>
-	<string name="editProduct">Edit</string>
+	<string name="update">Update</string>
 	<string name="stock">Stock</string>
 	<string name="description">Description</string>
-	<string name="imageSmallUrl">Product small image url</string>
-	<string name="imageBigUrl">Product big image url</string>
+	<string name="imageSmallUrl">small image url</string>
+	<string name="imageBigUrl">big image url</string>
 	<string name="productDetail">Product Details</string>
 	<string name="productAddSuccess">Adding new product is successful.</string>
+	<string name="clearForm">Clear Form</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>

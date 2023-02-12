@@ -102,8 +102,7 @@ namespace A1
             }
             reader.Close();
             conn.Close();
-            return cus;
-            
+            return cus;          
             
         }
 
@@ -117,6 +116,11 @@ namespace A1
             //not required to implement in detail because not in project scope
             List<Customer> customersList = null;
             return customersList;
+        }
+
+        public void DeleteObject(int id)
+        {
+            
         }
     }
 }
