@@ -18,6 +18,11 @@ namespace A1
         private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
         private static readonly SqlConnection conn = dbConnInstance.GetConnection();
 
+        public int UpdateObject(OrderDetail orderDetail)
+        {
+            return -1;
+        }
+
         public void DeleteObject(int id)
         {
 

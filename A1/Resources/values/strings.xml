@@ -99,7 +99,8 @@
 	<string name="imageBigUrl">big image url</string>
 	<string name="productDetail">Product Details</string>
 	<string name="productAddSuccess">Adding new product is successful.</string>
-	<string name="clearForm">Clear Form</string>
+	<string name="clear">Clear Form</string>
+	<string name="price">Price</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>

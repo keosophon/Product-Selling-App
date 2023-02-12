@@ -150,5 +150,54 @@ namespace A1
             command.Prepare();
             command.ExecuteNonQuery();
         }
+
+        public int UpdateObject(Product product)
+        {
+
+            dbConnInstance.OpenConnection();
+            string commandText = "UPDATE Products SET Name=@name, Price=@price, Stock=@stock, Description=@description, ImageSmall=@imageSmall, ImageBig=@imageBig WHERE id=@id;";
+            SqlCommand command = new SqlCommand(commandText, conn);
+
+
+            SqlParameter idParam =
+                new SqlParameter("@id", SqlDbType.Int, 4);
+            SqlParameter nameParam =
+                new SqlParameter("@name", SqlDbType.VarChar, 50);
+            SqlParameter priceParam =
+                new SqlParameter("@price", SqlDbType.Decimal, 6);
+            SqlParameter stockParam =
+                new SqlParameter("@stock", SqlDbType.Int, 4);
+            SqlParameter descriptionParam =
+                new SqlParameter("@description", SqlDbType.VarChar, 200);
+            SqlParameter imageSmallParam =
+                new SqlParameter("@imageSmall", SqlDbType.VarChar, 50);
+            SqlParameter imageBigParam =
+                new SqlParameter("@imageBig", SqlDbType.VarChar, 50);
+
+            idParam.Value = product.Id;
+            nameParam.Value = product.Name;
+            priceParam.Value = product.Price;
+            stockParam.Value = product.Stock;
+            descriptionParam.Value = product.Description;
+            imageSmallParam.Value = product.ImageSmall;
+            imageBigParam.Value = product.ImageBig;
+
+            priceParam.Precision = 6;
+            priceParam.Scale = 2;
+
+            command.Parameters.Add(idParam);
+            command.Parameters.Add(nameParam);
+            command.Parameters.Add(priceParam);
+            command.Parameters.Add(stockParam);
+            command.Parameters.Add(descriptionParam);
+            command.Parameters.Add(imageSmallParam);
+            command.Parameters.Add(imageBigParam);
+
+            // Call Prepare after setting the Commandtext and Parameters.
+            command.Prepare();
+            int result = command.ExecuteNonQuery();
+            conn.Close();
+            return result;
+        }
     }
 }

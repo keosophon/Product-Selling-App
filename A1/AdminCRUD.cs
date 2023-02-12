@@ -23,6 +23,11 @@ namespace A1
 
         }
 
+        public int UpdateObject(Admin admin)
+        {
+            return -1;
+        }
+
         public int Add(Admin admin)
         {
             dbConnInstance.OpenConnection();

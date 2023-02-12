@@ -24,8 +24,10 @@ namespace A1
         private TextView txtProductImageBigUrl;
         private TextView txtProductSearch;
         private Button btnSearch;
+        private Button btnClear;
         private Button btnAdd;
         private Button btnDelete;
+        private Button btnUpdate;
         
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,13 +48,70 @@ namespace A1
             txtProductImageSmallUrl = view.FindViewById<TextView>(Resource.Id.txtProductImageSmallUrl);
             txtProductImageBigUrl = view.FindViewById<TextView>(Resource.Id.txtProductImageBigUrl);
             btnSearch = view.FindViewById<Button>(Resource.Id.btnSearch);
+            btnClear = view.FindViewById<Button>(Resource.Id.btnClear);
             btnAdd = view.FindViewById<Button>(Resource.Id.btnAddProductAdmin);
             btnDelete = view.FindViewById<Button>(Resource.Id.btnDeleteProductAdmin);
+            btnUpdate = view.FindViewById<Button>(Resource.Id.btnUpdateProductAdmin);
             btnSearch.Click += BtnSearch_Click;
+            btnClear.Click += BtnClear_Click;
             btnAdd.Click += BtnAdd_Click;
             btnDelete.Click += BtnDelete_Click;
+            btnUpdate.Click += BtnUpdate_Click;
+
 
             return view;
+        }
+
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            txtProductSearch.Text = "";
+            txtProductNameAdmin.Text = "";
+            txtProductPriceAdmin.Text = "";
+            txtProductStockAdmin.Text = "";
+            txtProductDescriptionAdmin.Text = "";
+            txtProductImageSmallUrl.Text = "";
+            txtProductImageBigUrl.Text = "";
+            txtProductSearch.RequestFocus();
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            if (txtProductNameAdmin.Text != "" && txtProductPriceAdmin.Text != "" && txtProductStockAdmin.Text != "" && txtProductDescriptionAdmin.Text != "" && txtProductImageSmallUrl.Text != "" && txtProductImageBigUrl.Text != "")
+            {
+                //create productCRUD through Factory Method Design Pattern
+                FactoryMethod_ProductCRUD factoryMethod_ProductCRUD = new FactoryMethod_ProductCRUD();
+                ICRUD<Product> productCRUD = factoryMethod_ProductCRUD.CreateCRUD();
+
+                try
+                {
+                    Product product = new Product();
+                    product.Id = Convert.ToInt32(txtProductSearch.Text);
+                    product.Name = txtProductNameAdmin.Text;
+                    product.Price = Convert.ToDecimal(txtProductPriceAdmin.Text);
+                    product.Stock = Convert.ToInt32(txtProductStockAdmin.Text);
+                    product.Description = txtProductDescriptionAdmin.Text;
+                    product.ImageSmall = txtProductImageSmallUrl.Text;
+                    product.ImageBig = txtProductImageBigUrl.Text;
+                    if (productCRUD.UpdateObject(product) == 1)
+                    {
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.success));
+                        txtProductSearch.Text = "";
+                        txtProductNameAdmin.Text = "";
+                        txtProductPriceAdmin.Text = "";
+                        txtProductStockAdmin.Text = "";
+                        txtProductDescriptionAdmin.Text = "";
+                        txtProductImageSmallUrl.Text = "";
+                        txtProductImageBigUrl.Text = "";
+                        txtProductSearch.RequestFocus();
+                    }
+                    
+
+                }
+                catch (Exception ex)
+                {
+                    AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.error), ex.Message);
+                }
+            }
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -103,7 +162,7 @@ namespace A1
                     txtProductDescriptionAdmin.Text = "";
                     txtProductImageSmallUrl.Text = "";
                     txtProductImageBigUrl.Text = "";
-                    txtProductNameAdmin.RequestFocus();
+                    txtProductSearch.RequestFocus();
                 }
                 catch(Exception ex)
                 {
@@ -140,8 +199,9 @@ namespace A1
                         txtProductDescriptionAdmin.Text = "";
                         txtProductImageSmallUrl.Text = "";
                         txtProductImageBigUrl.Text = "";
+                        txtProductSearch.RequestFocus();
                     }
-                    txtProductSearch.RequestFocus();
+                    
                     
                 }
                 catch (Exception ex)

@@ -23,8 +23,12 @@ namespace A1
     {
 
         private static readonly DBConnection dbConnInstance = DBConnection.GetDBConnInstance();
-        private static readonly SqlConnection conn = dbConnInstance.GetConnection();        
+        private static readonly SqlConnection conn = dbConnInstance.GetConnection();
 
+        public int UpdateObject(Customer customer)
+        {
+            return -1;
+        }
         public int Add(Customer cs) {
             dbConnInstance.OpenConnection();
             string commandText = "INSERT INTO Customers(FirstName, LastName, DoB, Email, Phone, Address, Password) " +
