@@ -105,6 +105,8 @@
 	<string name="orderDetail">Order Details</string>
 	<string name="customerName">Customer Name</string>
 	<string name="orderDate">Order Date</string>
+	<string name="idNotFound">Id does not exist</string>
+	<string name="noInputId">Please input Id</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>

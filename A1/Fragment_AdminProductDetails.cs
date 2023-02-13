@@ -143,12 +143,12 @@ namespace A1
                 }
                 else
                 {
-                    AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.wrongInput), "Cannot find the product");
+                    AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.idNotFound));
                 }
             }
             else
             {
-                AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.wrongInput), "Please input the name or Id of product");
+                AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.noInputId));
             }
         }
 
