@@ -28,6 +28,7 @@ namespace A1
         private Button btnAdd;
         private Button btnDelete;
         private Button btnUpdate;
+        private Button btnLogOut;
         
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -52,14 +53,22 @@ namespace A1
             btnAdd = view.FindViewById<Button>(Resource.Id.btnAddProductAdmin);
             btnDelete = view.FindViewById<Button>(Resource.Id.btnDeleteProductAdmin);
             btnUpdate = view.FindViewById<Button>(Resource.Id.btnUpdateProductAdmin);
+            btnLogOut = view.FindViewById<Button>(Resource.Id.btnLogOutProductAdmin);
             btnSearch.Click += BtnSearch_Click;
             btnClear.Click += BtnClear_Click;
             btnAdd.Click += BtnAdd_Click;
             btnDelete.Click += BtnDelete_Click;
             btnUpdate.Click += BtnUpdate_Click;
 
+            btnLogOut.Click += BtnLogOut_Click;
 
             return view;
+        }
+
+        private void BtnLogOut_Click(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(Activity, typeof(MainActivity));
+            StartActivity(intent);
         }
 
         private void BtnClear_Click(object sender, EventArgs e)

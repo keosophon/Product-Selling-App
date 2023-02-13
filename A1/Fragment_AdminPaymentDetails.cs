@@ -16,7 +16,8 @@ namespace A1
     
     public class Fragment_AdminPaymentDetails : AndroidX.Fragment.App.Fragment
     {
-        
+        private Button btnLogOut;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -28,7 +29,19 @@ namespace A1
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
-             return inflater.Inflate(Resource.Layout.fragment_PaymentDetailsAdmin, container, false);           
+            View view = inflater.Inflate(Resource.Layout.fragment_PaymentDetailsAdmin, container, false);
+
+            btnLogOut = view.FindViewById<Button>(Resource.Id.btnLogOutPaymentAdmin);
+
+            btnLogOut.Click += BtnLogOut_Click;
+
+            return view;
+        }
+
+        private void BtnLogOut_Click(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(Activity, typeof(MainActivity));
+            StartActivity(intent);
         }
     }
 }

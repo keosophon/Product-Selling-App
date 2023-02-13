@@ -101,6 +101,10 @@
 	<string name="productAddSuccess">Adding new product is successful.</string>
 	<string name="clear">Clear Form</string>
 	<string name="price">Price</string>
+	<string name="orderSearch">Order Id to search...</string>
+	<string name="orderDetail">Order Details</string>
+	<string name="customerName">Customer Name</string>
+	<string name="orderDate">Order Date</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>

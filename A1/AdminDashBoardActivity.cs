@@ -21,13 +21,15 @@ namespace A1
             tabLayout = FindViewById<TabLayout>(Resource.Id.tabLayout1);
             TabLayout.Tab paymentDetailsTab = tabLayout.NewTab();
             paymentDetailsTab.SetText("Payment Details");
-            tabLayout.AddTab(paymentDetailsTab,0,true);
+            tabLayout.AddTab(paymentDetailsTab,0);            
             TabLayout.Tab productDetailsTab = tabLayout.NewTab();
             productDetailsTab.SetText("Product Details");
-            tabLayout.AddTab(productDetailsTab,1);
+            tabLayout.AddTab(productDetailsTab,1,true);
 
             frameLayout = (FrameLayout)FindViewById(Resource.Id.frameLayout1);
-            tabLayout.TabSelected += TabLayout_TabSelected;
+            tabLayout.TabSelected += TabLayout_TabSelected;            
+            paymentDetailsTab.Select();
+
         }
         
         private void TabLayout_TabSelected(object sender, TabLayout.TabSelectedEventArgs e)
