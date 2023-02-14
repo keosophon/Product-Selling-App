@@ -18,5 +18,6 @@ namespace A1
         public int OrderId { get; set; }
         public decimal Amount { get; set; }
         public int PaymentModeId { get; set; }
+        public Boolean Status { get; set; }
     }
 }

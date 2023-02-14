@@ -69,7 +69,7 @@ namespace A1
 
         public Product GetObject(int id)
         {
-            //no required to implement
+            
             
             Product product = null;
 

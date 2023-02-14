@@ -66,138 +66,49 @@
             android:id="@+id/linearLayout1OrderAdmin"
             android:layout_marginTop="@dimen/margin_small">
             <TextView
-                android:text="@string/orderDetail"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/orderDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/min_width"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:textSize="@dimen/text_sz_medium"            
+            />
+            <EditText
+                android:inputType="datetime"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_height"
+                android:id="@+id/txtOrderDatePaymentAdmin"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/editTextBackground"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginRight="@dimen/margin_small"
+                android:textSize="@dimen/text_sz_large"                
+            />
+            <TextView
+                android:text="@string/customerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minWidth="@dimen/min_width"
-                android:minHeight="@dimen/min_height"
-                android:textAlignment="center"
-                android:id="@+id/txtTitleOrderAdmin"
-                android:textSize="@dimen/text_sz_extra_large"
-            
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:textSize="@dimen/text_sz_medium"   
+                
             />
-            <LinearLayout
+            <EditText
+                android:inputType="text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"                
-                >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:text="@string/customerName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minWidth="@dimen/min_width"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:textSize="@dimen/text_sz_medium"   
-                
-                    />
-                    <EditText
-                        android:inputType="text"
-                        android:layout_width="match_parent"                       
-                        android:layout_height="@dimen/layout_height"
-                        android:id="@+id/txtCustomerNameAdmin"
-                        android:background="@drawable/editTextBackground"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
-                        android:textSize="@dimen/text_sz_large"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:editable="false"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:text="@string/orderDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:minWidth="@dimen/min_width"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:textSize="@dimen/text_sz_medium"            
-                    />
-                    <EditText
-                        android:inputType="datetime"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/layout_height"
-                        android:id="@+id/txtOrderDatePaymentAdmin"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:background="@drawable/editTextBackground"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
-                        android:textSize="@dimen/text_sz_large"
-                        android:editable="false"
-                    />
-                </LinearLayout>
-                
-            </LinearLayout>
+                android:layout_height="@dimen/layout_height"
+                android:id="@+id/txtCustomerNameAdmin"
+                android:background="@drawable/editTextBackground"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginRight="@dimen/margin_small"
+                android:textSize="@dimen/text_sz_large"
+                android:layout_marginTop="@dimen/margin_small"
+                />
             
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:text="@string/discount"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minWidth="@dimen/min_width"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:textSize="@dimen/text_sz_medium"            
-                    />
-                    <EditText
-                        android:inputType="numberDecimal"
-                        android:layout_width="@dimen/fixed_width"
-                        android:id="@+id/txtOrderDiscountPaymentAdmin"
-                        android:background="@drawable/edittextbackground"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
-                        android:layout_height="@dimen/layout_height"
-                        android:textSize="@dimen/text_sz_large"
-                        android:editable="false"
-                    />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:text="@string/paymentMode"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minWidth="@dimen/min_width"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:textSize="@dimen/text_sz_medium"            
-                    />
-                    <EditText
-                        android:inputType="numberDecimal"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/layout_height"
-                        android:id="@+id/txtOrderPaymentAdmin"
-                        android:background="@drawable/editTextBackground"
-                        android:layout_marginLeft="@dimen/margin_small"
-                        android:layout_marginRight="@dimen/margin_small"
-                        android:textSize="@dimen/text_sz_large"
-                        android:editable="false"
-                    />
-                </LinearLayout>
-            </LinearLayout>
-
-
             <TextView
-                android:text="@string/product"
+                android:text="@string/paymentAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minWidth="@dimen/min_width"
@@ -205,66 +116,61 @@
                 android:layout_marginLeft="@dimen/margin_small"
                 android:textSize="@dimen/text_sz_medium"            
             />
-            <ScrollView
+            <EditText
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_height"
+                android:id="@+id/txtOrderPaymentAdmin"
+                android:background="@drawable/editTextBackground"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginRight="@dimen/margin_small"
+                android:textSize="@dimen/text_sz_large"
+                android:editable="false"
+            />
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/scrollViewAdmin">
-                <GridLayout
-                    android:layout_marginLeft="@dimen/margin_medium"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/paymentStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/min_width"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:textSize="@dimen/text_sz_medium"            
+                />
+                <RadioGroup
                     android:minWidth="25px"
                     android:minHeight="25px"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/itemGridPaymentAdmin"
-                    android:layout_marginTop="@dimen/margin_medium">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/item"
-                        android:minWidth="25px"
-                        android:minHeight="25px"
-                        android:id="@+id/txtItemPaymentAdmin"
-                        android:layout_row="0"
-                        android:layout_column="0"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:layout_marginRight="@dimen/margin_extra_large"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/qty"
-                        android:minWidth="25px"
-                        android:minHeight="25px"
-                        android:id="@+id/txtQtyPaymentAdmin"
-                        android:layout_row="0"
-                        android:layout_column="1"                        
-                        android:layout_marginRight="@dimen/margin_medium"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:gravity="end"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:minWidth="25px"
-                        android:minHeight="25px"
-                        android:id="@+id/txtRemovePamentAdmin"
-                        android:layout_row="0"
-                        android:layout_column="2"
-                        android:layout_marginRight="@dimen/margin_medium"
-                        android:textSize="@dimen/text_sz_medium"
-                        android:gravity="end"
-                        />
-                </GridLayout>
-            </ScrollView>
+                    android:id="@+id/rdpaymentStatus"
+                    android:layout_marginLeft="@dimen/margin_extra_large"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:orientation="horizontal"
+                    >
 
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"                    
+                        android:text="@string/paid"
+                        android:id="@+id/rdpaid" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unpaid"
+                        android:id="@+id/rdunpaid" />
+                </RadioGroup>
+            </LinearLayout>
+            
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="@dimen/margin_small">
+            android:layout_marginTop="@dimen/margin_large">
             
             <Button
                 android:text="@string/deleteProduct"

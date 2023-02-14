@@ -228,6 +228,17 @@ namespace A1
                 }
             }
 
+            //if card, by default is paid
+            //if cash, by default is unpaid
+            if (rdCard.Checked)
+            {
+                payment.Status = true;
+            }
+            else
+            {
+                payment.Status = false;
+            }
+
             //create paymentCRUD through Factory Method Pattern
             FactoryMethod_PaymentCRUD factoryMethod_PaymentCRUD = new FactoryMethod_PaymentCRUD();
             ICRUD<Payment> paymentCRUD = factoryMethod_PaymentCRUD.CreateCRUD();

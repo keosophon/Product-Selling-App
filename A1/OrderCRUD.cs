@@ -70,6 +70,30 @@ namespace A1
         public Order GetObject(int id)
         {
             Order order = null;
+
+            dbConnInstance.OpenConnection();
+            string commandText = "SELECT * FROM Orders WHERE Id=@id";
+            SqlCommand command = new SqlCommand(commandText, conn);
+
+            SqlParameter idParam =
+                new SqlParameter("@id", SqlDbType.Int, 4);
+
+            idParam.Value = id;
+
+            command.Parameters.Add(idParam);
+            command.Prepare();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                order = new Order();
+                order.Id = Convert.ToInt32(reader[0].ToString());
+                order.OrderPlaced = Convert.ToDateTime(reader[1].ToString());
+                order.OrderFulfilled = Convert.ToDateTime(reader[2].ToString());
+                order.CustomerId = Convert.ToInt32(reader[3].ToString());
+                order.DeliveryId = Convert.ToInt32(reader[4].ToString());
+            }
+            reader.Close();
+            conn.Close();
             return order;
         }
         public List<Order> GetObjects()

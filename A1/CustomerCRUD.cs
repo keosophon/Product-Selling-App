@@ -112,8 +112,38 @@ namespace A1
 
         public Customer GetObject(int id)
         {
-            Customer cs =null;
-            return cs;
+            Customer customer =null;
+
+            dbConnInstance.OpenConnection();
+            string commandText = "SELECT * FROM Customers WHERE Id=@id;";
+            SqlCommand command = new SqlCommand(commandText, conn);
+
+            
+            SqlParameter idParam =
+                new SqlParameter("@id", SqlDbType.Int, 4);
+
+            idParam.Value = id;           
+
+            command.Parameters.Add(idParam);
+            
+            command.Prepare();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                customer = new Customer();
+                customer.Id = Convert.ToInt32(reader[0].ToString());
+                customer.FirstName = reader[1].ToString();
+                customer.LastName = reader[1].ToString();
+                customer.DoB = Convert.ToDateTime(reader[3].ToString());
+                customer.Email = reader[4].ToString();
+                customer.Phone = reader[5].ToString();
+                customer.Address = reader[6].ToString();
+                customer.Password = reader[7].ToString();
+
+            }
+            reader.Close();
+            conn.Close();
+            return customer;
         }
         public List<Customer> GetObjects()
         {

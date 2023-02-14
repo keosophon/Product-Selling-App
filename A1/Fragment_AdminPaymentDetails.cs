@@ -17,13 +17,15 @@ namespace A1
     public class Fragment_AdminPaymentDetails : AndroidX.Fragment.App.Fragment
     {
         private TextView txtOrderSearch;
-        private TextView txtCustomerName;
         private TextView txtOrderDate;
-        private TextView txtOrderDiscount;
+        private TextView txtCustomerName;                
         private TextView txtOrderPayment;
         private Button btnSearch;
         private Button btnClearForm;
         private Button btnLogOut;
+        private RadioButton rdPaid;
+        private RadioButton rdUnpaid;
+        private Payment payment;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,9 +42,11 @@ namespace A1
 
             txtOrderSearch = view.FindViewById<TextView>(Resource.Id.txtOrderSearchPaymentAdmin);
             txtCustomerName = view.FindViewById<TextView>(Resource.Id.txtCustomerNameAdmin);
-            txtOrderDate = view.FindViewById<TextView>(Resource.Id.txtOrderDatePaymentAdmin);
-            txtOrderDiscount = view.FindViewById<TextView>(Resource.Id.txtOrderDiscountPaymentAdmin);
+            txtOrderDate = view.FindViewById<TextView>(Resource.Id.txtOrderDatePaymentAdmin);            
             txtOrderPayment = view.FindViewById<TextView>(Resource.Id.txtOrderPaymentAdmin);
+            rdPaid = view.FindViewById<RadioButton>(Resource.Id.rdpaid);
+            rdUnpaid = view.FindViewById<RadioButton>(Resource.Id.rdunpaid);
+
             btnLogOut = view.FindViewById<Button>(Resource.Id.btnLogOutPaymentAdmin);
             btnClearForm = view.FindViewById<Button>(Resource.Id.btnClearFormPaymentAdmin);
             btnSearch = view.FindViewById<Button>(Resource.Id.btnOrderSearchPaymentAmdin);
@@ -50,14 +54,29 @@ namespace A1
             btnLogOut.Click += BtnLogOut_Click;
             btnClearForm.Click += BtnClearForm_Click;
             btnSearch.Click += BtnSearch_Click;
-           
+
+
+            rdPaid.Click += PaymentStatusButton_Click;
+            rdUnpaid.Click += PaymentStatusButton_Click;
 
             return view;
         }
 
+        private void PaymentStatusButton_Click(object sender, EventArgs e)
+        {
+            RadioButton rd = (RadioButton)sender;
+            if (rd.Text == Resources.GetString(Resource.String.paid)){
+                payment.Status = true;   
+            }            
+            else
+            {
+                payment.Status = false;
+            }
+        }
+
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            /*
+            
             if (txtOrderSearch.Text != "")
             {
                 //create orderCRUD through Factory Method Design Pattern
@@ -67,12 +86,28 @@ namespace A1
                 if (order != null)
                 {
 
-                    txtProductNameAdmin.Text = product.Name;
-                    txtProductPriceAdmin.Text = product.Price.ToString();
-                    txtProductStockAdmin.Text = product.Stock.ToString();
-                    txtProductDescriptionAdmin.Text = product.Description;
-                    txtProductImageSmallUrl.Text = product.ImageSmall;
-                    txtProductImageBigUrl.Text = product.ImageBig;
+                    txtOrderDate.Text = order.OrderPlaced.ToString();
+
+                    //create customerCRUD through Factory Method Design Pattern
+                    FactoryMethod_CustomerCRUD factoryMethod_CustomerCRUD = new FactoryMethod_CustomerCRUD();
+                    ICRUD<Customer> customerCRUD = factoryMethod_CustomerCRUD.CreateCRUD();
+                    Customer customer = customerCRUD.GetObject(order.CustomerId);
+                    txtCustomerName.Text = customer.FirstName + " " + customer.LastName;
+
+                    //create paymentCRUD through Factory Method Design Pattern
+                    FactoryMethod_PaymentCRUD factoryMethod_PaymentCRUD = new FactoryMethod_PaymentCRUD();
+                    ICRUD<Payment> paymentCRUD = factoryMethod_PaymentCRUD.CreateCRUD();
+                    payment = paymentCRUD.GetObject(order.Id);
+                    txtOrderPayment.Text = payment.Amount.ToString();
+
+                    if (payment.Status)
+                    {
+                        rdPaid.Checked = true;
+                    }
+                    else
+                    {
+                        rdUnpaid.Checked = true;
+                    }
                 }
                 else
                 {
@@ -83,7 +118,8 @@ namespace A1
             {
                 AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.noInputId));
             }
-            */
+            
+            
         }
 
         private void BtnClearForm_Click(object sender, EventArgs e)
@@ -91,7 +127,6 @@ namespace A1
             txtOrderSearch.Text = "";
             txtCustomerName.Text = "";
             txtOrderDate.Text = "";
-            txtOrderDiscount.Text = "";
             txtOrderPayment.Text = "";
             
         }
