@@ -133,7 +133,7 @@ namespace A1
                 customer = new Customer();
                 customer.Id = Convert.ToInt32(reader[0].ToString());
                 customer.FirstName = reader[1].ToString();
-                customer.LastName = reader[1].ToString();
+                customer.LastName = reader[2].ToString();
                 customer.DoB = Convert.ToDateTime(reader[3].ToString());
                 customer.Email = reader[4].ToString();
                 customer.Phone = reader[5].ToString();

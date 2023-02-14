@@ -21,7 +21,26 @@ namespace A1
 
         public int UpdateObject(Payment payment)
         {
-            return -1;
+            dbConnInstance.OpenConnection();
+            string commandText = "UPDATE Payments SET Status=@status WHERE Id=@id;";
+            SqlCommand command = new SqlCommand(commandText, conn);
+
+            SqlParameter statusParam =
+                new SqlParameter("@status", SqlDbType.VarChar, 50);
+            SqlParameter idParam =
+                new SqlParameter("@id", SqlDbType.VarChar, 50);
+
+            statusParam.Value = payment.Status;            
+            idParam.Value = payment.Id;
+
+            command.Parameters.Add(idParam);
+            command.Parameters.Add(statusParam);
+            
+            // Call Prepare after setting the Commandtext and Parameters.
+            command.Prepare();
+            int result = command.ExecuteNonQuery();
+            conn.Close();
+            return result;
         }
         public void DeleteObject(int id)
         {

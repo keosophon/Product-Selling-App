@@ -20,11 +20,15 @@ namespace A1
         private TextView txtOrderDate;
         private TextView txtCustomerName;                
         private TextView txtOrderPayment;
-        private Button btnSearch;
-        private Button btnClearForm;
-        private Button btnLogOut;
         private RadioButton rdPaid;
         private RadioButton rdUnpaid;
+
+        private Button btnSearch;
+        private Button btnClearForm;
+        private Button btnDelete;
+        private Button btnUpdate;
+        private Button btnLogOut;
+        
         private Payment payment;
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -47,19 +51,57 @@ namespace A1
             rdPaid = view.FindViewById<RadioButton>(Resource.Id.rdpaid);
             rdUnpaid = view.FindViewById<RadioButton>(Resource.Id.rdunpaid);
 
-            btnLogOut = view.FindViewById<Button>(Resource.Id.btnLogOutPaymentAdmin);
-            btnClearForm = view.FindViewById<Button>(Resource.Id.btnClearFormPaymentAdmin);
             btnSearch = view.FindViewById<Button>(Resource.Id.btnOrderSearchPaymentAmdin);
+            btnClearForm = view.FindViewById<Button>(Resource.Id.btnClearFormPaymentAdmin);
+            btnDelete = view.FindViewById<Button>(Resource.Id.btnDeleterOrderPaymentAdmin);
+            btnUpdate = view.FindViewById<Button>(Resource.Id.btnUpdateOrderPaymentAdmin);
+            btnLogOut = view.FindViewById<Button>(Resource.Id.btnLogOutPaymentAdmin);
 
-            btnLogOut.Click += BtnLogOut_Click;
-            btnClearForm.Click += BtnClearForm_Click;
             btnSearch.Click += BtnSearch_Click;
+            btnClearForm.Click += BtnClearForm_Click;
+            btnDelete.Click += BtnDelete_Click;
+            btnUpdate.Click += BtnUpdate_Click;
+            btnLogOut.Click += BtnLogOut_Click;                  
 
 
             rdPaid.Click += PaymentStatusButton_Click;
             rdUnpaid.Click += PaymentStatusButton_Click;
 
             return view;
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            if (payment != null)
+            {
+                try
+                {
+                    FactoryMethod_PaymentCRUD factoryMethod_PaymentCRUD = new FactoryMethod_PaymentCRUD();
+                    ICRUD<Payment> paymentCRUD = factoryMethod_PaymentCRUD.CreateCRUD();
+                    if (paymentCRUD.UpdateObject(payment) == 1)
+                    {
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.success));
+                        txtOrderSearch.Text = "";
+                        txtOrderDate.Text = "";
+                        txtCustomerName.Text = "";
+                        txtOrderPayment.Text = "";
+                        rdPaid.Checked = false;
+                        rdUnpaid.Checked = false;
+                        txtOrderSearch.RequestFocus();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.error), ex.Message);
+                }
+                
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void PaymentStatusButton_Click(object sender, EventArgs e)
@@ -128,6 +170,8 @@ namespace A1
             txtCustomerName.Text = "";
             txtOrderDate.Text = "";
             txtOrderPayment.Text = "";
+            rdPaid.Checked = false;
+            rdPaid.Checked = false;
             
         }
 
