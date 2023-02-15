@@ -84,11 +84,10 @@ namespace A1
                         txtOrderSearch.Text = "";
                         txtOrderDate.Text = "";
                         txtCustomerName.Text = "";
-                        txtOrderPayment.Text = "";
-                        rdPaid.Checked = false;
-                        rdUnpaid.Checked = false;
+                        txtOrderPayment.Text = "";                        
                         txtOrderSearch.RequestFocus();
                     }
+                    payment = null;
 
                 }
                 catch (Exception ex)
@@ -108,11 +107,19 @@ namespace A1
         {
             RadioButton rd = (RadioButton)sender;
             if (rd.Text == Resources.GetString(Resource.String.paid)){
-                payment.Status = true;   
+                if (payment!=null)
+                {
+                    payment.Status = true;
+                }
+                
             }            
             else
             {
-                payment.Status = false;
+                if (payment!=null)
+                {
+                    payment.Status = false;
+                }
+                
             }
         }
 
