@@ -16,7 +16,7 @@ namespace A1
 	public interface ICRUD<T>
 	{
 		public int UpdateObject(T obj);
-		public void DeleteObject(int id);
+		public int DeleteObject(int id);
 		public int Add(T obj) ;
 		public T GetObject(string par);
 

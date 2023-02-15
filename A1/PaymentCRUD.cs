@@ -42,9 +42,9 @@ namespace A1
             conn.Close();
             return result;
         }
-        public void DeleteObject(int id)
+        public int DeleteObject(int id)
         {
-
+            return -1;
         }
         public int Add(Payment payment)
         {

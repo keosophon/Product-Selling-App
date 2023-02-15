@@ -152,9 +152,9 @@ namespace A1
             return customersList;
         }
 
-        public void DeleteObject(int id)
+        public int DeleteObject(int id)
         {
-            
+            return -1;
         }
     }
 }

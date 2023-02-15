@@ -23,9 +23,9 @@ namespace A1
             return -1;
         }
 
-        public void DeleteObject(int id)
+        public int DeleteObject(int id)
         {
-
+            return -1;
         }
         public int Add(OrderDiscount orderDiscount)
         {

@@ -162,16 +162,23 @@ namespace A1
                 ICRUD<Product> productCRUD = factoryMethod_ProductCRUD.CreateCRUD();
                 try
                 {
-                    productCRUD.DeleteObject(Convert.ToInt32(txtProductSearch.Text));
-                    AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.success));
-                    txtProductSearch.Text = "";
-                    txtProductNameAdmin.Text = "";
-                    txtProductPriceAdmin.Text = "";
-                    txtProductStockAdmin.Text = "";
-                    txtProductDescriptionAdmin.Text = "";
-                    txtProductImageSmallUrl.Text = "";
-                    txtProductImageBigUrl.Text = "";
-                    txtProductSearch.RequestFocus();
+                    if (productCRUD.DeleteObject(Convert.ToInt32(txtProductSearch.Text)) == 1)
+                    {
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.success));
+                        txtProductSearch.Text = "";
+                        txtProductNameAdmin.Text = "";
+                        txtProductPriceAdmin.Text = "";
+                        txtProductStockAdmin.Text = "";
+                        txtProductDescriptionAdmin.Text = "";
+                        txtProductImageSmallUrl.Text = "";
+                        txtProductImageBigUrl.Text = "";
+                        txtProductSearch.RequestFocus();
+                    }
+                    else
+                    {
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.idNotFound));
+                    }
+                    
                 }
                 catch(Exception ex)
                 {

@@ -108,15 +108,22 @@ namespace A1
                 try
                 {
                     //deleting order will deleting payment because of cascade constraint in SQL server
-                    orderCRUD.DeleteObject(Convert.ToInt32(txtOrderSearch.Text));
-                    AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.success));
-                    txtOrderSearch.Text = "";
-                    txtCustomerName.Text = "";
-                    txtOrderDate.Text = "";
-                    txtOrderPayment.Text = "";
-                    rdPaid.Checked = false;
-                    rdPaid.Checked = false;
-                    txtOrderSearch.RequestFocus();
+                    if (orderCRUD.DeleteObject(Convert.ToInt32(txtOrderSearch.Text)) == 1)
+                    {
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.success));
+                        txtOrderSearch.Text = "";
+                        txtCustomerName.Text = "";
+                        txtOrderDate.Text = "";
+                        txtOrderPayment.Text = "";
+                        rdPaid.Checked = false;
+                        rdPaid.Checked = false;
+                        txtOrderSearch.RequestFocus();
+                    }
+                    else
+                    {
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.idNotFound));
+                    }
+                    
                 }
                 catch (Exception ex)
                 {

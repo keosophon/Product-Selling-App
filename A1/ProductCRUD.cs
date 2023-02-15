@@ -135,7 +135,7 @@ namespace A1
             return productList;
         }
 
-        public void DeleteObject(int id)
+        public int DeleteObject(int id)
         {
             dbConnInstance.OpenConnection();
             string commandText = "DELETE FROM Products WHERE id=@id;";
@@ -148,7 +148,9 @@ namespace A1
 
             command.Parameters.Add(idParam);
             command.Prepare();
-            command.ExecuteNonQuery();
+            int result = command.ExecuteNonQuery();
+            conn.Close();
+            return result;
         }
 
         public int UpdateObject(Product product)
