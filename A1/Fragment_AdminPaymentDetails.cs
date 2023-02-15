@@ -100,7 +100,29 @@ namespace A1
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (txtOrderSearch.Text != "")
+            {
+                //create productCRUD through Factory Method Design Pattern
+                FactoryMethod_OrderCRUD factoryMethod_OrderCRUD = new FactoryMethod_OrderCRUD();
+                ICRUD<Order> orderCRUD = factoryMethod_OrderCRUD.CreateCRUD();
+                try
+                {
+                    //deleting order will deleting payment because of cascade constraint in SQL server
+                    orderCRUD.DeleteObject(Convert.ToInt32(txtOrderSearch.Text));
+                    AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.success));
+                    txtOrderSearch.Text = "";
+                    txtCustomerName.Text = "";
+                    txtOrderDate.Text = "";
+                    txtOrderPayment.Text = "";
+                    rdPaid.Checked = false;
+                    rdPaid.Checked = false;
+                    txtOrderSearch.RequestFocus();
+                }
+                catch (Exception ex)
+                {
+                    AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.error), ex.Message);
+                }
+            }
         }
 
         private void PaymentStatusButton_Click(object sender, EventArgs e)

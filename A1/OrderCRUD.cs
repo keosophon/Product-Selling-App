@@ -25,7 +25,18 @@ namespace A1
 
         public void DeleteObject(int id)
         {
+            dbConnInstance.OpenConnection();
+            string commandText = "DELETE FROM Orders WHERE id=@id;";
+            SqlCommand command = new SqlCommand(commandText, conn);
 
+            SqlParameter idParam =
+                new SqlParameter("@id", SqlDbType.Int, 4);
+
+            idParam.Value = id;
+
+            command.Parameters.Add(idParam);
+            command.Prepare();
+            command.ExecuteNonQuery();
         }
         public int Add(Order order)
         {
