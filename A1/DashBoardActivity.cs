@@ -69,6 +69,7 @@ namespace A1
         private List<ImageButton> imageButtonList = new List<ImageButton>();
         private List<TextView> nameViewList = new List<TextView>();
         private List<TextView> priceViewList = new List<TextView>();
+        private List<Button> btnSeeDetailsList = new List<Button>();
         private List<Product> productList;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -184,6 +185,17 @@ namespace A1
             priceViewList.Add(txtProductPrice9);
             priceViewList.Add(txtProductPrice10);
 
+            btnSeeDetailsList.Add(btnSeeDetails1);
+            btnSeeDetailsList.Add(btnSeeDetails2);
+            btnSeeDetailsList.Add(btnSeeDetails3);
+            btnSeeDetailsList.Add(btnSeeDetails4);
+            btnSeeDetailsList.Add(btnSeeDetails5);
+            btnSeeDetailsList.Add(btnSeeDetails6);
+            btnSeeDetailsList.Add(btnSeeDetails7);
+            btnSeeDetailsList.Add(btnSeeDetails8);
+            btnSeeDetailsList.Add(btnSeeDetails9);
+            btnSeeDetailsList.Add(btnSeeDetails10);
+
             txtLogOut.Click += delegate
             {
                 StartActivity(typeof(MainActivity));
@@ -227,6 +239,17 @@ namespace A1
                     nameViewList[i].Text = productList[i].Name;
                     priceViewList[i].Text = Resources.GetString(Resource.String.dollarSign) + productList[i].Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
                  }
+                for (int i= 0; i < imageButtonList.Count; i++)
+                {
+                    if (nameViewList[i].Text == Resources.GetString(Resource.String.productName))
+                    {
+                        imageButtonList[i].Visibility = Android.Views.ViewStates.Invisible;
+                        nameViewList[i].Visibility = Android.Views.ViewStates.Invisible;
+                        priceViewList[i].Visibility = Android.Views.ViewStates.Invisible;
+                        btnSeeDetailsList[i].Visibility = Android.Views.ViewStates.Invisible;
+                        
+                    }
+                }
             }
             catch (Exception ex)
             {
