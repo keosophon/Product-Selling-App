@@ -72,6 +72,10 @@ namespace A1
         private List<Button> btnSeeDetailsList = new List<Button>();
         private List<Product> productList;
 
+        private int stopPoint = 0;
+        private TextView txtNext;
+        private TextView txtBack;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -196,6 +200,10 @@ namespace A1
             btnSeeDetailsList.Add(btnSeeDetails9);
             btnSeeDetailsList.Add(btnSeeDetails10);
 
+            txtBack = FindViewById<TextView>(Resource.Id.txtBack);
+            txtNext = FindViewById<TextView>(Resource.Id.txtNext);
+
+
             txtLogOut.Click += delegate
             {
                 StartActivity(typeof(MainActivity));
@@ -208,8 +216,21 @@ namespace A1
                 StartActivity(intent);
             };
 
+            txtBack.Click += TxtBack_Click;
+            txtNext.Click += TxtNext_Click;
+
             this.DisplayAllProducts();            
 
+        }
+
+        private void TxtNext_Click(object sender, EventArgs e)
+        {
+            AlertDialogBuilder.BuildAlertDialog(this, "next", "next");
+        }
+
+        private void TxtBack_Click(object sender, EventArgs e)
+        {
+            AlertDialogBuilder.BuildAlertDialog(this, "back", "back");
         }
 
         public override void OnBackPressed()
@@ -231,6 +252,7 @@ namespace A1
                 {   
                     if (i== imageButtonList.Count)
                     {
+                        //stopPoint = i;
                         break;
                     }
 
@@ -238,7 +260,8 @@ namespace A1
                     imageButtonList[i].SetImageBitmap(bitmapImg);                    
                     nameViewList[i].Text = productList[i].Name;
                     priceViewList[i].Text = Resources.GetString(Resource.String.dollarSign) + productList[i].Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
-                 }
+                }
+                
                 for (int i= 0; i < imageButtonList.Count; i++)
                 {
                     if (nameViewList[i].Text == Resources.GetString(Resource.String.productName))
@@ -248,8 +271,9 @@ namespace A1
                         priceViewList[i].Visibility = Android.Views.ViewStates.Invisible;
                         btnSeeDetailsList[i].Visibility = Android.Views.ViewStates.Invisible;
                         
-                    }
+                    }                    
                 }
+                
             }
             catch (Exception ex)
             {

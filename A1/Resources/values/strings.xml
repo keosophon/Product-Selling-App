@@ -36,6 +36,8 @@
 	<string name="name">Name</string>
 	<string name="id">Id</string>
 	<string name="productImageSmall">Small Image of Product</string>
+	<string name="back">Back</string>
+	<string name="next">Next</string>
 	<string name="productName">Name:</string>
 	<string name="productPrice">Price:</string>
 	<string name="productDesc">Description:</string>
