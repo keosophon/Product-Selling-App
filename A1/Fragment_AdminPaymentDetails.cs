@@ -72,7 +72,7 @@ namespace A1
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            if (payment != null)
+            if (payment != null && txtOrderSearch.Text != null)
             {
                 try
                 {
@@ -157,40 +157,47 @@ namespace A1
             
             if (txtOrderSearch.Text != "")
             {
-                //create orderCRUD through Factory Method Design Pattern
-                FactoryMethod_OrderCRUD factoryMethod_OrderCRUD = new FactoryMethod_OrderCRUD();
-                ICRUD<Order> orderCRUD = factoryMethod_OrderCRUD.CreateCRUD();
-                Order order = orderCRUD.GetObject(Convert.ToInt32(txtOrderSearch.Text));
-                if (order != null)
-                {
-
-                    txtOrderDate.Text = order.OrderPlaced.ToString();
-
-                    //create customerCRUD through Factory Method Design Pattern
-                    FactoryMethod_CustomerCRUD factoryMethod_CustomerCRUD = new FactoryMethod_CustomerCRUD();
-                    ICRUD<Customer> customerCRUD = factoryMethod_CustomerCRUD.CreateCRUD();
-                    Customer customer = customerCRUD.GetObject(order.CustomerId);
-                    txtCustomerName.Text = customer.FirstName + " " + customer.LastName;
-
-                    //create paymentCRUD through Factory Method Design Pattern
-                    FactoryMethod_PaymentCRUD factoryMethod_PaymentCRUD = new FactoryMethod_PaymentCRUD();
-                    ICRUD<Payment> paymentCRUD = factoryMethod_PaymentCRUD.CreateCRUD();
-                    payment = paymentCRUD.GetObject(order.Id);
-                    txtOrderPayment.Text = payment.Amount.ToString();
-
-                    if (payment.Status)
+                try {
+                    //create orderCRUD through Factory Method Design Pattern
+                    FactoryMethod_OrderCRUD factoryMethod_OrderCRUD = new FactoryMethod_OrderCRUD();
+                    ICRUD<Order> orderCRUD = factoryMethod_OrderCRUD.CreateCRUD();
+                    Order order = orderCRUD.GetObject(Convert.ToInt32(txtOrderSearch.Text));
+                    if (order != null)
                     {
-                        rdPaid.Checked = true;
+
+                        txtOrderDate.Text = order.OrderPlaced.ToString();
+
+                        //create customerCRUD through Factory Method Design Pattern
+                        FactoryMethod_CustomerCRUD factoryMethod_CustomerCRUD = new FactoryMethod_CustomerCRUD();
+                        ICRUD<Customer> customerCRUD = factoryMethod_CustomerCRUD.CreateCRUD();
+                        Customer customer = customerCRUD.GetObject(order.CustomerId);
+                        txtCustomerName.Text = customer.FirstName + " " + customer.LastName;
+
+                        //create paymentCRUD through Factory Method Design Pattern
+                        FactoryMethod_PaymentCRUD factoryMethod_PaymentCRUD = new FactoryMethod_PaymentCRUD();
+                        ICRUD<Payment> paymentCRUD = factoryMethod_PaymentCRUD.CreateCRUD();
+                        payment = paymentCRUD.GetObject(order.Id);
+                        txtOrderPayment.Text = payment.Amount.ToString();
+
+                        if (payment.Status)
+                        {
+                            rdPaid.Checked = true;
+                        }
+                        else
+                        {
+                            rdUnpaid.Checked = true;
+                        }
                     }
                     else
                     {
-                        rdUnpaid.Checked = true;
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.idNotFound));
                     }
-                }
-                else
+                } 
+                catch (Exception ex)
                 {
-                    AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.wrongInput), Resources.GetString(Resource.String.idNotFound));
+                    AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.error), ex.Message);
                 }
+                
             }
             else
             {
@@ -205,10 +212,8 @@ namespace A1
             txtOrderSearch.Text = "";
             txtCustomerName.Text = "";
             txtOrderDate.Text = "";
-            txtOrderPayment.Text = "";
-            rdPaid.Checked = false;
-            rdPaid.Checked = false;
-            
+            txtOrderPayment.Text = "";            
+            payment = null;
         }
 
         private void BtnLogOut_Click(object sender, EventArgs e)

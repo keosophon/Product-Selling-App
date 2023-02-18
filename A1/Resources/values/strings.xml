@@ -111,6 +111,7 @@
 	<string name="paymentStatus">Payment Status</string>
 	<string name="paid">Paid</string>
 	<string name="unpaid">Unpaid</string>
+	<string name="paymentDetail">Payment Details</string>
 	<string-array name="quantity">
 		<item>1</item>
 		<item>2</item>
