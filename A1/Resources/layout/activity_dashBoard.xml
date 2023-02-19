@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/productGrid"
-                android:rowCount="21"
+                android:rowCount="20"
                 android:columnCount="2"                               
                 >
                 
@@ -539,29 +539,7 @@
                         
                         android:layout_row="19"
                         android:layout_column="1"/>
-                <TextView
-                    android:text="@string/back"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_row="20"
-                    android:layout_column="0"
-                    android:layout_gravity="end"
-                    android:layout_marginRight="@dimen/margin_small"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:textColor="@color/colorClickAble"
-                    android:id="@+id/txtBack"
-                />
-                <TextView
-                    android:text="@string/next"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_row="20"
-                    android:layout_column="1"
-                    android:layout_marginLeft="@dimen/margin_small"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:textColor="@color/colorClickAble"
-                    android:id="@+id/txtNext"
-                />
+                
             </GridLayout>
         </ScrollView>
     </LinearLayout>

@@ -72,9 +72,7 @@ namespace A1
         private List<Button> btnSeeDetailsList = new List<Button>();
         private List<Product> productList;
 
-        private int stopPoint = 0;
-        private TextView txtNext;
-        private TextView txtBack;
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -200,9 +198,7 @@ namespace A1
             btnSeeDetailsList.Add(btnSeeDetails9);
             btnSeeDetailsList.Add(btnSeeDetails10);
 
-            txtBack = FindViewById<TextView>(Resource.Id.txtBack);
-            txtNext = FindViewById<TextView>(Resource.Id.txtNext);
-
+            
 
             txtLogOut.Click += delegate
             {
@@ -216,23 +212,13 @@ namespace A1
                 StartActivity(intent);
             };
 
-            txtBack.Click += TxtBack_Click;
-            txtNext.Click += TxtNext_Click;
+            
 
             this.DisplayAllProducts();            
 
         }
 
-        private void TxtNext_Click(object sender, EventArgs e)
-        {
-            AlertDialogBuilder.BuildAlertDialog(this, "next", "next");
-        }
-
-        private void TxtBack_Click(object sender, EventArgs e)
-        {
-            AlertDialogBuilder.BuildAlertDialog(this, "back", "back");
-        }
-
+        
         public override void OnBackPressed()
         {
             //disable back button
@@ -252,7 +238,7 @@ namespace A1
                 {   
                     if (i== imageButtonList.Count)
                     {
-                        //stopPoint = i;
+                        
                         break;
                     }
 
