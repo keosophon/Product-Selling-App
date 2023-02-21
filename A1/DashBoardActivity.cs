@@ -253,7 +253,7 @@ namespace A1
                     {
                         try
                         {
-                            var bitmapImg = BitMapImageCreator.FetchImage(productList[i].ImageSmall);                                                        
+                            var bitmapImg = BitMapImageCreator.FetchImage(productList[i].ImageSmall);
                             imageButtonList[i].SetImageBitmap(bitmapImg);
                             
 

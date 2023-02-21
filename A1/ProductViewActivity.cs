@@ -59,8 +59,7 @@ namespace A1
                 try
                 {
                     bitmapImg = BitMapImageCreator.FetchImage(product.ImageBig);                                      
-                    imgBtnProduct.SetImageBitmap(bitmapImg);
-                    
+                    imgBtnProduct.SetImageBitmap(bitmapImg);                    
                 }
                 catch(Exception)
                 {

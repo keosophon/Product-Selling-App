@@ -17,11 +17,7 @@ namespace A1
             return bitmapImg;
         }
         public static Bitmap FetchImage(string urlstr)
-        {
-            /*
-            var uri = Android.Net.Uri.Parse(urlstr);
-            return BitmapFactory.DecodeStream(Android.App.Application.Context.ContentResolver.OpenInputStream(uri));
-            */
+        {          
             
             Bitmap imageBitmap = null;
             var webClient = new WebClient();
