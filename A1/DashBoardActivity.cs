@@ -247,14 +247,16 @@ namespace A1
                     {
                         var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, productList[i].ImageSmall);
                         imageButtonList[i].SetImageBitmap(bitmapImg);
-                        imageButtonList[i].SetScaleType(ImageButton.ScaleType.FitXy);
+                        
                     }
                     catch(Exception)
                     {
                         try
                         {
-                            imageButtonList[i].SetImageBitmap(BitMapImageCreator.FetchImage(productList[i].ImageSmall));
-                            imageButtonList[i].SetScaleType(ImageButton.ScaleType.FitXy);
+                            var bitmapImg = BitMapImageCreator.FetchImage(productList[i].ImageSmall);                                                        
+                            imageButtonList[i].SetImageBitmap(bitmapImg);
+                            
+
                         }
                         catch (Exception)
                         {

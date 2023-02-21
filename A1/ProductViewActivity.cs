@@ -51,16 +51,16 @@ namespace A1
             
             try {
                 bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, product.ImageBig);
-                imgBtnProduct.SetImageBitmap(bitmapImg);
-                imgBtnProduct.SetScaleType(ImageButton.ScaleType.FitXy);
+                imgBtnProduct.SetImageBitmap(bitmapImg);                
+                
             }
             catch (Exception)
             {
                 try
                 {
-                    bitmapImg = BitMapImageCreator.FetchImage(product.ImageBig);
+                    bitmapImg = BitMapImageCreator.FetchImage(product.ImageBig);                                      
                     imgBtnProduct.SetImageBitmap(bitmapImg);
-                    imgBtnProduct.SetScaleType(ImageButton.ScaleType.FitXy);
+                    
                 }
                 catch(Exception)
                 {

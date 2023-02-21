@@ -18,9 +18,10 @@ namespace A1
         }
         public static Bitmap FetchImage(string urlstr)
         {
-            
-            //var uri = Android.Net.Uri.Parse(urlstr);
-            //return BitmapFactory.DecodeStream(Android.App.Application.Context.ContentResolver.OpenInputStream(uri));
+            /*
+            var uri = Android.Net.Uri.Parse(urlstr);
+            return BitmapFactory.DecodeStream(Android.App.Application.Context.ContentResolver.OpenInputStream(uri));
+            */
             
             Bitmap imageBitmap = null;
             var webClient = new WebClient();
@@ -31,9 +32,11 @@ namespace A1
                 if (imageBytes != null && imageBytes.Length > 0)
                 {
                     imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                    
                 }
             
             return imageBitmap;
+            
             
         }
     }

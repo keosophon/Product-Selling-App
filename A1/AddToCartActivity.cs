@@ -65,8 +65,29 @@ namespace A1
             //display info of the product that has been cliked in Dashboard
             product = JsonConvert.DeserializeObject<Product>(bundle.GetString(Resources.GetString(Resource.String.product)));
             customer = JsonConvert.DeserializeObject<Customer>(bundle.GetString(Resources.GetString(Resource.String.customer)));
-            var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, product.ImageSmall);
-            imgProduct.SetImageBitmap(bitmapImg);
+            //var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, product.ImageSmall);
+            //imgProduct.SetImageBitmap(bitmapImg);
+            try
+            {
+                var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, product.ImageSmall);
+                imgProduct.SetImageBitmap(bitmapImg);
+
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    var bitmapImg = BitMapImageCreator.FetchImage(product.ImageSmall);                                     
+                    imgProduct.SetImageBitmap(bitmapImg);
+
+                }
+                catch (Exception)
+                {
+                    imgProduct.ContentDescription = product.Name;
+
+                }
+
+            }
             txtPrice.Text = Resources.GetString(Resource.String.dollarSign) + product.Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
             txtDescription.Text = product.Description;
 
