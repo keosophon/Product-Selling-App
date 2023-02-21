@@ -26,6 +26,7 @@ namespace A1
         private Button btnBuyNow;
         private Bundle bundle;
         private Product product;
+        private Bitmap bitmapImg;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -46,9 +47,30 @@ namespace A1
             bundle = Intent.Extras;
 
             //display info of the product that has been cliked in Dashboard
-            product = JsonConvert.DeserializeObject<Product>(bundle.GetString(Resources.GetString(Resource.String.product)));                       
-            var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, product.ImageBig);
-            imgBtnProduct.SetImageBitmap(bitmapImg);
+            product = JsonConvert.DeserializeObject<Product>(bundle.GetString(Resources.GetString(Resource.String.product)));
+            
+            try {
+                bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, product.ImageBig);
+                imgBtnProduct.SetImageBitmap(bitmapImg);
+                imgBtnProduct.SetScaleType(ImageButton.ScaleType.FitXy);
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    bitmapImg = BitMapImageCreator.FetchImage(product.ImageBig);
+                    imgBtnProduct.SetImageBitmap(bitmapImg);
+                    imgBtnProduct.SetScaleType(ImageButton.ScaleType.FitXy);
+                }
+                catch(Exception)
+                {
+                    imgBtnProduct.ContentDescription = product.Name;
+
+                }
+
+            }
+            
+            //imgBtnProduct.SetImageBitmap(bitmapImg);
             txtProductName.Text = product.Name;
             txtProductPrice.Text = Resources.GetString(Resource.String.dollarSign) + product.Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
             txtProductDescription.Text = product.Description;

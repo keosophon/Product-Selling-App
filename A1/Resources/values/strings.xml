@@ -79,6 +79,8 @@
 	<string name="total">Total</string>
 	<string name="deliveryCharge">Delivery Charge</string>
 	<string name="success">Success</string>
+	<string name="updatedSuccess">Updated successfully!</string>
+	<string name="deletedSuccess">Successfully Deleted!</string>
 	<string name="registrationSuccess">Registration Succeed</string>
 	<string name="emptyPassword">Password cannot be empty!</string>
 	<string name="samePasswordRequired">Password and Re-enter password must be the same!</string>

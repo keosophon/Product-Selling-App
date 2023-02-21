@@ -103,7 +103,7 @@ namespace A1
                     product.ImageBig = txtProductImageBigUrl.Text;
                     if (productCRUD.UpdateObject(product) == 1)
                     {
-                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.success));
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.updatedSuccess));
                         txtProductSearch.Text = "";
                         txtProductNameAdmin.Text = "";
                         txtProductPriceAdmin.Text = "";
@@ -164,7 +164,7 @@ namespace A1
                 {
                     if (productCRUD.DeleteObject(Convert.ToInt32(txtProductSearch.Text)) == 1)
                     {
-                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.success));
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.deletedSuccess));
                         txtProductSearch.Text = "";
                         txtProductNameAdmin.Text = "";
                         txtProductPriceAdmin.Text = "";

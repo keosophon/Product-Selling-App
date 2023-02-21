@@ -11,7 +11,8 @@ using System.Collections.Generic;
 using AndroidX.AppCompat.App;
 //using System.Net;
 //using Android.Graphics;
-using Newtonsoft.Json; 
+using Newtonsoft.Json;
+
 
 namespace A1
 {
@@ -242,8 +243,26 @@ namespace A1
                         break;
                     }
 
-                    var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, productList[i].ImageSmall);
-                    imageButtonList[i].SetImageBitmap(bitmapImg);                    
+                    try
+                    {
+                        var bitmapImg = BitMapImageCreator.CreateBitMapFromName(Resources, productList[i].ImageSmall);
+                        imageButtonList[i].SetImageBitmap(bitmapImg);
+                        imageButtonList[i].SetScaleType(ImageButton.ScaleType.FitXy);
+                    }
+                    catch(Exception)
+                    {
+                        try
+                        {
+                            imageButtonList[i].SetImageBitmap(BitMapImageCreator.FetchImage(productList[i].ImageSmall));
+                            imageButtonList[i].SetScaleType(ImageButton.ScaleType.FitXy);
+                        }
+                        catch (Exception)
+                        {
+                            imageButtonList[i].ContentDescription = productList[i].Name;
+                        }
+                        
+                    }
+                                        
                     nameViewList[i].Text = productList[i].Name;
                     priceViewList[i].Text = Resources.GetString(Resource.String.dollarSign) + productList[i].Price.ToString() + " " + Resources.GetString(Resource.String.nzd);
                 }

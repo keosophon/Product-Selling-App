@@ -80,7 +80,7 @@ namespace A1
                     ICRUD<Payment> paymentCRUD = factoryMethod_PaymentCRUD.CreateCRUD();
                     if (paymentCRUD.UpdateObject(payment) == 1)
                     {
-                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.success));
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.updatedSuccess));
                         txtOrderSearch.Text = "";
                         txtOrderDate.Text = "";
                         txtCustomerName.Text = "";
@@ -110,7 +110,7 @@ namespace A1
                     //deleting order will deleting payment because of cascade constraint in SQL server
                     if (orderCRUD.DeleteObject(Convert.ToInt32(txtOrderSearch.Text)) == 1)
                     {
-                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.success));
+                        AlertDialogBuilder.BuildAlertDialog(Activity, Resources.GetString(Resource.String.success), Resources.GetString(Resource.String.deletedSuccess));
                         txtOrderSearch.Text = "";
                         txtCustomerName.Text = "";
                         txtOrderDate.Text = "";
