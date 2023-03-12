@@ -1,7 +1,11 @@
 # Customer Management System
 
 
-This project is the Assessment project of Design Pattern Course.
+It is the android app that has two main components: Admin Component and Customer Component.
+
+The admin can add a new product, update or delete an existing product. Moreover, the admin can update the exisiting order and payment.
+
+The Customer component allow customer to order one or more products.
 
 In this project, three design patterns are used: Singleton, Factory Method and Repository.
 
