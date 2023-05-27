@@ -1,5 +1,4 @@
-# Customer Management System
-
+# Customer Management System --> WIKI: https://github.com/keosophon/Customer-Management-System/wiki
 
 It is the android app that has two main components: Admin Component and Customer Component.
 
