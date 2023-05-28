@@ -13,6 +13,7 @@ using System.Collections.Generic;
 namespace A1
 {
 	//CRUD Interface for entities
+	//Need to fix: This interface needs to be segregated (SOLID Principle)
 	public interface ICRUD<T>
 	{
 		public int UpdateObject(T obj);
