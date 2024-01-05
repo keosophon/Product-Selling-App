@@ -1,4 +1,4 @@
-# Customer Management System --> WIKI: https://github.com/keosophon/Customer-Management-System/wiki
+# Product Selling App --> WIKI: https://github.com/keosophon/Product-Selling-App/wiki
 
 It is the android app that has two main components: Admin Component and Customer Component.
 
